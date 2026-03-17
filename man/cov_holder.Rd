@@ -38,11 +38,11 @@ correlation coefficients between -1 and 1, inclusive, as described in
 equations 8 and 9 of Nedelman and Jia 1998.
 }
 \references{
-Holder DJ. Comments on Nedelman and Jia’s Extension of Satterthwaite’s
+Holder DJ. Comments on Nedelman and Jia's Extension of Satterthwaite's
 Approximation Applied to Pharmacokinetics. Journal of Biopharmaceutical
 Statistics. 2001;11(1-2):75-79. doi:10.1081/BIP-100104199
 
-Nedelman JR, Jia X. An extension of Satterthwaite’s approximation applied to
+Nedelman JR, Jia X. An extension of Satterthwaite's approximation applied to
 pharmacokinetics. Journal of Biopharmaceutical Statistics. 1998;8(2):317-328.
 doi:10.1080/10543409808835241
 }

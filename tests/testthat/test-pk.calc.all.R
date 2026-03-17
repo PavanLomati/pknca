@@ -770,8 +770,12 @@ test_that("pk.nca can be run for each parameter independently (#473)", {
   o_dose <- PKNCAdose(d_dose, formula = Dose~Time|Subject, route = "intravascular", duration = "duration")
 
   non_pknca_covered_params <- c(
-    "f", "time_above", "mrt.md.obs", "mrt.md.pred", "sparse_auclast", "sparse_auc_se", "sparse_auc_df",
-    "vss.md.obs", "vss.md.pred", "ceoi"
+    "f", "time_above", "mrt.md.obs", "mrt.md.pred",
+    "sparse_auclast", "sparse_auc_se", "sparse_auc_df",
+    "sparse_aumclast", "sparse_aumc_se", "sparse_aumc_df",
+    "vss.md.obs", "vss.md.pred", "ceoi",
+    "cl.sparse.last", "mrt.sparse.last", "vz.sparse.last",
+    "vss.sparse.last", "kel.sparse.last"
   )
   all_params <- setdiff(names(get.interval.cols()), c("start", "end", non_pknca_covered_params))
   intervals <- data.frame(start = c(0, 25), end = c(25, Inf))

@@ -6,6 +6,9 @@ the dosing including dose amount and route.
 
 # Development version
 
+## New features
+* Added sparse AUMC function and five sparse AUC parameters (cl.sparse.last, kel.sparse.last, mrt.ivint.last, vss.sparse.last, vz.sparse.last)
+
 ## Breaking changes
 
 * Both include and excluding half-life points may not be done for the same interval (#406)
