@@ -3,6 +3,7 @@
 assign("options", NULL, envir=.PKNCAEnv)
 assign("summary", list(), envir=.PKNCAEnv)
 assign("interval.cols", list(), envir=.PKNCAEnv)
+assign("interval.cols_sorted", NULL, envir = .PKNCAEnv)
 
 #' Add columns for calculations within PKNCA intervals
 #'
@@ -175,6 +176,171 @@ add.interval.col <- function(name,
   assign("interval.cols", current, envir=.PKNCAEnv)
 }
 
+#' Perform topological sort of interval column specifications (Kahn's algorithm)
+#'
+#' Orders interval columns so that each parameter appears after
+#' all parameters it depends on. Used internally by [sort.interval.cols()]
+#' to ensure parameters are calculated in the correct dependency order.
+#'
+#' @param specs Named list of interval column specifications, where each
+#'   element is a list containing at minimum a `depends` field (character
+#'   vector of parameter names, or `NULL` for no dependencies).
+#'
+#' @return Character vector of sorted parameter names in topologically
+#'   sorted order (dependencies appear before dependent parameters).
+#'
+#' @details
+#' The function performs the following validations:
+#' \itemize{
+#'   \item Validates that `specs` is a properly structured named list
+#'   \item Ensures all dependencies reference existing parameters
+#'   \item Detects circular dependencies (returns error if found)
+#'   \item Returns deterministic ordering based on insertion order
+#'     when multiple valid orderings exist
+#' }
+#'
+#' The algorithm uses Kahn's topological sorting algorithm with
+#' insertion-order tie-breaking to ensure consistent results that
+#' preserve the original parameter registration order.
+#'
+#' @section Errors:
+#' The function will abort with an error if:
+#' \itemize{
+#'   \item Any parameter's `depends` field references a non-existent parameter
+#'     (class: `pknca_error_missing_dependency`)
+#'   \item A circular dependency is detected
+#'     (class: `pknca_error_circular_dependency`)
+#'   \item The structure of `specs` is invalid
+#'     (class: `pknca_error_invalid_spec_structure`)
+#' }
+#'
+#' @keywords internal
+#' @noRd
+topological_sort <- function(specs) {
+  
+  # ------------------------------------------------------------
+  # 1. Structural validation
+  # Ensure specs is a non-empty named list with unique names
+  # and each element contains a valid 'depends' field
+  # ------------------------------------------------------------
+  checkmate::assert_list(
+    specs,
+    names = "named",
+    min.len = 1,
+    .var.name = "specs"
+  )
+  
+  checkmate::assert_names(
+    names(specs),
+    type = "unique",
+    .var.name = "names(specs)"
+  )
+  
+  for (nm in names(specs)) {
+    checkmate::assert_list(
+      specs[[nm]],
+      .var.name = paste0("specs[['", nm, "']]")
+    )
+    
+    # Every spec element must have a 'depends' field (can be NULL)
+    if (!"depends" %in% names(specs[[nm]])) {
+      rlang::abort(
+        sprintf("Column '%s' must contain a 'depends' field", nm),
+        class = "pknca_error_invalid_spec_structure"
+      )
+    }
+    
+    # 'depends' must be a character vector if not NULL
+    if (!is.null(specs[[nm]]$depends)) {
+      checkmate::assert_character(
+        specs[[nm]]$depends,
+        any.missing = FALSE,
+        .var.name = paste0("specs[['", nm, "']]$depends")
+      )
+    }
+  }
+  
+  params <- names(specs)
+  n <- length(params)
+  
+  # ------------------------------------------------------------
+  # 2. Validate all dependencies reference existing parameters
+  # Collect all missing deps across all specs in one pass
+  # ------------------------------------------------------------
+  missing <- unique(unlist(lapply(specs, function(spec) {
+    if (is.null(spec$depends)) return(character(0))
+    setdiff(spec$depends, params)
+  }), use.names = FALSE))
+  
+  if (length(missing)) {
+    rlang::abort(
+      sprintf(
+        "Missing interval column definitions for: %s",
+        paste(dQuote(missing), collapse = ", ")
+      ),
+      class = "pknca_error_missing_dependency"
+    )
+  }
+  
+  # ------------------------------------------------------------
+  # 3. Build dependency graph
+  # in_deg: number of unresolved dependencies per parameter
+  # adj: adjacency list — adj[[p]] lists params that depend on p
+  # ------------------------------------------------------------
+  in_deg <- setNames(integer(n), params)
+  adj    <- setNames(vector("list", n), params)
+  
+  for (p in params) {
+    deps <- specs[[p]]$depends
+    if (is.null(deps)) next  # no dependencies, skip
+    for (d in deps) {
+      adj[[d]] <- c(adj[[d]], p)  # p depends on d, so d -> p edge
+      in_deg[p] <- in_deg[p] + 1
+    }
+  }
+  
+  # ------------------------------------------------------------
+  # 4. Kahn's algorithm — insertion order tie-breaking
+  # Start with all params that have no dependencies (in_deg == 0)
+  # Process one at a time, reducing in_deg of dependents
+  # Insertion order is preserved (no sorting) for consistent output
+  # ------------------------------------------------------------
+  queue  <- params[in_deg == 0]  # initial queue in insertion order
+  result <- character(n)
+  idx    <- 1
+  
+  while (length(queue)) {
+    node  <- queue[1]
+    queue <- queue[-1]
+    
+    result[idx] <- node
+    idx <- idx + 1
+    
+    # Reduce in_deg for all params that depend on this node
+    # When in_deg reaches 0, the param is ready to be processed
+    for (nbr in adj[[node]]) {
+      in_deg[nbr] <- in_deg[nbr] - 1
+      if (in_deg[nbr] == 0) {
+        queue <- c(queue, nbr)  # append in insertion order
+      }
+    }
+  }
+  
+  # ------------------------------------------------------------
+  # 5. Cycle detection
+  # If not all params were processed, a cycle exists
+  # (nodes in a cycle never reach in_deg == 0)
+  # ------------------------------------------------------------
+  if (idx <= n) {
+    rlang::abort(
+      "Circular dependency detected in interval column specifications",
+      class = "pknca_error_circular_dependency"
+    )
+  }
+  
+  result
+}
+
 #' Sort the interval columns by dependencies.
 #'
 #' Columns are always to the right of columns that they depend on.
@@ -182,43 +348,22 @@ sort.interval.cols <- function() {
   current <- get("interval.cols", envir=.PKNCAEnv)
   # Only sort if necessary
   sort_order <- get0("interval.cols_sorted", envir=.PKNCAEnv)
+  
   if (identical(sort_order, names(current))) {
     # It is already sorted
     return(sort_order)
   }
-  # Build a dependency tree
-  myorder <- rep(NA, length(current))
-  names(myorder) <- names(current)
-  nextnum <- 1
-  while (any(is.na(myorder))) {
-    for (nextorder in seq_along(myorder)[is.na(myorder)]) {
-      if (length(current[[nextorder]]$depends) == 0) {
-        # If it doesn't depend on anything then it can go next in order.
-        myorder[nextorder] <- nextnum
-        nextnum <- nextnum + 1
-      } else {
-        # If all of its dependencies already have values, then it can be next.
-        deps <- unique(unlist(current[[nextorder]]$depends))
-        missing_deps <- deps[!(deps %in% names(myorder))]
-        if (length(missing_deps) > 0) {
-          stop(
-            "Invalid dependencies for interval column (please report this as a bug): ",
-            names(myorder)[nextorder],
-            " The following dependencies are missing: ",
-            paste(missing_deps, collapse=", ")
-          )
-        }
-        if (!any(is.na(myorder[deps]))) {
-          myorder[nextorder] <- nextnum
-          nextnum <- nextnum + 1
-        }
-      }
-    }
-  }
-  current <- current[names(sort(myorder))]
-  assign("interval.cols_sorted", names(current), envir=.PKNCAEnv)
-  assign("interval.cols", current, envir=.PKNCAEnv)
-  invisible(myorder)
+  
+  # ------------------------------------------------------------
+  # Topological sort
+  # ------------------------------------------------------------
+  order <- topological_sort(current) # N
+  
+  # Update environment
+  assign("interval.cols", current[order], envir = .PKNCAEnv)
+  assign("interval.cols_sorted", order, envir = .PKNCAEnv)
+  
+  invisible(order)
 }
 
 #' Get the columns that can be used in an interval specification

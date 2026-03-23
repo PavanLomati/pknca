@@ -446,12 +446,12 @@ test_that("pk.calc.aucabove", {
     as.data.frame(o_nca),
     tibble::tibble(
       start = 0, end = 6,
-      PPTESTCD = c("ctrough", "cstart", "aucabove.predose.all", "aucabove.trough.all"),
+      PPTESTCD = c("ctrough", "cstart", "aucabove.trough.all", "aucabove.predose.all"),
       PPORRES =
         c(
           3, 2,
-          pk.calc.aucabove(conc = d_conc$conc, time = d_conc$time, conc_above = 2),
-          pk.calc.aucabove(conc = d_conc$conc, time = d_conc$time, conc_above = 3)
+          pk.calc.aucabove(conc = d_conc$conc, time = d_conc$time, conc_above = 3),
+          pk.calc.aucabove(conc = d_conc$conc, time = d_conc$time, conc_above = 2)
         ),
       exclude = NA_character_
     )

@@ -6,6 +6,16 @@ the dosing including dose amount and route.
 
 # Development version
 
+## New features
+* Dependency resolution for interval columns now uses Kahn's topological
+  sorting algorithm (`topological_sort()`), replacing the previous
+  while-loop implementation. Key improvements:
+  - Circular dependencies (e.g., parameter A depends on B, B depends on A)
+    are now detected and reported with a clear error. Previously, circular
+    dependencies would cause an infinite loop with no error message.
+  - Missing dependencies now return a clearer error message with error
+    class `pknca_error_missing_dependency` for programmatic handling.
+
 ## Breaking changes
 
 * Both include and excluding half-life points may not be done for the same interval (#406)
