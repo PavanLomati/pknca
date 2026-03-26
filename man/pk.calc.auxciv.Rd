@@ -49,6 +49,8 @@ to \code{pk.calc.auxc}}
 \item{auc}{The AUC calculated without C0 back-extrapolation}
 
 \item{auciv}{The AUC calculated using \code{c0}}
+
+\item{aumc}{calculated using \code{conc} and \code{time} without `c0}
 }
 \value{
 The AUXC calculated using \code{c0}
