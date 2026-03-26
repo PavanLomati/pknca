@@ -5,7 +5,6 @@
 \alias{pk.calc.auciv}
 \alias{pk.calc.auciv_pbext}
 \alias{pk.calc.aumciv}
-\alias{pk.calc.aumciv_pbext}
 \title{Calculate AUXC (AUC or AUMC) for IV dosing with C0 back-extrapolation}
 \usage{
 pk.calc.auxciv(
@@ -24,8 +23,6 @@ pk.calc.auciv(conc, time, c0, auc, ..., options = list(), check = TRUE)
 pk.calc.auciv_pbext(auc, auciv)
 
 pk.calc.aumciv(conc, time, c0, aumc, ..., options = list(), check = TRUE)
-
-pk.calc.aumciv_pbext(aumc, aumciv)
 }
 \arguments{
 \item{conc}{Measured concentrations}
@@ -52,17 +49,11 @@ to \code{pk.calc.auxc}}
 \item{auc}{The AUC calculated without C0 back-extrapolation}
 
 \item{auciv}{The AUC calculated using \code{c0}}
-
-\item{aumc}{The AUMC calculated without C0 back-extrapolation}
-
-\item{aumciv}{The AUMC calculated with C0 back-extrapolation}
 }
 \value{
 The AUXC calculated using \code{c0}
 
 \code{pk.calc.auciv_pctbackextrap}: The AUC percent back-extrapolated
-
-\code{pk.calc.aumciv_pbext}: The AUMC percent back-extrapolated
 }
 \description{
 Calculates AUC or AUMC for intravenous dosing, with optional back-extrapolation
@@ -83,8 +74,6 @@ AUXCs (\code{auxc_final <- auxc + auxc_second - auxc_first}).
 }
 
 The calculation for back-extrapolation is \code{100*(1 - auc/auciv)}.
-
-The calculation for back-extrapolation is \code{100*(1 - aumc/aumciv)}.
 }
 \section{Functions}{
 \itemize{
@@ -94,9 +83,6 @@ The calculation for back-extrapolation is \code{100*(1 - aumc/aumciv)}.
 administration
 
 \item \code{pk.calc.aumciv()}: Calculate AUMC for intravenous dosing with C0 back-extrapolation
-
-\item \code{pk.calc.aumciv_pbext()}: Calculate the percent back-extrapolated AUMC for IV
-administration
 
 }}
 \seealso{

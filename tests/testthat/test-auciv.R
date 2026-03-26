@@ -77,34 +77,6 @@ test_that("pk.calc.aumciv works correctly", {
 })
 
 # ============================================================================
-# pk.calc.aumciv_pbext Tests
-# ============================================================================
-test_that("pk.calc.aumciv_pbext calculates percent back-extrapolation correctly", {
-  expect_equal(
-    pk.calc.aumciv_pbext(aumc = 10, aumciv = 15),
-    100 * (1 - 10/15)
-  )
-  
-  # Zero back-extrapolation (aumc = aumciv)
-  expect_equal(
-    pk.calc.aumciv_pbext(aumc = 20, aumciv = 20),
-    0
-  )
-  
-  # 50% back-extrapolation
-  expect_equal(
-    pk.calc.aumciv_pbext(aumc = 10, aumciv = 20),
-    50
-  )
-  
-  # Different percentage
-  expect_equal(
-    pk.calc.aumciv_pbext(aumc = 7.5, aumciv = 10),
-    25
-  )
-})
-
-# ============================================================================
 # NA Data Handling (#353)
 # ============================================================================
 test_that("NA data are removed from concentrations for calculation of AUCiv (#353)", {
@@ -258,16 +230,6 @@ test_that("pk.calc.auciv_pbext handles edge cases correctly", {
   expect_true(pk.calc.auciv_pbext(auc = 5, auciv = 3) < 0)
 })
 
-test_that("pk.calc.aumciv_pbext handles edge cases correctly", {
-  # Zero back-extrapolation (aumciv = aumc)
-  expect_equal(pk.calc.aumciv_pbext(aumc = 20, aumciv = 20), 0)
-  
-  # 100% back-extrapolation (aumc = 0, aumciv > 0)
-  expect_equal(pk.calc.aumciv_pbext(aumc = 0, aumciv = 25), 100)
-  
-  # Negative back-extrapolation (aumciv < aumc - should not happen in practice)
-  expect_true(pk.calc.aumciv_pbext(aumc = 30, aumciv = 20) < 0)
-})
 
 # ============================================================================
 # Consistency Tests Between AUC and AUMC
@@ -297,36 +259,4 @@ test_that("AUCiv and AUMCiv calculations are consistent", {
   
   # AUMC should be larger than AUC (for positive concentrations and times)
   expect_true(aumciv_result > auciv_result)
-})
-
-# ============================================================================
-# Consistency Between AUC and AUMC Percent Back-Extrapolation
-# ============================================================================
-test_that("AUCiv and AUMCiv percent back-extrapolation follow same formula", {
-  # Both should use the same formula: 100 * (1 - value / value_iv)
-  auc <- 10
-  auciv <- 12
-  aumc <- 50
-  aumciv <- 60
-  
-  auciv_pbext <- pk.calc.auciv_pbext(auc = auc, auciv = auciv)
-  aumciv_pbext <- pk.calc.aumciv_pbext(aumc = aumc, aumciv = aumciv)
-  
-  # Same percentage if proportions are the same
-  expect_equal(
-    auciv_pbext,
-    aumciv_pbext,
-    info = "Same proportional back-extrapolation should give same percentage"
-  )
-  
-  # Verify the formula directly
-  expect_equal(
-    auciv_pbext,
-    100 * (1 - auc/auciv)
-  )
-  
-  expect_equal(
-    aumciv_pbext,
-    100 * (1 - aumc/aumciv)
-  )
 })

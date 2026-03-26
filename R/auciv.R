@@ -292,86 +292,9 @@ add.interval.col(
   formalsmap = list(aumc = "aumcinf.pred")
 )
 
-#' @describeIn pk.calc.auxciv Calculate the percent back-extrapolated AUMC for IV
-#'   administration
-#' @details The calculation for back-extrapolation is `100*(1 - aumc/aumciv)`.
-#' @param aumc The AUMC calculated without C0 back-extrapolation
-#' @param aumciv The AUMC calculated with C0 back-extrapolation
-#' @returns `pk.calc.aumciv_pbext`: The AUMC percent back-extrapolated
-#' @export
-pk.calc.aumciv_pbext <- function(aumc, aumciv) {
-  100 * (1 - aumc / aumciv)
-}
-
-add.interval.col(
-  name = "aumcivpbextlast",
-  FUN = "pk.calc.aumciv_pbext",
-  unit_type = "%",
-  pretty_name = "AUMCbext (based on AUMClast)",
-  depends = c("aumclast", "aumcivlast"),
-  desc = "The back-extrapolation percent for intravenous dosing based on AUMClast",
-  sparse = FALSE,
-  formalsmap = list(aumc = "aumclast", aumciv = "aumcivlast")
-)
-
-add.interval.col(
-  name = "aumcivpbextall",
-  FUN = "pk.calc.aumciv_pbext",
-  unit_type = "%",
-  pretty_name = "AUMCbext (based on AUMCall)",
-  depends = c("aumcall", "aumcivall"),
-  desc = "The back-extrapolation percent for intravenous dosing based on AUMCall",
-  sparse = FALSE,
-  formalsmap = list(aumc = "aumcall", aumciv = "aumcivall")
-)
-
-add.interval.col(
-  name = "aumcivpbextint.last",
-  FUN = "pk.calc.aumciv_pbext",
-  unit_type = "%",
-  pretty_name = "AUMCbext (based on AUMCint,last)",
-  depends = c("aumcint.last", "aumcivint.last"),
-  desc = "The back-extrapolation percent for intravenous dosing based on AUMCint,last",
-  sparse = FALSE,
-  formalsmap = list(aumc = "aumcint.last", aumciv = "aumcivint.last")
-)
-
-add.interval.col(
-  name = "aumcivpbextint.all",
-  FUN = "pk.calc.aumciv_pbext",
-  unit_type = "%",
-  pretty_name = "AUMCbext (based on AUMCint,all)",
-  depends = c("aumcint.all", "aumcivint.all"),
-  desc = "The back-extrapolation percent for intravenous dosing based on AUMCint,all",
-  sparse = FALSE,
-  formalsmap = list(aumc = "aumcint.all", aumciv = "aumcivint.all")
-)
-
-add.interval.col(
-  name = "aumcivpbextinf.obs",
-  FUN = "pk.calc.aumciv_pbext",
-  unit_type = "%",
-  pretty_name = "AUMCbext (based on AUMCinf,obs)",
-  depends = c("aumcinf.obs", "aumcivinf.obs"),
-  desc = "The back-extrapolation percent for intravenous dosing based on AUMCinf,obs",
-  sparse = FALSE,
-  formalsmap = list(aumc = "aumcinf.obs", aumciv = "aumcivinf.obs")
-)
-
-add.interval.col(
-  name = "aumcivpbextinf.pred",
-  FUN = "pk.calc.aumciv_pbext",
-  unit_type = "%",
-  pretty_name = "AUMCbext (based on AUMCinf,pred)",
-  depends = c("aumcinf.pred", "aumcivinf.pred"),
-  desc = "The back-extrapolation percent for intravenous dosing based on AUMCinf,pred",
-  sparse = FALSE,
-  formalsmap = list(aumc = "aumcinf.pred", aumciv = "aumcivinf.pred")
-)
-
 
 #===============================================================================
-# PKNCA.set.summary - Count: 24
+# PKNCA.set.summary - Count: 18
 # Ordered: base → int (last → all) → inf (obs → pred)
 #===============================================================================
 # Geometric summaries for AUC and AUMC IV
@@ -388,8 +311,7 @@ PKNCA.set.summary(
 # Arithmetic summaries for percent back-extrapolation
 PKNCA.set.summary(
   name = c(
-    "aucivpbextlast", "aucivpbextall", "aucivpbextint.last", "aucivpbextint.all", "aucivpbextinf.obs", "aucivpbextinf.pred",
-    "aumcivpbextlast", "aumcivpbextall", "aumcivpbextint.last", "aumcivpbextint.all", "aumcivpbextinf.obs", "aumcivpbextinf.pred"
+    "aucivpbextlast", "aucivpbextall", "aucivpbextint.last", "aucivpbextint.all", "aucivpbextinf.obs", "aucivpbextinf.pred"
   ),
   description = "arithmetic mean and standard deviation",
   point = business.mean,

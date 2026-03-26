@@ -6,8 +6,7 @@ the dosing including dose amount and route.
 
 ## New features
 
-* New IV dosing AUMC parameters with C0 back-extrapolation (`aumciv*`) and
-  associated percent back-extrapolation parameters (`aumcivpbext*`) (#152)
+* New IV dosing AUMC parameters with C0 back-extrapolation (`aumciv*`)
 
 * New interval AUMC parameters with interpolation/extrapolation support
   (`aumcint*`), mirroring the existing `aucint` family (#152)
