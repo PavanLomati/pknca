@@ -145,9 +145,10 @@
   first.tmax=function(x, default=FALSE, description=FALSE) {
     if (description)
       return(paste(
-        "If there is more than one concentration equal to Cmax, which time",
-        "should be selected for Tmax?  If 'TRUE', the first will be selected.",
-        "If 'FALSE', the last will be selected."))
+        "If there is more than one time point with the maximum value (Cmax or ERmax),",
+        "which time should be selected for Tmax/ERTmax?  If 'TRUE', the first will be selected.",
+        "If 'FALSE', the last will be selected."
+      ))
     if (default)
       return(TRUE)
     if (length(x) != 1)
@@ -160,6 +161,29 @@
         stop("Could not convert first.tmax to a logical value")
       } else {
         warning("Converting first.tmax to a logical value: ", x)
+      }
+    }
+    x
+  },
+  first.tmin=function(x, default=FALSE, description=FALSE) {
+    if (description)
+      return(paste(
+        "If there is more than one time point with the minimum value (Cmin),",
+        "which time should be selected for Tmin?  If 'TRUE', the first will be selected.",
+        "If 'FALSE', the last will be selected."
+      ))
+    if (default)
+      return(TRUE)
+    if (length(x) != 1)
+      stop("first.tmin must be a scalar")
+    if (is.na(x))
+      stop("first.tmin may not be NA")
+    if (!is.logical(x)) {
+      x <- as.logical(x)
+      if (is.na(x)) {
+        stop("Could not convert first.tmin to a logical value")
+      } else {
+        warning("Converting first.tmin to a logical value: ", x)
       }
     }
     x
@@ -325,6 +349,55 @@
       return(FALSE)
     }
     checkmate::assert_logical(x, any.missing = FALSE, len = 1)
+    x
+  },
+
+  hl_method = function(x, default = FALSE, description = FALSE) {
+    choices <- c("log-linear", "tobit")
+    if (description)
+      return(paste(
+        "The method used to calculate the half-life and related parameters.",
+        "Options are:",
+        paste0('"', choices, '"', collapse = ", ")
+      ))
+    if (default)
+      return(choices[1])
+    if (length(x) != 1)
+      stop("hl_method must be a scalar")
+    if (!is.character(x))
+      stop("hl_method must be a character string")
+    x <- match.arg(x, choices)
+    x
+  },
+
+  tobit_n_points_penalty = function(x, default = FALSE, description = FALSE) {
+    if (description)
+      return(paste(
+        "The penalty exponent applied to the number of points when selecting the best",
+        "Tobit regression half-life fit.  The selection criterion is",
+        "tobit_residual * n_points ^ tobit_n_points_penalty, and the window",
+        "minimizing this criterion is selected.  A value of 0 (the default)",
+        "uses the raw Tobit residual with no point-count penalty."))
+    if (default)
+      return(0)
+    if (length(x) != 1)
+      stop("tobit_n_points_penalty must be a scalar")
+    if (is.factor(x) || !is.numeric(x))
+      stop("tobit_n_points_penalty must be numeric (and not a factor)")
+    if (x < 0)
+      stop("tobit_n_points_penalty must be >= 0")
+    x
+  },
+
+  tobit_optim_control = function(x, default = FALSE, description = FALSE) {
+    if (description)
+      return(paste(
+        "A list of control parameters passed to stats::optim() when fitting the",
+        "Tobit regression half-life.  See ?stats::optim for available options."))
+    if (default)
+      return(list())
+    if (!is.list(x))
+      stop("tobit_optim_control must be a list")
     x
   }
 )
