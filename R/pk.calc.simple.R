@@ -942,15 +942,18 @@ PKNCA.set.summary(
   spread=business.geocv
 )
 
-add.interval.col("vz.sparse.last",
-                 FUN = "pk.calc.vz",
-                 values = c(FALSE, TRUE),
-                 unit_type = "volume",
-                 pretty_name = "Vz (for sparse data, based on AUClast)",
-                 desc = "Terminal volume of distribution from sparse sampling",
-                 sparse = TRUE,
-                 formalsmap = list(cl = "cl.sparse.last"),
-                 depends = c("cl.sparse.last", "lambda.z"))
+add.interval.col(
+  "vz.sparse.last",
+  FUN         = "pk.calc.vz",
+  values      = c(FALSE, TRUE),
+  unit_type   = "volume",
+  pretty_name = "Vz (for sparse data, based on AUClast)",
+  desc        = "Terminal volume of distribution from sparse sampling",
+  sparse      = TRUE,
+  formalsmap  = list(cl = "cl.sparse.last", lambda.z = "kel.sparse.last"),
+  depends     = c("cl.sparse.last", "kel.sparse.last")
+)
+
 
 #' Calculate the steady-state volume of distribution (Vss)
 #'

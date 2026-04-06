@@ -15,7 +15,7 @@ as_sparse_pk <- function(conc, time, subject) {
     conc <- conc$conc
   }
   assert_conc_time(conc = conc, time = time, any_missing_conc = FALSE, sorted_time = FALSE)
-  checkmate::check_vector(subject, any.missing = FALSE, len = length(conc), null.ok = FALSE)
+  checkmate::check_vector(subject, any.missing=FALSE, len=length(conc), null.ok=FALSE)
   unique_times <- sort(unique(time))
   ret <- list()
   for (current_time in unique_times) {
@@ -24,9 +24,9 @@ as_sparse_pk <- function(conc, time, subject) {
       append(
         ret,
         list(list(
-          time = current_time,
-          conc = conc[current_mask],
-          subject = subject[current_mask]
+          time=current_time,
+          conc=conc[current_mask],
+          subject=subject[current_mask]
         ))
       )
   }
@@ -45,7 +45,7 @@ sparse_pk_attribute <- function(sparse_pk, ...) {
   args <- list(...)
   stopifnot(length(args) == 1)
   if (is.null(names(args))) {
-    vapply(X = sparse_pk, FUN = "[[", args[[1]], FUN.VALUE = 1)
+    vapply(X=sparse_pk, FUN="[[", args[[1]], FUN.VALUE = 1)
   } else {
     stopifnot(length(args[[1]]) == length(sparse_pk))
     for (idx in seq_along(sparse_pk)) {
@@ -77,10 +77,10 @@ sparse_pk_attribute <- function(sparse_pk, ...) {
 #' @family Sparse Methods
 #' @export
 sparse_auc_weight_linear <- function(sparse_pk) {
-  times <- vapply(X = sparse_pk, FUN = "[[", "time", FUN.VALUE = 1)
-  half_diff_times <- diff(times) / 2
+  times <- vapply(X=sparse_pk, FUN="[[", "time", FUN.VALUE = 1)
+  half_diff_times <- diff(times)/2
   weights <- c(0, half_diff_times) + c(half_diff_times, 0)
-  sparse_pk_attribute(sparse_pk = sparse_pk, weight = weights)
+  sparse_pk_attribute(sparse_pk=sparse_pk, weight=weights)
 }
 
 #' Calculate the mean concentration at all time points for use in sparse NCA
@@ -101,7 +101,7 @@ sparse_auc_weight_linear <- function(sparse_pk) {
 #'   at each of those times.
 #' @family Sparse Methods
 #' @export
-sparse_mean <- function(sparse_pk, sparse_mean_method = c("arithmetic mean, <=50% BLQ", "arithmetic mean")) {
+sparse_mean <- function(sparse_pk, sparse_mean_method=c("arithmetic mean, <=50% BLQ", "arithmetic mean")) {
   sparse_mean_method <- match.arg(sparse_mean_method)
   ret <-
     vapply(
@@ -112,8 +112,8 @@ sparse_mean <- function(sparse_pk, sparse_mean_method = c("arithmetic mean, <=50
   if (sparse_mean_method == "arithmetic mean, <=50% BLQ") {
     numerator <-
       vapply(
-        X = sparse_pk,
-        FUN = function(current_time) sum(current_time$conc == 0),
+        X=sparse_pk,
+        FUN=function(current_time) sum(current_time$conc == 0),
         FUN.VALUE = 1
       )
     denominator <-
@@ -122,16 +122,71 @@ sparse_mean <- function(sparse_pk, sparse_mean_method = c("arithmetic mean, <=50
         FUN = function(current_time) length(current_time$conc),
         FUN.VALUE = 1
       )
-    frac_blq <- numerator / denominator
+    frac_blq <- numerator/denominator
     ret[frac_blq > 0.5] <- 0
   } else if (sparse_mean_method == "arithmetic mean") {
     # do nothing
   } else {
     stop("Invalid sparse_mean_method: ", sparse_mean_method) # nocov
   }
-  sparse_pk <- sparse_pk_attribute(sparse_pk, mean = ret)
-  sparse_pk <- sparse_pk_attribute(sparse_pk, mean_method = rep(sparse_mean_method, length(ret)))
+  sparse_pk <- sparse_pk_attribute(sparse_pk, mean=ret)
+  sparse_pk <- sparse_pk_attribute(sparse_pk, mean_method=rep(sparse_mean_method, length(ret)))
   sparse_pk
+}
+
+#' Calculate the variance for the AUC of sparsely sampled PK
+#'
+#' Equation 7.vii in Nedelman and Jia, 1998 is used for this calculation:
+#'
+#' \deqn{var\left(\hat{AUC}\right) = \sum\limits_{i=0}^m\left(\frac{w_i^2 s_i^2}{r_i}\right) + 2\sum\limits_{i<j}\left(\frac{w_i w_j r_{ij} s_{ij}}{r_i r_j}\right)}{var(AUC) = sum_(i=0)^(m) ((w_i^2 * s_i^2)/(r_i) + + 2*sum_(i<j)((w_i * w_j * r_ij * s_ij)/(r_i * r_j))}
+#'
+#' The degrees of freedom are calculated as described in equation 6 of the same
+#' paper.
+#'
+#' @inheritParams sparse_pk_attribute
+#' @references
+#' Nedelman JR, Jia X. An extension of Satterthwaite’s approximation applied to
+#' pharmacokinetics. Journal of Biopharmaceutical Statistics. 1998;8(2):317-328.
+#' doi:10.1080/10543409808835241
+#' @export
+var_sparse_auc <- function(sparse_pk) {
+  covariance <- cov_holder(sparse_pk)
+  var_auc <- 0
+  weights <- sparse_pk_attribute(sparse_pk, "weight")
+  # number of subjects at a given time point
+  n <- rep(0, length(sparse_pk))
+  df <- 0
+  for (idx1 in seq_along(sparse_pk)) {
+    n_idx1 <- length(unique(sparse_pk[[idx1]]$subject))
+    n[idx1] <- n_idx1
+    var_auc <-
+      var_auc +
+      weights[idx1]^2*covariance[idx1, idx1]/n_idx1
+    for (idx2 in seq_len(idx1 - 1)) {
+      n_idx2 <- length(unique(sparse_pk[[idx2]]$subject))
+      n_both <- length(unique(intersect(sparse_pk[[idx1]]$subject, sparse_pk[[idx2]]$subject)))
+      var_auc <-
+        var_auc +
+        2*weights[idx1]*weights[idx2]*n_both*covariance[idx1, idx2]/(n_idx1*n_idx2)
+    }
+  }
+  # df based on equation 6 of Nedelman and Jia 1998
+  # df_e <- sum(diag(covariance))
+  # df_v <- 2*sum(diag(covariance %*% covariance))
+  # df <- 2*df_e^2/df_v
+  # df based on equation 6a of Nedelman et al 1995
+  df <-
+    sum(weights^2 * diag(covariance)/n)^2 /
+    sum(weights^4 * diag(covariance)^2/(n^2*(n-1)))
+  if (sum(covariance[lower.tri(covariance)] != 0) > 0) {
+    rlang::warn(
+      message = "Cannot yet calculate sparse degrees of freedom for multiple samples per subject",
+      class = "pknca_sparse_df_multi"
+    )
+    df <- NA_real_
+  } 
+  attr(var_auc, "df") <- df
+  var_auc
 }
 
 #' Calculate the covariance for two time points with sparse sampling
@@ -163,20 +218,20 @@ sparse_mean <- function(sparse_pk, sparse_mean_method = c("arithmetic mean, <=50
 #'   elements.
 #' @keywords Internal
 #' @references
-#' Holder DJ. Comments on Nedelman and Jia's Extension of Satterthwaite's
+#' Holder DJ. Comments on Nedelman and Jia’s Extension of Satterthwaite’s
 #' Approximation Applied to Pharmacokinetics. Journal of Biopharmaceutical
 #' Statistics. 2001;11(1-2):75-79. doi:10.1081/BIP-100104199
 #'
-#' Nedelman JR, Jia X. An extension of Satterthwaite's approximation applied to
+#' Nedelman JR, Jia X. An extension of Satterthwaite’s approximation applied to
 #' pharmacokinetics. Journal of Biopharmaceutical Statistics. 1998;8(2):317-328.
 #' doi:10.1080/10543409808835241
 #' @export
 cov_holder <- function(sparse_pk) {
   ret <-
     matrix(
-      data = 0,
-      nrow = length(sparse_pk),
-      ncol = length(sparse_pk)
+      data=0,
+      nrow=length(sparse_pk),
+      ncol=length(sparse_pk)
     )
   
   time_means <- sparse_pk_attribute(sparse_pk, "mean")
@@ -202,12 +257,12 @@ cov_holder <- function(sparse_pk) {
         cov_ij <-
           cov_ij /
           (
-            (length(subject_both) - 1) + (1 - length(subject_both) / length(subject_idx1)) * (1 - length(subject_both) / length(subject_idx2))
+            (length(subject_both) - 1) + (1 - length(subject_both)/length(subject_idx1))*(1 - length(subject_both)/length(subject_idx2))
           )
         # Enforce the Cauchy-Schwartz inequality
         cov_cs <- sqrt(ret[idx1, idx1] * ret[idx2, idx2])
         if (abs(cov_ij) > cov_cs) {
-          cov_ij <- sign(cov_ij) * cov_cs
+          cov_ij <- sign(cov_ij)*cov_cs
         }
         # The matrix is symmetric
         ret[idx1, idx2] <- ret[idx2, idx1] <- cov_ij
@@ -217,57 +272,6 @@ cov_holder <- function(sparse_pk) {
   ret
 }
 
-#' Calculate the variance for the AUC of sparsely sampled PK
-#'
-#' Equation 7.vii in Nedelman and Jia, 1998 is used for this calculation:
-#'
-#' \deqn{var\left(\hat{AUC}\right) = \sum\limits_{i=0}^m\left(\frac{w_i^2 s_i^2}{r_i}\right) + 2\sum\limits_{i<j}\left(\frac{w_i w_j r_{ij} s_{ij}}{r_i r_j}\right)}{var(AUC) = sum_(i=0)^(m) ((w_i^2 * s_i^2)/(r_i) + + 2*sum_(i<j)((w_i * w_j * r_ij * s_ij)/(r_i * r_j))}
-#'
-#' The degrees of freedom are calculated as described in equation 6 of the same
-#' paper.
-#'
-#' @inheritParams sparse_pk_attribute
-#' @references
-#' Nedelman JR, Jia X. An extension of Satterthwaite's approximation applied to
-#' pharmacokinetics. Journal of Biopharmaceutical Statistics. 1998;8(2):317-328.
-#' doi:10.1080/10543409808835241
-#' @export
-var_sparse_auc <- function(sparse_pk) {
-  covariance <- cov_holder(sparse_pk)
-  var_auc <- 0
-  weights <- sparse_pk_attribute(sparse_pk, "weight")
-  # number of subjects at a given time point
-  n <- rep(0, length(sparse_pk))
-  df <- 0
-  for (idx1 in seq_along(sparse_pk)) {
-    n_idx1 <- length(unique(sparse_pk[[idx1]]$subject))
-    n[idx1] <- n_idx1
-    var_auc <-
-      var_auc +
-      weights[idx1]^2 * covariance[idx1, idx1] / n_idx1
-    for (idx2 in seq_len(idx1 - 1)) {
-      n_idx2 <- length(unique(sparse_pk[[idx2]]$subject))
-      n_both <- length(unique(intersect(sparse_pk[[idx1]]$subject, sparse_pk[[idx2]]$subject)))
-      var_auc <-
-        var_auc +
-        2 * weights[idx1] * weights[idx2] * n_both * covariance[idx1, idx2] / (n_idx1 * n_idx2)
-    }
-  }
-  # df based on equation 6a of Nedelman et al 1995
-  df <-
-    sum(weights^2 * diag(covariance) / n)^2 /
-    sum(weights^4 * diag(covariance)^2 / (n^2 * (n - 1)))
-  if (sum(covariance[lower.tri(covariance)] != 0) > 0) {
-    rlang::warn(
-      message = "Cannot yet calculate sparse degrees of freedom for multiple samples per subject",
-      class = "pknca_sparse_df_multi"
-    )
-    df <- NA_real_
-  }
-  attr(var_auc, "df") <- df
-  var_auc
-}
-
 #' Extract the mean concentration-time profile as a data.frame
 #'
 #' @inheritParams sparse_pk_attribute
@@ -275,8 +279,8 @@ var_sparse_auc <- function(sparse_pk) {
 #' @keywords Internal
 sparse_to_dense_pk <- function(sparse_pk) {
   data.frame(
-    conc = sparse_pk_attribute(sparse_pk, "mean"),
-    time = sparse_pk_attribute(sparse_pk, "time")
+    conc=sparse_pk_attribute(sparse_pk, "mean"),
+    time=sparse_pk_attribute(sparse_pk, "time")
   )
 }
 
@@ -298,32 +302,32 @@ sparse_to_dense_pk <- function(sparse_pk) {
 #' @family Sparse Methods
 #' @export
 pk.calc.sparse_auc <- function(conc, time, subject,
-                               method = NULL,
-                               auc.type = "AUClast",
+                               method=NULL,
+                               auc.type="AUClast",
                                ...,
-                               options = list()) {
-  sparse_pk <- as_sparse_pk(conc = conc, time = time, subject = subject)
+                               options=list()) {
+  sparse_pk <- as_sparse_pk(conc=conc, time=time, subject=subject)
   sparse_pk_wt <- sparse_auc_weight_linear(sparse_pk)
-  sparse_pk_mean <- sparse_mean(sparse_pk = sparse_pk_wt, sparse_mean_method = "arithmetic mean, <=50% BLQ")
+  sparse_pk_mean <- sparse_mean(sparse_pk=sparse_pk_wt, sparse_mean_method="arithmetic mean, <=50% BLQ")
   auc <-
     pk.calc.auc(
-      conc = sparse_pk_attribute(sparse_pk_mean, "mean"),
-      time = sparse_pk_attribute(sparse_pk_mean, "time"),
-      auc.type = auc.type,
-      method = "linear"
+      conc=sparse_pk_attribute(sparse_pk_mean, "mean"),
+      time=sparse_pk_attribute(sparse_pk_mean, "time"),
+      auc.type=auc.type,
+      method="linear"
     )
   var_auc <- var_sparse_auc(sparse_pk_mean)
   data.frame(
-    sparse_auc = auc,
+    sparse_auc=auc,
     # as.numeric() drops the "df" attribute
-    sparse_auc_se = sqrt(as.numeric(var_auc)),
-    sparse_auc_df = attr(var_auc, "df")
+    sparse_auc_se=sqrt(as.numeric(var_auc)),
+    sparse_auc_df=attr(var_auc, "df")
   )
 }
 
 #' @describeIn pk.calc.sparse_auc Compute the AUClast for sparse PK
 #' @export
-pk.calc.sparse_auclast <- function(conc, time, subject, ..., options = list()) {
+pk.calc.sparse_auclast <- function(conc, time, subject, ..., options=list()) {
   if ("auc.type" %in% names(list(...))) {
     rlang::abort(
       message = "auc.type cannot be changed when calling pk.calc.sparse_auclast, please use pk.calc.sparse_auc",
@@ -332,10 +336,10 @@ pk.calc.sparse_auclast <- function(conc, time, subject, ..., options = list()) {
   }
   ret <-
     pk.calc.sparse_auc(
-      conc = conc, time = time, subject = subject, ...,
-      options = options,
-      auc.type = "AUClast",
-      lambda.z = NA
+      conc=conc, time=time, subject=subject, ...,
+      options=options,
+      auc.type="AUClast",
+      lambda.z=NA
     )
   names(ret)[names(ret) == "sparse_auc"] <- "sparse_auclast"
   ret
@@ -343,34 +347,33 @@ pk.calc.sparse_auclast <- function(conc, time, subject, ..., options = list()) {
 
 add.interval.col(
   "sparse_auclast",
-  sparse = TRUE,
-  FUN = "pk.calc.sparse_auclast",
-  values = c(FALSE, TRUE),
-  unit_type = "auc",
-  pretty_name = "Sparse AUClast",
-  desc = "For sparse PK sampling, the area under the concentration time curve from the beginning of the interval to the last concentration above the limit of quantification"
+  sparse=TRUE,
+  FUN="pk.calc.sparse_auclast",
+  values=c(FALSE, TRUE),
+  unit_type="auc",
+  pretty_name="Sparse AUClast",
+  desc="For sparse PK sampling, the area under the concentration time curve from the beginning of the interval to the last concentration above the limit of quantification"
 )
 
 add.interval.col(
   "sparse_auc_se",
-  FUN = NA,
-  values = c(FALSE, TRUE),
-  unit_type = "auc",
-  pretty_name = "Sparse AUClast standard error",
-  desc = "For sparse PK sampling, the standard error of the area under the concentration time curve from the beginning of the interval to the last concentration above the limit of quantification",
-  depends = "sparse_auclast"
+  FUN=NA,
+  values=c(FALSE, TRUE),
+  unit_type="auc",
+  pretty_name="Sparse AUClast standard error",
+  desc="For sparse PK sampling, the standard error of the area under the concentration time curve from the beginning of the interval to the last concentration above the limit of quantification",
+  depends="sparse_auclast"
 )
 
 add.interval.col(
   "sparse_auc_df",
-  FUN = NA,
-  values = c(FALSE, TRUE),
-  unit_type = "count",
-  pretty_name = "Sparse AUClast degrees of freedom",
-  desc = "For sparse PK sampling, the standard error degrees of freedom of the area under the concentration time curve from the beginning of the interval to the last concentration above the limit of quantification",
-  depends = "sparse_auclast"
+  FUN=NA,
+  values=c(FALSE, TRUE),
+  unit_type="count",
+  pretty_name="Sparse AUClast degrees of freedom",
+  desc="For sparse PK sampling, the standard error degrees of freedom of the area under the concentration time curve from the beginning of the interval to the last concentration above the limit of quantification",
+  depends="sparse_auclast"
 )
-
 
 #' Is a PKNCA object used for sparse PK?
 #'
@@ -407,8 +410,10 @@ is_sparse_pk <- function(object) {
 #' @keywords internal
 #' @export
 var_sparse_aumc <- function(sparse_pk) {
-  # CRITICAL FIX: Create moment sparse_pk with time*conc for EACH MEASUREMENT
-  # This must be done BEFORE calculating means
+  # Step 1: Transform concentration to moment data (t * C) per subject
+  # Must be done BEFORE calculating means — variance must be estimated
+  # on individual moment values, not on mean concentrations
+  # (Nedelman and Jia, 1998, equation 7.vii extended to moment curve)
   moment_sparse_pk <- sparse_pk
   for (idx in seq_along(moment_sparse_pk)) {
     time_i <- moment_sparse_pk[[idx]]$time
@@ -417,16 +422,18 @@ var_sparse_aumc <- function(sparse_pk) {
       moment_sparse_pk[[idx]]$conc * time_i
   }
   
-  # Calculate the mean of MOMENT DATA (not concentration)
-  # This is the critical fix - we need mean(t*C), not mean(C)
+  # Step 2: Calculate mean of moment data at each time point
+  # mean(t*C) not mean(C) — critical for correct variance estimation
   moment_sparse_pk_mean <- sparse_mean(
     sparse_pk = moment_sparse_pk,
     sparse_mean_method = "arithmetic mean, <=50% BLQ"
   )
   
-  # Calculate covariance on moment data WITH CORRECT MEANS
+  # Step 3: Covariance matrix on moment data using Holder (2001) estimator
   covariance <- cov_holder(moment_sparse_pk_mean)
   
+  # Step 4: Variance of AUMC via weighted sum (equation 7.vii,
+  # Nedelman and Jia 1998, applied to moment data)
   var_aumc <- 0
   # Use ORIGINAL sparse_pk for weights (time-based, not moment-based)
   weights <- sparse_pk_attribute(sparse_pk, "weight")
@@ -449,7 +456,8 @@ var_sparse_aumc <- function(sparse_pk) {
     }
   }
   
-  # df based on equation 6a of Nedelman et al 1995
+  # Step 5: Degrees of freedom — Satterthwaite approximation
+  # (equation 6, Nedelman and Jia 1998)
   df <-
     sum(weights^2 * diag(covariance) / n)^2 /
     sum(weights^4 * diag(covariance)^2 / (n^2 * (n - 1)))
@@ -461,6 +469,10 @@ var_sparse_aumc <- function(sparse_pk) {
     )
     df <- NA_real_
   }
+  # else if (any(n == 1)) {
+  #   # Requires >= 2 subjects per time point for df calculation
+  #   df <- NA_real_
+  # }
   
   attr(var_aumc, "df") <- df
   var_aumc
@@ -551,7 +563,8 @@ add.interval.col(
   values = c(FALSE, TRUE),
   unit_type = "aumc",
   pretty_name = "Sparse AUMClast",
-  desc = "For sparse PK sampling, the area under the moment curve from the beginning of the interval to the last concentration above the limit of quantification"
+  desc = "For sparse PK sampling, the area under the moment curve from the beginning of the interval to the last concentration above the limit of quantification",
+  depends     = "sparse_auclast"
 )
 
 add.interval.col(

@@ -19,7 +19,7 @@ The degrees of freedom are calculated as described in equation 6 of the same
 paper.
 }
 \references{
-Nedelman JR, Jia X. An extension of Satterthwaite's approximation applied to
+Nedelman JR, Jia X. An extension of Satterthwaite’s approximation applied to
 pharmacokinetics. Journal of Biopharmaceutical Statistics. 1998;8(2):317-328.
 doi:10.1080/10543409808835241
 }
