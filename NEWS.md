@@ -6,6 +6,11 @@ the dosing including dose amount and route.
 
 # PKNCA 0.12.2
 
+## New features
+* `load_pk_data()` now provides a unified pipeline for loading, classifying,
+  cleaning, and standardising PK data across multiple file formats, with
+  improved column detection, BLQ handling, and decimal formatting.
+
 ## Bug Fixes
 
 * `normalize.data.frame()` no longer triggers a dplyr deprecation warning
