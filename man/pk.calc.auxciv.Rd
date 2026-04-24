@@ -43,8 +43,7 @@ to \code{pk.calc.auxc}}
 \item{options}{List of changes to the default PKNCA options (see
 \code{PKNCA.options()})}
 
-\item{check}{Run \code{\link[=assert_conc_time]{assert_conc_time()}}, \code{\link[=clean.conc.blq]{clean.conc.blq()}}, and
-\code{\link[=clean.conc.na]{clean.conc.na()}}?}
+\item{check}{Run \code{\link[=assert_conc_time]{assert_conc_time()}}?}
 
 \item{auc}{The AUC calculated without C0 back-extrapolation}
 
@@ -93,6 +92,10 @@ Other AUC calculations:
 \code{\link{pk.calc.auxcint}()}
 
 Other AUMC calculations: 
+\code{\link{pk.calc.auxcint}()}
+
+Other AUC calculations: 
+\code{\link{pk.calc.auxc}()},
 \code{\link{pk.calc.auxcint}()}
 }
 \concept{AUC calculations}

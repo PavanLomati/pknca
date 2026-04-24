@@ -29,6 +29,7 @@
 #'
 #' @family AUC calculations
 #' @family AUMC calculations
+#' @family AUC calculations
 #' @export
 pk.calc.auxciv <- function(conc, time, c0, auxc, fun_auxc_last, ..., options = list(), check = TRUE) {
   if (check) {
@@ -297,7 +298,7 @@ add.interval.col(
 
 #===============================================================================
 # PKNCA.set.summary - Count: 18
-# Ordered: base → int (last → all) → inf (obs → pred)
+# Ordered: base ? int (last ? all) ? inf (obs ? pred)
 #===============================================================================
 # Geometric summaries for AUC and AUMC IV
 PKNCA.set.summary(
