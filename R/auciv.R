@@ -29,7 +29,6 @@
 #'
 #' @family AUC calculations
 #' @family AUMC calculations
-#' @family AUC calculations
 #' @export
 pk.calc.auxciv <- function(conc, time, c0, auxc, fun_auxc_last, ..., options = list(), check = TRUE) {
   if (check) {
@@ -56,7 +55,7 @@ pk.calc.auxciv <- function(conc, time, c0, auxc, fun_auxc_last, ..., options = l
 
 
 #' @describeIn pk.calc.auxciv Calculate AUC for intravenous dosing with C0 back-extrapolation
-#' @param auc calculated using `conc` and `time` without `c0
+#' @param auc The AUC calculated using `conc` and `time` without `c0`
 #' @export
 pk.calc.auciv <- function(conc, time, c0, auc, ..., options = list(), check = TRUE) {
   pk.calc.auxciv(
@@ -145,6 +144,7 @@ add.interval.col(
 #' @returns `pk.calc.auciv_pctbackextrap`: The AUC percent back-extrapolated
 #' @export
 pk.calc.auciv_pbext <- function(auc, auciv) {
+  if (!is.na(auciv) && !is.na(auc) && auciv < auc){rlang::abort("auciv must be >= auc; back-extrapolation cannot be negative.")}
   100*(1 - auc/auciv)
 }
 
@@ -216,7 +216,7 @@ add.interval.col(
 
 
 #' @describeIn pk.calc.auxciv Calculate AUMC for intravenous dosing with C0 back-extrapolation
-#' @param aumc calculated using `conc` and `time` without `c0
+#' @param aumc The AUMC calculated using `conc` and `time` without `c0`
 #' @export
 pk.calc.aumciv <- function(conc, time, c0, aumc, ..., options = list(), check = TRUE) {
   pk.calc.auxciv(
@@ -298,7 +298,7 @@ add.interval.col(
 
 #===============================================================================
 # PKNCA.set.summary - Count: 18
-# Ordered: base ? int (last ? all) ? inf (obs ? pred)
+# Ordered: base → int (last → all) → inf (obs → pred)
 #===============================================================================
 # Geometric summaries for AUC and AUMC IV
 PKNCA.set.summary(

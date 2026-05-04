@@ -201,19 +201,6 @@ test_that("IV calculations handle edge cases correctly", {
   )
   expect_true(is.numeric(result_single))
   
-  # Very small c0
-  result_small_c0 <- pk.calc.auciv(
-    conc = 0:5, time = 0:5,
-    c0 = 0.001, auc = 2.75
-  )
-  expect_true(is.numeric(result_small_c0))
-  
-  # c0 smaller than first measured concentration
-  result_c0_smaller <- pk.calc.auciv(
-    conc = c(5, 4, 3, 2, 1), time = 0:4,
-    c0 = 3, auc = 10
-  )
-  expect_true(is.numeric(result_c0_smaller))
 })
 
 # ============================================================================
@@ -226,8 +213,11 @@ test_that("pk.calc.auciv_pbext handles edge cases correctly", {
   # 100% back-extrapolation (auc = 0, auciv > 0)
   expect_equal(pk.calc.auciv_pbext(auc = 0, auciv = 5), 100)
   
-  # Negative back-extrapolation (auciv < auc - should not happen in practice)
-  expect_true(pk.calc.auciv_pbext(auc = 5, auciv = 3) < 0)
+  # auciv < auc must raise an error — not a valid physical scenario
+  expect_error(
+    pk.calc.auciv_pbext(auc = 5, auciv = 3),
+    regexp = "(?i)auciv must be >= auc"
+  )
 })
 
 

@@ -177,12 +177,7 @@ add.interval.col("tmin",
                  pretty_name="Tmin",
                  desc="Time of the minimum observed concentration",
                  depends=NULL)
-PKNCA.set.summary(
-  name="tmin",
-  description="median and range",
-  point=business.median,
-  spread=business.range
-)
+
 
 #' Determine time of last observed concentration above the limit of
 #' quantification.
@@ -474,6 +469,7 @@ add.interval.col("kel.iv.last",
                  desc="Elimination rate (as calculated from the intravenous MRTlast)",
                  formalsmap=list(mrt="mrt.iv.last"),
                  depends="mrt.iv.last")
+
 add.interval.col("kel.all",
                  FUN = "pk.calc.kel",
                  values = c(FALSE, TRUE),
@@ -537,7 +533,6 @@ add.interval.col("kel.ivint.all",
                  formalsmap = list(mrt = "mrt.ivint.all"),
                  depends = "mrt.ivint.all")
 
-
 add.interval.col("kel.ivint.last",
                  FUN = "pk.calc.kel",
                  values = c(FALSE, TRUE),
@@ -547,6 +542,15 @@ add.interval.col("kel.ivint.last",
                  formalsmap = list(mrt = "mrt.ivint.last"),
                  depends = "mrt.ivint.last")
 
+add.interval.col("kel.sparse.last",
+                 FUN = "pk.calc.kel",
+                 values = c(FALSE, TRUE),
+                 unit_type = "inverse_time",
+                 pretty_name = "Kel (for sparse data, based on AUClast)",
+                 desc = "Elimination rate (as calculated from the MRTsparse.last)",
+                 sparse = TRUE,
+                 formalsmap = list(mrt = "mrt.sparse.last"),
+                 depends = "mrt.sparse.last")
 
 #' Calculate the (observed oral) clearance
 #'
@@ -706,6 +710,15 @@ add.interval.col("cl.ivint.last",
                  formalsmap = list(auc = "aucivint.last"),
                  depends = "aucivint.last")
 
+add.interval.col("cl.sparse.last",
+                 FUN = "pk.calc.cl",
+                 values = c(FALSE, TRUE),
+                 unit_type = "clearance",
+                 pretty_name = "CL (for sparse data, based on AUClast)",
+                 desc = "Clearance from sparse sampling calculated with population AUClast",
+                 sparse = TRUE,
+                 formalsmap = list(auc = "sparse_auclast"),
+                 depends = "sparse_auclast")
 
 #' Calculate the absolute (or relative) bioavailability
 #'
@@ -827,6 +840,15 @@ add.interval.col("mrt.int.last",
                  formalsmap = list(auc = "aucint.last", aumc = "aumcint.last"),
                  depends = c("aucint.last", "aumcint.last"))
 
+add.interval.col("mrt.sparse.last",
+                 FUN = "pk.calc.mrt",
+                 values = c(FALSE, TRUE),
+                 unit_type = "time",
+                 pretty_name = "MRT (for sparse data, based on AUClast)",
+                 desc = "Mean residence time from sparse sampling",
+                 sparse = TRUE,
+                 formalsmap = list(auc = "sparse_auclast", aumc = "sparse_aumclast"),
+                 depends = c("sparse_auclast", "sparse_aumclast"))
 
 #' @describeIn pk.calc.mrt MRT for an IV infusion
 #' @export
@@ -838,6 +860,7 @@ pk.calc.mrt.iv <- function(auc, aumc, duration.dose) {
   }
   ret
 }
+
 # Add the columns to the interval specification
 add.interval.col("mrt.iv.obs",
                  FUN="pk.calc.mrt.iv",
@@ -915,6 +938,7 @@ pk.calc.mrt.md <- function(auctau, aumctau, aucinf, tau) {
   }
   ret
 }
+
 add.interval.col("mrt.md.obs",
                  FUN="pk.calc.mrt.md",
                  values=c(FALSE, TRUE),
@@ -952,6 +976,7 @@ pk.calc.vz <- function(cl, lambda.z) {
     stop("'cl' and 'lambda.z' must be the same length")
   cl/lambda.z
 }
+
 # Add the columns to the interval specification
 add.interval.col("vz.obs",
                  FUN="pk.calc.vz",
@@ -1079,6 +1104,15 @@ add.interval.col("vz.last",
                  formalsmap = list(cl = "cl.last"),
                  depends = c("cl.last", "lambda.z"))
 
+add.interval.col("vz.sparse.last",
+                 FUN         = "pk.calc.vz",
+                 values      = c(FALSE, TRUE),
+                 unit_type   = "volume",
+                 pretty_name = "Vz (for sparse data, based on AUClast)",
+                 desc        = "Terminal volume of distribution from sparse sampling",
+                 sparse      = TRUE,
+                 formalsmap  = list(cl = "cl.sparse.last", lambda.z = "kel.sparse.last"),
+                 depends     = c("cl.sparse.last", "kel.sparse.last"))
 
 #' @describeIn pk.calc.vz Steady-state volume of distribution (Vss)
 #'
@@ -1234,6 +1268,15 @@ add.interval.col("vss.ivint.last",
                  formalsmap = list(cl = "cl.ivint.last", mrt = "mrt.ivint.last"),
                  depends = c("cl.ivint.last", "mrt.ivint.last"))
 
+add.interval.col("vss.sparse.last",
+                 FUN = "pk.calc.vss",
+                 values = c(FALSE, TRUE),
+                 unit_type = "volume",
+                 pretty_name = "Vss (for sparse data, based on AUClast)",
+                 desc = "Steady-state volume of distribution from sparse sampling",
+                 sparse = TRUE,
+                 formalsmap = list(cl = "cl.sparse.last", mrt = "mrt.sparse.last"),
+                 depends = c("cl.sparse.last", "mrt.sparse.last"))
 
 #' Calculate the average concentration during an interval.
 #'
@@ -1627,12 +1670,12 @@ PKNCA.set.summary(
 )
 
 #===============================================================================
-# TIME PARAMETERS - count: 4
+# TIME PARAMETERS - count: 5
 # Ordered: chronological
 #===============================================================================
 PKNCA.set.summary(
   name = c(
-    "tfirst", "tlag", "tmax", "tlast"
+    "tfirst", "tlag", "tmin", "tmax", "tlast"
   ),
   description = "median and range",
   point = business.median,
@@ -1691,7 +1734,7 @@ PKNCA.set.summary(
 )
 
 #===============================================================================
-# BASIC PK PARAMETERS (CL, KEL, MRT, VZ, VSS) - count: 74 (79 after adding sparse)
+# BASIC PK PARAMETERS (CL, KEL, MRT, VZ, VSS) - count: 79
 # Ordered: base → int → inf → iv → ivint → sparse → md (if applicable)
 #===============================================================================
 PKNCA.set.summary(
@@ -1702,21 +1745,21 @@ PKNCA.set.summary(
     "cl.int.all", "cl.int.last", "cl.int.inf.obs", "cl.int.inf.pred",
     "cl.iv.obs", "cl.iv.pred", "cl.iv.last", "cl.iv.all",
     "cl.ivint.all", "cl.ivint.last",
-    #"cl.sparse.last",
+    "cl.sparse.last",
     
     # Elimination rate constant (KEL) - count: 15
     "kel.obs", "kel.pred", "kel.last", "kel.all",
     "kel.int.all", "kel.int.last", "kel.int.inf.obs", "kel.int.inf.pred",
     "kel.iv.obs", "kel.iv.pred", "kel.iv.last", "kel.iv.all",
     "kel.ivint.all", "kel.ivint.last",
-    #"kel.sparse.last",
+    "kel.sparse.last",
     
     # Mean residence time (MRT) - count: 17
     "mrt.obs", "mrt.pred", "mrt.last", "mrt.all",
     "mrt.int.all", "mrt.int.last", "mrt.int.inf.obs", "mrt.int.inf.pred",
     "mrt.iv.obs", "mrt.iv.pred", "mrt.iv.last", "mrt.iv.all",
     "mrt.ivint.all", "mrt.ivint.last",
-    #"mrt.sparse.last",
+    "mrt.sparse.last",
     "mrt.md.obs", "mrt.md.pred",
     
     # Volume of distribution at steady state (VSS) - count: 17
@@ -1724,18 +1767,17 @@ PKNCA.set.summary(
     "vss.int.all", "vss.int.last", "vss.int.inf.obs", "vss.int.inf.pred",
     "vss.iv.obs", "vss.iv.pred", "vss.iv.last", "vss.iv.all",
     "vss.ivint.all", "vss.ivint.last",
-    #"vss.sparse.last",
+    "vss.sparse.last",
     "vss.md.obs", "vss.md.pred",
     
     # Volume of distribution (VZ) - count: 15
     "vz.obs", "vz.pred", "vz.last", "vz.all",
     "vz.int.all", "vz.int.last", "vz.int.inf.obs", "vz.int.inf.pred",
     "vz.iv.obs", "vz.iv.pred", "vz.iv.last", "vz.iv.all",
-    "vz.ivint.all", "vz.ivint.last"#,
-    #"vz.sparse.last"
+    "vz.ivint.all", "vz.ivint.last",
+    "vz.sparse.last"
   ),
   description = "geometric mean and geometric coefficient of variation",
   point = business.geomean,
   spread = business.geocv
 )
-
