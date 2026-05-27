@@ -18,6 +18,7 @@ vignette](http://humanpred.github.io/pknca/articles/v20-superposition.md)
 will be used.
 
 ``` r
+
 library(PKNCA)
 theoph_corrected <- as.data.frame(datasets::Theoph)
 theoph_corrected$conc[theoph_corrected$Time == 0] <- 0
@@ -35,6 +36,7 @@ steady_state_noise$conc <-
 Examine the data graphically.
 
 ``` r
+
 library(ggplot2)
 ggplot(steady_state_noise, aes(x=time, y=conc, groups=Subject)) + geom_line()
 ```
@@ -58,6 +60,7 @@ steady-state:
     nonlinear model
 
 ``` r
+
 tss_mono <-
   pk.tss.monoexponential(
     conc = steady_state_noise$conc,
@@ -70,18 +73,18 @@ tss_mono <-
 #> 'msMaxIter'!
 tss_mono
 #>    subject tss.monoexponential.population tss.monoexponential.popind
-#> 1        1                       26.41698                   36.94302
-#> 2       10                       26.41698                   31.95467
-#> 3       11                       26.41698                   22.79693
-#> 4       12                       26.41698                   26.59837
-#> 5        2                       26.41698                   23.53946
-#> 6        3                       26.41698                   24.72265
-#> 7        4                       26.41698                   25.73792
-#> 8        5                       26.41698                   26.93388
-#> 9        6                       26.41698                   23.21909
-#> 10       7                       26.41698                   25.39792
-#> 11       8                       26.41698                   24.54268
-#> 12       9                       26.41698                   24.61721
+#> 1        1                       26.41701                   36.94302
+#> 2       10                       26.41701                   31.95440
+#> 3       11                       26.41701                   22.79700
+#> 4       12                       26.41701                   26.59834
+#> 5        2                       26.41701                   23.53955
+#> 6        3                       26.41701                   24.72274
+#> 7        4                       26.41701                   25.73791
+#> 8        5                       26.41701                   26.93386
+#> 9        6                       26.41701                   23.21917
+#> 10       7                       26.41701                   25.39804
+#> 11       8                       26.41701                   24.54281
+#> 12       9                       26.41701                   24.61729
 #>    tss.monoexponential.individual tss.monoexponential.single
 #> 1                        40.65290                   27.87592
 #> 2                        24.72591                   27.87592
@@ -109,6 +112,7 @@ measurement and moving backward in time. It has bias in that more
 individuals will move the time to steady-state to a late time point.
 
 ``` r
+
 tss_step <-
   pk.tss.stepwise.linear(
     conc = steady_state_noise$conc,
