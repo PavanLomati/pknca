@@ -2,7 +2,7 @@
 
 For one subject/time range, compute all available PK parameters. All the
 internal options should be set by
-[`PKNCA.options()`](http://humanpred.github.io/pknca/reference/PKNCA.options.md)
+[`PKNCA.options()`](https://humanpred.github.io/pknca/reference/PKNCA.options.md)
 prior to running. The only part that changes with a call to this
 function is the `conc`entration and `time`.
 
@@ -29,6 +29,7 @@ pk.nca.interval(
   impute_method = NA_character_,
   include_half.life = NULL,
   exclude_half.life = NULL,
+  lloq = NULL,
   subject,
   sparse,
   interval,
@@ -111,6 +112,13 @@ pk.nca.interval(
   An optional boolean vector of the concentration measurements to
   exclude from the half-life calculation.
 
+- lloq:
+
+  An optional scalar or vector (the same length as `conc`) with the
+  lower limit of quantification passed to
+  [`pk.calc.half.life()`](https://humanpred.github.io/pknca/reference/pk.calc.half.life.md)
+  for the Tobit half-life method.
+
 - subject:
 
   Subject identifiers (used for sparse calculations)
@@ -123,13 +131,13 @@ pk.nca.interval(
 - interval:
 
   One row of an interval definition (see
-  [`check.interval.specification()`](http://humanpred.github.io/pknca/reference/check.interval.specification.md)
+  [`check.interval.specification()`](https://humanpred.github.io/pknca/reference/check.interval.specification.md)
   for how to define the interval.
 
 - options:
 
   List of changes to the default PKNCA options (see
-  [`PKNCA.options()`](http://humanpred.github.io/pknca/reference/PKNCA.options.md))
+  [`PKNCA.options()`](https://humanpred.github.io/pknca/reference/PKNCA.options.md))
 
 ## Value
 
@@ -138,4 +146,4 @@ for the `interval`
 
 ## See also
 
-[`check.interval.specification()`](http://humanpred.github.io/pknca/reference/check.interval.specification.md)
+[`check.interval.specification()`](https://humanpred.github.io/pknca/reference/check.interval.specification.md)

@@ -24,6 +24,7 @@ PKNCAconc(
   volume,
   exclude_half.life,
   include_half.life,
+  lloq,
   sparse = FALSE,
   ...,
   concu = NULL,
@@ -100,6 +101,16 @@ PKNCAconc(
   automatic curve-stripping point selection). See the "Half-Life
   Calculation" vignette for more details on the use of these arguments.
 
+- lloq:
+
+  (optional) The lower limit of quantification used by the Tobit
+  half-life method (`hl_method = "tobit"`). Either the name of a column
+  in `data` giving the per-observation LLOQ or a numeric scalar applied
+  to all observations. When provided, it is passed through to
+  [`pk.calc.half.life()`](https://humanpred.github.io/pknca/reference/pk.calc.half.life.md).
+  See the "Half-Life Calculation with Tobit Regression" vignette for
+  more details.
+
 - sparse:
 
   Are the concentration-time data sparse PK (commonly used in small
@@ -122,6 +133,6 @@ A PKNCAconc object that can be used for automated NCA.
 ## See also
 
 Other PKNCA objects:
-[`PKNCAdata()`](http://humanpred.github.io/pknca/reference/PKNCAdata.md),
-[`PKNCAdose()`](http://humanpred.github.io/pknca/reference/PKNCAdose.md),
-[`PKNCAresults()`](http://humanpred.github.io/pknca/reference/PKNCAresults.md)
+[`PKNCAdata()`](https://humanpred.github.io/pknca/reference/PKNCAdata.md),
+[`PKNCAdose()`](https://humanpred.github.io/pknca/reference/PKNCAdose.md),
+[`PKNCAresults()`](https://humanpred.github.io/pknca/reference/PKNCAresults.md)
