@@ -6,13 +6,17 @@ the dosing including dose amount and route.
 
 # Development version
 
+* Business functions (used for calculations of means, etc.) now return NA_real_
+  for empty inputs rather than giving an error (#559).
+
 * `PKNCAconc()` gains an `lloq` argument (a column name or a numeric scalar) that
   is passed through to `pk.calc.half.life()`.  This wires the lower limit of
   quantification through a full `pk.nca()` run so the Tobit half-life method
   (`hl_method = "tobit"`, set via `PKNCAdata(options = list(hl_method = "tobit"))`)
   works end-to-end instead of failing because no `lloq` was available.
 
-* Added sparse AUMC function and five sparse AUC parameters (cl.sparse.last, kel.sparse.last, mrt.ivint.last, vss.sparse.last, vz.sparse.last)
+* Added sparse AUMC function and five sparse AUC parameters (cl.sparse.last,
+  kel.sparse.last, mrt.ivint.last, vss.sparse.last, vz.sparse.last)
 
 * New IV dosing AUMC parameters with C0 back-extrapolation (`aumciv*`)
 
@@ -52,8 +56,8 @@ the dosing including dose amount and route.
   row when used with ungrouped data, giving a clear error message instead of
   silently producing incorrect results.
 
-* `normalize.data.frame()` now uses `dplyr::inner_join()` instead of `merge()` 
-  for grouped joins, preserving left-table row order. Missing group validation 
+* `normalize.data.frame()` now uses `dplyr::inner_join()` instead of `merge()`
+  for grouped joins, preserving left-table row order. Missing group validation
   ensures no rows are silently dropped.
 
 

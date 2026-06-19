@@ -54,7 +54,7 @@ test_that("pk.calc.auxc", {
 
 test_that("pk.calc.auc: Linear AUC when the conc at the end of the interval is above LOQ", {
   # lambda.z is unused
-  tests <- list(AUCinf=structure(as.numeric(NA), method="AUC: linear"),
+  tests <- list(AUCinf=structure(NA_real_, method="AUC: linear"),
                 AUClast=structure(1.5, method="AUC: linear"),
                 AUCall=structure(1.5, method="AUC: linear"))
   for (t in names(tests)) {
@@ -78,7 +78,7 @@ test_that("pk.calc.auc: Linear AUC when the conc at the end of the interval is a
 test_that("pk.calc.auc: Linear AUC when the conc at the end of the interval is BLQ, lambda.z missing", {
   # lambda.z is used to extrapolate to the end of the interval.
   # Since lambda.z is NA, the result is NA.
-  tests <- list(AUCinf=structure(as.numeric(NA), method="AUC: linear"),
+  tests <- list(AUCinf=structure(NA_real_, method="AUC: linear"),
                 AUClast=structure(0.5, method="AUC: linear"),
                 AUCall=structure(1, method="AUC: linear"))
   for (t in names(tests)) {
@@ -248,11 +248,11 @@ test_that("pk.calc.auc: Confirm BLQ in the middle or end are calculated correctl
 test_that("pk.calc.auc: When AUCinf is requested with NA for lambda.z, the result is NA", {
   tests <- list(
     "linear"=list(
-      AUCinf=structure(as.numeric(NA), method="AUC: linear"),
+      AUCinf=structure(NA_real_, method="AUC: linear"),
       AUClast=structure(1+3+1.5+1.5, method="AUC: linear"),
       AUCall=structure(1+3+1.5+1.5+0.5, method="AUC: linear")),
     "lin up/log down"=list(
-      AUCinf=structure(as.numeric(NA), method="AUC: lin up/log down"),
+      AUCinf=structure(NA_real_, method="AUC: lin up/log down"),
       AUClast=structure(1+2/log(2)+1.5+1/log(2), method="AUC: lin up/log down"),
       AUCall=structure(1+2/log(2)+1.5+1/log(2)+0.5, method="AUC: lin up/log down")))
   for (t in names(tests)) {
@@ -288,11 +288,11 @@ test_that("pk.calc.auc: Test NA at the end", {
   # Test NA at the end
   tests <- list(
     "linear"=list(
-      AUCinf=structure(as.numeric(NA), method="AUC: linear"),
+      AUCinf=structure(NA_real_, method="AUC: linear"),
       AUClast=structure(1+3+1.5+1.5, method="AUC: linear"),
       AUCall=structure(1+3+1.5+1.5+1, method="AUC: linear")),
     "lin up/log down"=list(
-      AUCinf=structure(as.numeric(NA), method="AUC: lin up/log down"),
+      AUCinf=structure(NA_real_, method="AUC: lin up/log down"),
       AUClast=structure(1+2/log(2)+1.5+1/log(2), method="AUC: lin up/log down"),
       AUCall=structure(1+2/log(2)+1.5+1/log(2)+1, method="AUC: lin up/log down")))
   for (t in names(tests))

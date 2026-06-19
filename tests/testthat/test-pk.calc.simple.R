@@ -203,8 +203,10 @@ test_that("pk.calc.thalf.eff", {
   )
 
   # NA input gives equivalent NA output
-  expect_equal(pk.calc.thalf.eff(NA),
-               as.numeric(NA))
+  expect_equal(
+    pk.calc.thalf.eff(NA),
+    NA_real_
+  )
 
   # Numbers mixed with NA give appropriate output
   d1 <- c(0, 1, NA, 3)
@@ -223,7 +225,7 @@ test_that("pk.calc.kel", {
   # NA input gives equivalent NA output
   expect_equal(
     pk.calc.kel(NA),
-    as.numeric(NA)
+    NA_real_
   )
 
   # Numbers mixed with NA give appropriate output
