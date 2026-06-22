@@ -9,7 +9,7 @@
 #'   columns for degrees of freedom (`df`) and `AIC`.  If `assess.best` is true,
 #'   then there will be another column `isBest`.
 #' @noRd
-AIC.list <- function(object, ..., assess.best=TRUE) {
+AIC_list <- function(object, ..., assess.best=TRUE) {
   allAICs <-
     lapply(object, FUN=function(subobject, ...) {
       # Return the AIC of the new model relative to the reference model
@@ -63,11 +63,10 @@ AIC.list <- function(object, ..., assess.best=TRUE) {
 #' Extract the best model from a list of models using the AIC.
 #'
 #' @param object the list of models
-#' @param \dots Parameters passed to AIC.list
+#' @param \dots Parameters passed to AIC_list
 #' @returns The model which is assessed as best.  If more than one are equal,
 #'   the first is chosen.
 #' @export
 get.best.model <- function(object, ...) {
   object[stats::AIC(object, ...)$isBest %in% "Best Model"][[1]]
 }
-
