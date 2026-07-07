@@ -175,10 +175,10 @@ add.interval.col <- function(name,
   assign("interval.cols", current, envir=.PKNCAEnv)
 }
 
-#' Sort the interval columns by dependencies.
-#'
-#' Columns are always to the right of columns that they depend on.
-sort.interval.cols <- function() {
+# Sort the interval columns by dependencies.
+#
+# Columns are always to the right of columns that they depend on.
+sort_interval_cols <- function() {
   current <- get("interval.cols", envir=.PKNCAEnv)
   # Only sort if necessary
   sort_order <- get0("interval.cols_sorted", envir=.PKNCAEnv)
@@ -232,7 +232,7 @@ sort.interval.cols <- function() {
 #' @family Interval specifications
 #' @export
 get.interval.cols <- function() {
-  sort.interval.cols()
+  sort_interval_cols()
   get("interval.cols", envir=.PKNCAEnv)
 }
 

@@ -24,7 +24,7 @@ test_that("add.interval.col", {
     regexp="FUN must be a character string or NA",
     info="interval column function must be a character string or NA"
   )
-  
+
   expect_error(
     add.interval.col(name="a", FUN=NA, datatype="interval", desc="test addition"),
     regexp='argument "unit_type" is missing, with no default'
@@ -33,7 +33,7 @@ test_that("add.interval.col", {
     add.interval.col(name="a", FUN=NA, unit_type="foo", datatype="interval", desc="test addition"),
     regexp="should be one of .*inverse_time"
   )
-  
+
   # pretty_name checks
   expect_error(
     add.interval.col(name="a", FUN=NA, unit_type="conc", pretty_name=1:2, datatype="interval", desc=1),
@@ -47,13 +47,13 @@ test_that("add.interval.col", {
     add.interval.col(name="a", FUN=NA, unit_type="conc", pretty_name="", datatype="interval", desc=1),
     regexp="pretty_name must not be an empty string"
   )
-  
+
   expect_error(
     add.interval.col(name="a", FUN=NA, unit_type="conc", pretty_name="a", datatype="individual"),
     regexp="Only the 'interval' datatype is currently supported.",
     info="interval column datatype must be 'interval'"
   )
-  
+
   expect_error(
     add.interval.col(name="a", FUN=NA, unit_type="conc", pretty_name="a", datatype="interval", desc=1:2),
     regexp="desc must have length == 1",
@@ -69,7 +69,7 @@ test_that("add.interval.col", {
     regexp="'depends' must be NULL or a character vector",
     info="depends column must be a NULL or a character string"
   )
-  
+
   expect_error(
     add.interval.col(name="a", FUN="this function does not exist", unit_type="conc", pretty_name="foo", datatype="interval", desc="test addition"),
     regexp="The function named '.*' is not defined.  Please define the function before calling add.interval.col.",
@@ -99,7 +99,7 @@ test_that("add.interval.col", {
     regexp="All names for the formalsmap list must be arguments to the function",
     info="formalsmap arguments must map to function arguments"
   )
-  
+
   expect_equal(
     {
       add.interval.col(name="a", FUN=NA, unit_type="conc", pretty_name="a", datatype="interval", desc="test addition")
@@ -170,7 +170,7 @@ test_that("fake parameters", {
     depends="does_not_exist"
   )
   expect_error(
-    sort.interval.cols(),
+    sort_interval_cols(),
     regexp="Invalid dependencies for interval column (please report this as a bug): fake_parameter The following dependencies are missing: does_not_exist",
     fixed=TRUE
   )
