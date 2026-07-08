@@ -13,7 +13,7 @@ and time."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">PKNCA</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.12.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.12.1.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -167,15 +167,20 @@ bolus and nonzero for intravascular infusion)</p></dd>
 <dd><p>The method to use for imputation as a character string</p></dd>
 
 
-<dt id="arg-include-half-life">include_half.life<a class="anchor" aria-label="anchor" href="#arg-include-half-life"></a></dt>
-<dd><p>An optional boolean vector of the concentration
-measurements to include in the half-life calculation. If given, no
-half-life point selection will occur.</p></dd>
-
-
-<dt id="arg-exclude-half-life">exclude_half.life<a class="anchor" aria-label="anchor" href="#arg-exclude-half-life"></a></dt>
-<dd><p>An optional boolean vector of the concentration
-measurements to exclude from the half-life calculation.</p></dd>
+<dt id="arg-exclude-half-life-include-half-life">exclude_half.life, include_half.life<a class="anchor" aria-label="anchor" href="#arg-exclude-half-life-include-half-life"></a></dt>
+<dd><p>Manual half-life point selection,
+given as a logical value per concentration measurement (or, in
+<code><a href="PKNCAconc.html">PKNCAconc()</a></code>, the name of such a column in the data).  <code>exclude_half.life</code>
+drops the flagged points; automatic curve-stripping point selection is
+still performed on the remaining (non-excluded) points and is not bypassed.
+<code>include_half.life</code> names the exact points to use, bypassing automatic
+curve-stripping point selection.  Each value is <code>TRUE</code>, <code>FALSE</code>, or <code>NA</code>
+(undefined); the column/vector is treated as "in use" for an interval
+unless it is entirely <code>NA</code> (so an all-<code>FALSE</code> column still counts as in
+use), so leave it <code>NA</code> (rather than <code>FALSE</code>) where the mechanism should not
+apply.  Only one of <code>exclude_half.life</code> and <code>include_half.life</code> may be in
+use for a given interval.  See the "Half-Life Calculation" vignette for
+more details on the use of these arguments.</p></dd>
 
 
 <dt id="arg-lloq">lloq<a class="anchor" aria-label="anchor" href="#arg-lloq"></a></dt>
@@ -222,7 +227,7 @@ parameters for the <code>interval</code></p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer></div>

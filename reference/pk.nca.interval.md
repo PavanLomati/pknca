@@ -101,16 +101,23 @@ pk.nca.interval(
 
   The method to use for imputation as a character string
 
-- include_half.life:
+- exclude_half.life, include_half.life:
 
-  An optional boolean vector of the concentration measurements to
-  include in the half-life calculation. If given, no half-life point
-  selection will occur.
-
-- exclude_half.life:
-
-  An optional boolean vector of the concentration measurements to
-  exclude from the half-life calculation.
+  Manual half-life point selection, given as a logical value per
+  concentration measurement (or, in
+  [`PKNCAconc()`](https://humanpred.github.io/pknca/reference/PKNCAconc.md),
+  the name of such a column in the data). `exclude_half.life` drops the
+  flagged points; automatic curve-stripping point selection is still
+  performed on the remaining (non-excluded) points and is not bypassed.
+  `include_half.life` names the exact points to use, bypassing automatic
+  curve-stripping point selection. Each value is `TRUE`, `FALSE`, or
+  `NA` (undefined); the column/vector is treated as "in use" for an
+  interval unless it is entirely `NA` (so an all-`FALSE` column still
+  counts as in use), so leave it `NA` (rather than `FALSE`) where the
+  mechanism should not apply. Only one of `exclude_half.life` and
+  `include_half.life` may be in use for a given interval. See the
+  "Half-Life Calculation" vignette for more details on the use of these
+  arguments.
 
 - lloq:
 

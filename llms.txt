@@ -28,7 +28,7 @@ Denney W, Duvvuri S and Buckeridge C (2015). “Simple, Automatic
 Noncompartmental Analysis: The PKNCA R Package.” *Journal of
 Pharmacokinetics and Pharmacodynamics*, *42*(1), pp. 11-107,S65. ISSN
 1573-8744, doi: 10.1007/s10928-015-9432-2, \<URL:
-<https://humanpred.github.io/pknca/> \>.
+<https://pknca.humanpredictions.com/> \>.
 
 # Installation
 
@@ -660,9 +660,6 @@ and bug reports.
 - [`signifString()`](https://humanpred.github.io/pknca/reference/signifString.md)
   : Round a value to a defined number of significant digits printing out
   trailing zeros, if applicable.
-
-- [`sort(`*`<interval.cols>`*`)`](https://humanpred.github.io/pknca/reference/sort.interval.cols.md)
-  : Sort the interval columns by dependencies.
 
 - [`sparse_auc_weight_linear()`](https://humanpred.github.io/pknca/reference/sparse_auc_weight_linear.md)
   : Calculate the weight for sparse AUC calculation with the
