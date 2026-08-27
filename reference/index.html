@@ -109,7 +109,7 @@
 
         <dt>
 
-          <code><a href="PKNCA_impute_method.html">PKNCA_impute_method_start_conc0()</a></code> <code><a href="PKNCA_impute_method.html">PKNCA_impute_method_start_cmin()</a></code> <code><a href="PKNCA_impute_method.html">PKNCA_impute_method_start_predose()</a></code> <code><a href="PKNCA_impute_method.html">PKNCA_impute_method_end_conc_drop()</a></code>
+          <code><a href="PKNCA_impute_method.html">PKNCA_impute_method_start_conc0()</a></code> <code><a href="PKNCA_impute_method.html">PKNCA_impute_method_start_cmin()</a></code> <code><a href="PKNCA_impute_method.html">PKNCA_impute_method_start_predose()</a></code> <code><a href="PKNCA_impute_method.html">PKNCA_impute_method_start_predose_conc0()</a></code> <code><a href="PKNCA_impute_method.html">PKNCA_impute_method_end_conc_drop()</a></code>
 
         </dt>
         <dd>Methods for imputation of data with PKNCA</dd>
@@ -253,6 +253,13 @@
 
         </dt>
         <dd>Confirm that a value is greater than another value</dd>
+
+        <dt>
+
+          <code><a href="assert_param_name.html">assert_param_name()</a></code>
+
+        </dt>
+        <dd>Assert that a character vector only contains PKNCA parameter names</dd>
 
         <dt>
 
@@ -571,6 +578,20 @@
 
         <dt>
 
+          <code><a href="get_halflife_curve.html">get_halflife_curve()</a></code>
+
+        </dt>
+        <dd>Interpolate and extrapolate concentrations along the half-life fit</dd>
+
+        <dt>
+
+          <code><a href="get_halflife_fit.html">get_halflife_fit()</a></code>
+
+        </dt>
+        <dd>Get the half-life fit line for each interval</dd>
+
+        <dt>
+
           <code><a href="get_halflife_points.html">get_halflife_points()</a></code>
 
         </dt>
@@ -617,6 +638,20 @@
 
         </dt>
         <dd>Interpolate or extrapolate concentrations using the provided method</dd>
+
+        <dt>
+
+          <code><a href="interval_add_impute.html">interval_add_impute()</a></code> <code><a href="interval_add_impute.html">interval_remove_impute()</a></code>
+
+        </dt>
+        <dd>Add or remove an imputation method in the intervals of a PKNCAdata object</dd>
+
+        <dt>
+
+          <code><a href="interval_add_param.html">interval_add_param()</a></code> <code><a href="interval_add_param.html">interval_remove_param()</a></code>
+
+        </dt>
+        <dd>Add or remove parameters in the intervals of a PKNCAdata object</dd>
 
         <dt>
 
@@ -795,6 +830,20 @@
 
         <dt>
 
+          <code><a href="pk.calc.erint.html">pk.calc.erint()</a></code>
+
+        </dt>
+        <dd>Calculate the excretion rate over the interval</dd>
+
+        <dt>
+
+          <code><a href="pk.calc.erlst.html">pk.calc.erlst()</a></code>
+
+        </dt>
+        <dd>Calculate the last measurable excretion rate</dd>
+
+        <dt>
+
           <code><a href="pk.calc.ermax.html">pk.calc.ermax()</a></code>
 
         </dt>
@@ -844,7 +893,7 @@
 
         <dt>
 
-          <code><a href="pk.calc.mrt.html">pk.calc.mrt()</a></code> <code><a href="pk.calc.mrt.html">pk.calc.mrt.iv()</a></code> <code><a href="pk.calc.mrt.html">pk.calc.mrt.md()</a></code>
+          <code><a href="pk.calc.mrt.html">pk.calc.mrt()</a></code> <code><a href="pk.calc.mrt.html">pk.calc.mrt.iv()</a></code> <code><a href="pk.calc.mrt.html">pk.calc.mrt.md()</a></code> <code><a href="pk.calc.mrt.html">pk.calc.mrt.md.iv()</a></code>
 
         </dt>
         <dd>Calculate the mean residence time (MRT) for single-dose data or linear multiple-dose data.</dd>
@@ -1005,10 +1054,52 @@
 
         <dt>
 
+          <code><a href="pknca_check_parameter_classification.html">pknca_check_parameter_classification()</a></code>
+
+        </dt>
+        <dd>Report parameters that PKNCA cannot classify for automatic selection</dd>
+
+        <dt>
+
+          <code><a href="pknca_concept.html">pknca_concept()</a></code> <code><a href="pknca_concept.html">`pknca_concept&lt;-`()</a></code>
+
+        </dt>
+        <dd>The concept a parameter calculation function computes</dd>
+
+        <dt>
+
+          <code><a href="pknca_concepts.html">pknca_concepts()</a></code> <code><a href="pknca_concepts.html">pknca_tiers()</a></code> <code><a href="pknca_concepts.html">pknca_routes()</a></code> <code><a href="pknca_concepts.html">pknca_dosing()</a></code> <code><a href="pknca_concepts.html">pknca_sample_types()</a></code>
+
+        </dt>
+        <dd>Concepts, tiers, and contexts used to classify NCA parameters</dd>
+
+        <dt>
+
           <code><a href="pknca_find_units_param.html">pknca_find_units_param()</a></code>
 
         </dt>
         <dd>Find NCA parameters with a given unit type</dd>
+
+        <dt>
+
+          <code><a href="pknca_interval_table.html">pknca_interval_table()</a></code>
+
+        </dt>
+        <dd>Build an interval specification from a description of the analysis</dd>
+
+        <dt>
+
+          <code><a href="pknca_parameter_table.html">pknca_parameter_table()</a></code>
+
+        </dt>
+        <dd>How each NCA parameter is classified for interval selection</dd>
+
+        <dt>
+
+          <code><a href="pknca_presets.html">pknca_presets()</a></code>
+
+        </dt>
+        <dd>Named argument sets for building an interval specification</dd>
 
         <dt>
 
@@ -1058,6 +1149,13 @@
 
         </dt>
         <dd>Print the results summary</dd>
+
+        <dt>
+
+          <code><a href="resolve_dose_tau.html">resolve_dose_tau()</a></code>
+
+        </dt>
+        <dd>Determine the dosing interval (tau) to use for a calculation interval</dd>
 
         <dt>
 

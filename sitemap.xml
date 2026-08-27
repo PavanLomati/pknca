@@ -42,6 +42,7 @@
 <url><loc>https://humanpred.github.io/pknca/reference/PKNCAresults.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/add.interval.col.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/addProvenance.html</loc></url>
+<url><loc>https://humanpred.github.io/pknca/reference/add_impute_method.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/adj.r.squared.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/any_sparse_dense_in_interval.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/as.data.frame.PKNCAresults.html</loc></url>
@@ -56,6 +57,7 @@
 <url><loc>https://humanpred.github.io/pknca/reference/assert_lambdaz.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/assert_number_between.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/assert_numeric_between.html</loc></url>
+<url><loc>https://humanpred.github.io/pknca/reference/assert_param_name.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/assert_unit.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/auc_integrate.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/be_assess.html</loc></url>
@@ -101,6 +103,8 @@
 <url><loc>https://humanpred.github.io/pknca/reference/getDepVar.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/getGroups.PKNCAconc.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/getIndepVar.html</loc></url>
+<url><loc>https://humanpred.github.io/pknca/reference/get_halflife_curve.html</loc></url>
+<url><loc>https://humanpred.github.io/pknca/reference/get_halflife_fit.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/get_halflife_points.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/get_impute_method.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/group_by.PKNCAresults.html</loc></url>
@@ -109,6 +113,9 @@
 <url><loc>https://humanpred.github.io/pknca/reference/inner_join.PKNCAresults.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/interp.extrap.conc.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/interp_extrap_conc_method.html</loc></url>
+<url><loc>https://humanpred.github.io/pknca/reference/interval_add_impute.html</loc></url>
+<url><loc>https://humanpred.github.io/pknca/reference/interval_add_param.html</loc></url>
+<url><loc>https://humanpred.github.io/pknca/reference/interval_longer.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/is_sparse_pk.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/model.frame.PKNCAconc.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/mutate.PKNCAresults.html</loc></url>
@@ -134,6 +141,8 @@
 <url><loc>https://humanpred.github.io/pknca/reference/pk.calc.ctrough.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pk.calc.deg.fluc.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pk.calc.dn.html</loc></url>
+<url><loc>https://humanpred.github.io/pknca/reference/pk.calc.erint.html</loc></url>
+<url><loc>https://humanpred.github.io/pknca/reference/pk.calc.erlst.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pk.calc.ermax.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pk.calc.ertlst.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pk.calc.ertmax.html</loc></url>
@@ -164,7 +173,13 @@
 <url><loc>https://humanpred.github.io/pknca/reference/pk.tss.monoexponential.population.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pk.tss.stepwise.linear.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pk_nca_result_to_df.html</loc></url>
+<url><loc>https://humanpred.github.io/pknca/reference/pknca_check_parameter_classification.html</loc></url>
+<url><loc>https://humanpred.github.io/pknca/reference/pknca_concept.html</loc></url>
+<url><loc>https://humanpred.github.io/pknca/reference/pknca_concepts.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pknca_find_units_param.html</loc></url>
+<url><loc>https://humanpred.github.io/pknca/reference/pknca_interval_table.html</loc></url>
+<url><loc>https://humanpred.github.io/pknca/reference/pknca_parameter_table.html</loc></url>
+<url><loc>https://humanpred.github.io/pknca/reference/pknca_presets.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pknca_unit_conversion.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pknca_units_add_paren.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pknca_units_table.html</loc></url>
@@ -173,6 +188,7 @@
 <url><loc>https://humanpred.github.io/pknca/reference/print.provenance.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/print.summary_PKNCAresults.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/reexports.html</loc></url>
+<url><loc>https://humanpred.github.io/pknca/reference/resolve_dose_tau.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/roundString.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/roundingSummarize.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/select_minimal_grouping_cols.html</loc></url>

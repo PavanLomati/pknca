@@ -26,6 +26,7 @@
 - [`PKNCA_impute_method_start_conc0()`](https://humanpred.github.io/pknca/reference/PKNCA_impute_method.md)
   [`PKNCA_impute_method_start_cmin()`](https://humanpred.github.io/pknca/reference/PKNCA_impute_method.md)
   [`PKNCA_impute_method_start_predose()`](https://humanpred.github.io/pknca/reference/PKNCA_impute_method.md)
+  [`PKNCA_impute_method_start_predose_conc0()`](https://humanpred.github.io/pknca/reference/PKNCA_impute_method.md)
   [`PKNCA_impute_method_end_conc_drop()`](https://humanpred.github.io/pknca/reference/PKNCA_impute_method.md)
   : Methods for imputation of data with PKNCA
 
@@ -100,6 +101,9 @@
 
 - [`assert_numeric_between()`](https://humanpred.github.io/pknca/reference/assert_numeric_between.md)
   : Confirm that a value is greater than another value
+
+- [`assert_param_name()`](https://humanpred.github.io/pknca/reference/assert_param_name.md)
+  : Assert that a character vector only contains PKNCA parameter names
 
 - [`assert_unit_col()`](https://humanpred.github.io/pknca/reference/assert_unit.md)
   [`assert_unit_value()`](https://humanpred.github.io/pknca/reference/assert_unit.md)
@@ -279,6 +283,12 @@
   : Get the independent variable (right hand side of the formula) from a
   PKNCA object.
 
+- [`get_halflife_curve()`](https://humanpred.github.io/pknca/reference/get_halflife_curve.md)
+  : Interpolate and extrapolate concentrations along the half-life fit
+
+- [`get_halflife_fit()`](https://humanpred.github.io/pknca/reference/get_halflife_fit.md)
+  : Get the half-life fit line for each interval
+
 - [`get_halflife_points()`](https://humanpred.github.io/pknca/reference/get_halflife_points.md)
   : Determine which concentrations were used for half-life calculation
 
@@ -325,6 +335,15 @@
   [`interpolate_conc_log()`](https://humanpred.github.io/pknca/reference/interp_extrap_conc_method.md)
   [`extrapolate_conc_lambdaz()`](https://humanpred.github.io/pknca/reference/interp_extrap_conc_method.md)
   : Interpolate or extrapolate concentrations using the provided method
+
+- [`interval_add_impute()`](https://humanpred.github.io/pknca/reference/interval_add_impute.md)
+  [`interval_remove_impute()`](https://humanpred.github.io/pknca/reference/interval_add_impute.md)
+  : Add or remove an imputation method in the intervals of a PKNCAdata
+  object
+
+- [`interval_add_param()`](https://humanpred.github.io/pknca/reference/interval_add_param.md)
+  [`interval_remove_param()`](https://humanpred.github.io/pknca/reference/interval_add_param.md)
+  : Add or remove parameters in the intervals of a PKNCAdata object
 
 - [`is_sparse_pk()`](https://humanpred.github.io/pknca/reference/is_sparse_pk.md)
   : Is a PKNCA object used for sparse PK?
@@ -446,6 +465,12 @@
 - [`pk.calc.dn()`](https://humanpred.github.io/pknca/reference/pk.calc.dn.md)
   : Determine dose normalized NCA parameter
 
+- [`pk.calc.erint()`](https://humanpred.github.io/pknca/reference/pk.calc.erint.md)
+  : Calculate the excretion rate over the interval
+
+- [`pk.calc.erlst()`](https://humanpred.github.io/pknca/reference/pk.calc.erlst.md)
+  : Calculate the last measurable excretion rate
+
 - [`pk.calc.ermax()`](https://humanpred.github.io/pknca/reference/pk.calc.ermax.md)
   : Calculate the maximum excretion rate
 
@@ -471,6 +496,7 @@
 - [`pk.calc.mrt()`](https://humanpred.github.io/pknca/reference/pk.calc.mrt.md)
   [`pk.calc.mrt.iv()`](https://humanpred.github.io/pknca/reference/pk.calc.mrt.md)
   [`pk.calc.mrt.md()`](https://humanpred.github.io/pknca/reference/pk.calc.mrt.md)
+  [`pk.calc.mrt.md.iv()`](https://humanpred.github.io/pknca/reference/pk.calc.mrt.md)
   : Calculate the mean residence time (MRT) for single-dose data or
   linear multiple-dose data.
 
@@ -552,8 +578,31 @@
   : Convert the grouping info and list of results for each group into a
   results data.frame
 
+- [`pknca_check_parameter_classification()`](https://humanpred.github.io/pknca/reference/pknca_check_parameter_classification.md)
+  : Report parameters that PKNCA cannot classify for automatic selection
+
+- [`pknca_concept()`](https://humanpred.github.io/pknca/reference/pknca_concept.md)
+  [`` `pknca_concept<-`() ``](https://humanpred.github.io/pknca/reference/pknca_concept.md)
+  : The concept a parameter calculation function computes
+
+- [`pknca_concepts()`](https://humanpred.github.io/pknca/reference/pknca_concepts.md)
+  [`pknca_tiers()`](https://humanpred.github.io/pknca/reference/pknca_concepts.md)
+  [`pknca_routes()`](https://humanpred.github.io/pknca/reference/pknca_concepts.md)
+  [`pknca_dosing()`](https://humanpred.github.io/pknca/reference/pknca_concepts.md)
+  [`pknca_sample_types()`](https://humanpred.github.io/pknca/reference/pknca_concepts.md)
+  : Concepts, tiers, and contexts used to classify NCA parameters
+
 - [`pknca_find_units_param()`](https://humanpred.github.io/pknca/reference/pknca_find_units_param.md)
   : Find NCA parameters with a given unit type
+
+- [`pknca_interval_table()`](https://humanpred.github.io/pknca/reference/pknca_interval_table.md)
+  : Build an interval specification from a description of the analysis
+
+- [`pknca_parameter_table()`](https://humanpred.github.io/pknca/reference/pknca_parameter_table.md)
+  : How each NCA parameter is classified for interval selection
+
+- [`pknca_presets()`](https://humanpred.github.io/pknca/reference/pknca_presets.md)
+  : Named argument sets for building an interval specification
 
 - [`pknca_unit_conversion()`](https://humanpred.github.io/pknca/reference/pknca_unit_conversion.md)
   : Perform unit conversion (if possible) on PKNCA results
@@ -578,6 +627,10 @@
 
 - [`print(`*`<summary_PKNCAresults>`*`)`](https://humanpred.github.io/pknca/reference/print.summary_PKNCAresults.md)
   : Print the results summary
+
+- [`resolve_dose_tau()`](https://humanpred.github.io/pknca/reference/resolve_dose_tau.md)
+  : Determine the dosing interval (tau) to use for a calculation
+  interval
 
 - [`roundString()`](https://humanpred.github.io/pknca/reference/roundString.md)
   : Round a value to a defined number of digits printing out trailing

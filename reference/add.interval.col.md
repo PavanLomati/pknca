@@ -17,7 +17,11 @@ add.interval.col(
   formalsmap = list(),
   datatype = c("interval", "individual", "population"),
   pptestcd_cdisc = NULL,
-  pptest_cdisc = NULL
+  pptest_cdisc = NULL,
+  formula = NULL,
+  formula_note = NULL,
+  tier = "uncommon",
+  selection = NULL
 )
 ```
 
@@ -91,6 +95,64 @@ add.interval.col(
   The CDISC PPTEST name for this parameter. Can be a character string or
   a named list (same structure as `pptestcd_cdisc`). Defaults to `desc`
   if not provided.
+
+- formula:
+
+  Character value providing a LaTeX expression for how the parameter is
+  calculated. Optional and used only for documentation.
+
+- formula_note:
+
+  Character value providing additional context about the formula (e.g.
+  assumptions or method details). Displayed alongside the formula in
+  documentation tables.
+
+- tier:
+
+  How commonly the parameter is reported: `"common"` for one that
+  belongs in a default report for at least one context, or `"uncommon"`
+  (the default) for one that is calculated only when asked for by name.
+  See
+  [`pknca_tiers()`](https://humanpred.github.io/pknca/reference/pknca_concepts.md).
+
+- selection:
+
+  A named list declaring what cannot be derived about where the
+  parameter applies. Every element is optional, and the default of
+  `NULL` derives everything:
+
+  `concept`
+
+  :   The kind of quantity the parameter is (see
+      [`pknca_concepts()`](https://humanpred.github.io/pknca/reference/pknca_concepts.md)).
+      Needed only when the calculation function carries no
+      [`pknca_concept()`](https://humanpred.github.io/pknca/reference/pknca_concept.md)
+      and the concept cannot be taken from `depends`.
+
+  `route`
+
+  :   The routes of administration the parameter applies to (see
+      [`pknca_routes()`](https://humanpred.github.io/pknca/reference/pknca_concepts.md)).
+      Derived as intravenous for anything calculated from `c0` or
+      needing a dose duration, and as any route otherwise.
+
+  `dosing`
+
+  :   The dosing patterns the parameter applies to (see
+      [`pknca_dosing()`](https://humanpred.github.io/pknca/reference/pknca_concepts.md)).
+      Derived as single-dose for anything calculated from an
+      extrapolation to infinity. A declared value propagates to every
+      parameter calculated from this one.
+
+  `secondary`
+
+  :   `TRUE` for a parameter that needs inputs from more than one
+      profile, such as bioavailability, which compares two
+      administrations, or renal clearance, which needs an amount
+      excreted and a plasma AUC. One interval cannot supply those, so a
+      secondary parameter is never chosen automatically; it stays
+      available by name. A declared value propagates to every parameter
+      calculated from this one.
 
 ## Value
 
@@ -200,13 +262,29 @@ parameter names and the values should be one of the following:
 
     Route of dosing for the current group.
 
+- Constants:
+
+  - a value wrapped in [`base::I()`](https://rdrr.io/r/base/AsIs.html):
+
+    The value itself, passed to the function unchanged. Use this for an
+    argument that selects a variant of a shared calculation function
+    (for example, `auc.type = I("AUCall")`) rather than naming a data
+    source or another parameter.
+
 ## See also
 
 Other Interval specifications:
 [`check.interval.specification()`](https://humanpred.github.io/pknca/reference/check.interval.specification.md),
 [`choose.auc.intervals()`](https://humanpred.github.io/pknca/reference/choose.auc.intervals.md),
 [`get.interval.cols()`](https://humanpred.github.io/pknca/reference/get.interval.cols.md),
-[`get.parameter.deps()`](https://humanpred.github.io/pknca/reference/get.parameter.deps.md)
+[`get.parameter.deps()`](https://humanpred.github.io/pknca/reference/get.parameter.deps.md),
+[`interval_add_impute()`](https://humanpred.github.io/pknca/reference/interval_add_impute.md),
+[`interval_add_param()`](https://humanpred.github.io/pknca/reference/interval_add_param.md),
+[`pknca_check_parameter_classification()`](https://humanpred.github.io/pknca/reference/pknca_check_parameter_classification.md),
+[`pknca_concepts()`](https://humanpred.github.io/pknca/reference/pknca_concepts.md),
+[`pknca_interval_table()`](https://humanpred.github.io/pknca/reference/pknca_interval_table.md),
+[`pknca_parameter_table()`](https://humanpred.github.io/pknca/reference/pknca_parameter_table.md),
+[`pknca_presets()`](https://humanpred.github.io/pknca/reference/pknca_presets.md)
 
 ## Examples
 

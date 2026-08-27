@@ -27,6 +27,7 @@ cat(paste(
 #> * PKNCA_impute_method_start_cmin
 #> * PKNCA_impute_method_start_conc0
 #> * PKNCA_impute_method_start_predose
+#> * PKNCA_impute_method_start_predose_conc0
 ```
 
 In brief, the built-in methods work as follows:
@@ -34,12 +35,15 @@ In brief, the built-in methods work as follows:
 - `start_conc0` sets the concentration at the interval start time to 0.
   If an observation exists at the start time, its value is replaced with
   0; otherwise, a new row is added (usually used with single-dose data).
-- `start_predose` shifts the most recent observation before the interval
-  start to the interval start time. It applies only when no start-time
-  observation exists, only when a pre-start observation exists, and only
-  when the shift is no more than `max_shift` (by default, 5% of the
-  interval duration or, for intervals with an infinite end, 5% of the
-  time from the interval start to the last sample).
+- `start_predose` shifts the most recent observation with a measured
+  concentration before the interval start to the interval start time. It
+  applies only when no start-time observation exists, only when such a
+  pre-start observation exists, and only when the shift is no more than
+  `max_shift` (by default, 5% of the interval duration or, for intervals
+  with an infinite end, 5% of the time from the interval start to the
+  last sample). Observations with a missing concentration are skipped,
+  so an earlier measured observation is used when the nearest one is
+  missing.
 - `start_cmin` adds the minimum concentration within the interval at the
   interval start time when no start-time observation exists (usually
   used with multiple-dose data).
@@ -108,7 +112,9 @@ to zero, and that can remove a nonzero predose concentration, too. To
 carry a predose concentration to the start time, use `"start_predose"`
 alone; to force the start concentration to zero, use `"start_conc0"`;
 and to use the predose concentration when one exists and 0 otherwise,
-write a custom imputation method (see the “Advanced” section below).
+use `"start_predose_conc0"`. `start_predose_conc0` also keeps a
+concentration that was measured at the start time, which matters after
+an intravenous bolus dose where that measurement is the C₀ for the dose.
 
 ## Imputation for the full dataset
 
