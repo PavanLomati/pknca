@@ -43,6 +43,7 @@
     <li><a class="dropdown-item" href="../articles/v07-post-processing.html">Post-Processing</a></li>
     <li><a class="dropdown-item" href="../articles/v07-unit-conversion.html">Unit Assignment and Conversion with PKNCA</a></li>
     <li><a class="dropdown-item" href="../articles/v08-data-imputation.html">Data Imputation</a></li>
+    <li><a class="dropdown-item" href="../articles/v09-secondary-parameters.html">Secondary Parameters (Renal Clearance, Bioavailability, and Ratios)</a></li>
     <li><a class="dropdown-item" href="../articles/v20-superposition.html">Superposition of Pharmacokinetic Data</a></li>
     <li><a class="dropdown-item" href="../articles/v21-methods-for-dose-aware-interpolation-and-extrapolation.html">Methods Used for Dose-Aware Concentration Interpolation/Extrapolation</a></li>
     <li><a class="dropdown-item" href="../articles/v22-time-to-steady-state.html">Noncompartmental evaluation of time to steady-state</a></li>
@@ -462,8 +463,12 @@ statistics are calculated for each parameter are set with
 When a parameter is not requested for a given interval, it is
 illustrated with a period (<code>.</code>), by default (customizable
 with the <code>not_requested</code> argument to <code><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary()</a></code>).
-When a parameter is required to calculate another parameter, but it is
-not specifically requested, it will not be shown in the summary.</p>
+When a parameter is requested but cannot be calculated, it is
+illustrated with <code>NC</code>, by default (customizable with the
+<code>not_calculated</code> argument to <code><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary()</a></code>), and
+that abbreviation is described in the caption. When a parameter is
+required to calculate another parameter, but it is not specifically
+requested, it will not be shown in the summary.</p>
 <p>The summary will have one column for each grouping variable other
 than the subject grouping variable; one column each for the start and
 end time; and one column per parameter calculated.</p>

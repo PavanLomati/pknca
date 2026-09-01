@@ -43,6 +43,7 @@
     <li><a class="dropdown-item" href="../articles/v07-post-processing.html">Post-Processing</a></li>
     <li><a class="dropdown-item" href="../articles/v07-unit-conversion.html">Unit Assignment and Conversion with PKNCA</a></li>
     <li><a class="dropdown-item" href="../articles/v08-data-imputation.html">Data Imputation</a></li>
+    <li><a class="dropdown-item" href="../articles/v09-secondary-parameters.html">Secondary Parameters (Renal Clearance, Bioavailability, and Ratios)</a></li>
     <li><a class="dropdown-item" href="../articles/v20-superposition.html">Superposition of Pharmacokinetic Data</a></li>
     <li><a class="dropdown-item" href="../articles/v21-methods-for-dose-aware-interpolation-and-extrapolation.html">Methods Used for Dose-Aware Concentration Interpolation/Extrapolation</a></li>
     <li><a class="dropdown-item" href="../articles/v22-time-to-steady-state.html">Noncompartmental evaluation of time to steady-state</a></li>
@@ -107,8 +108,24 @@ argument. All options supported by the current version of PKNCA
 adjusted r^2 within adj.r.squared.factor of the best adjusted r^2 are
 considered acceptable, and the acceptable regression using the most data
 points is selected. It allows for more data points to be preferred in
-the calculation of half-life.</p>
+the calculation of half-life. Setting either of adj.r.squared.factor and
+r.squared.factor takes the other out of use, so exactly one of them is
+ever in use; setting this one to NA therefore selects on the other
+r-squared.</p>
 <p>The default value is: 1e-04</p>
+</div>
+<div class="section level3">
+<h3 id="r-squared-factor">r.squared.factor<a class="anchor" aria-label="anchor" href="#r-squared-factor"></a>
+</h3>
+<p>During the calculation of lambda.z, all candidate regressions with an
+r^2 within r.squared.factor of the best r^2 are considered acceptable,
+and the acceptable regression using the most data points is selected.
+Unlike the adjusted r^2, the r^2 does not reward more data points, so it
+generally selects fewer of them. Setting either of adj.r.squared.factor
+and r.squared.factor takes the other out of use, so exactly one of them
+is ever in use; setting this one to NA therefore selects on the other
+r-squared.</p>
+<p>The default value is: NA</p>
 </div>
 <div class="section level3">
 <h3 id="max-missing">max.missing<a class="anchor" aria-label="anchor" href="#max-missing"></a>
@@ -226,8 +243,20 @@ interval.</p>
 <h3 id="single-dose-aucs">single.dose.aucs<a class="anchor" aria-label="anchor" href="#single-dose-aucs"></a>
 </h3>
 <p>When data is single-dose, what intervals should be used?</p>
-<table class="table">
+<table style="width:100%;" class="table">
 <colgroup>
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
 <col width="0%">
 <col width="0%">
 <col width="0%">
@@ -465,7 +494,6 @@ interval.</p>
 <th align="left">cl.all</th>
 <th align="left">cl.int.all</th>
 <th align="left">cl.int.last</th>
-<th align="left">f</th>
 <th align="left">mrt.last</th>
 <th align="left">mrt.all</th>
 <th align="left">mrt.int.all</th>
@@ -502,6 +530,10 @@ interval.</p>
 <th align="left">ertmax</th>
 <th align="left">erint</th>
 <th align="left">erlst</th>
+<th align="left">ratio.cmax</th>
+<th align="left">ratio.auclast</th>
+<th align="left">ratio.aucint.last</th>
+<th align="left">ratio.aucint.all</th>
 <th align="left">sparse_auclast</th>
 <th align="left">sparse_auc_se</th>
 <th align="left">sparse_auc_df</th>
@@ -546,6 +578,9 @@ interval.</p>
 <th align="left">cl.ivint.all</th>
 <th align="left">cl.ivint.last</th>
 <th align="left">cl.sparse.last</th>
+<th align="left">f.last</th>
+<th align="left">f.int.last</th>
+<th align="left">f.int.all</th>
 <th align="left">mrt.sparse.last</th>
 <th align="left">mrt.iv.all</th>
 <th align="left">mrt.ivint.all</th>
@@ -592,6 +627,10 @@ interval.</p>
 <th align="left">cl.int.inf.pred</th>
 <th align="left">cl.iv.obs</th>
 <th align="left">cl.iv.pred</th>
+<th align="left">f.obs</th>
+<th align="left">f.pred</th>
+<th align="left">f.int.obs</th>
+<th align="left">f.int.pred</th>
 <th align="left">mrt.obs</th>
 <th align="left">mrt.pred</th>
 <th align="left">mrt.int.inf.obs</th>
@@ -621,6 +660,8 @@ interval.</p>
 <th align="left">vss.int.inf.pred</th>
 <th align="left">cav.int.inf.obs</th>
 <th align="left">cav.int.inf.pred</th>
+<th align="left">ratio.aucinf.obs</th>
+<th align="left">ratio.aucinf.pred</th>
 <th align="left">thalf.eff.obs</th>
 <th align="left">thalf.eff.pred</th>
 <th align="left">thalf.eff.iv.obs</th>
@@ -654,6 +695,18 @@ interval.</p>
 <td align="right">0</td>
 <td align="right">24</td>
 <td align="left">TRUE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
 <td align="left">FALSE</td>
 <td align="left">FALSE</td>
 <td align="left">FALSE</td>
@@ -944,6 +997,53 @@ interval.</p>
 <td align="left">FALSE</td>
 <td align="left">FALSE</td>
 <td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">TRUE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
 <td align="left">TRUE</td>
 <td align="left">FALSE</td>
 <td align="left">FALSE</td>
@@ -951,41 +1051,6 @@ interval.</p>
 <td align="left">FALSE</td>
 <td align="left">FALSE</td>
 <td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">TRUE</td>
 <td align="left">FALSE</td>
 <td align="left">FALSE</td>
 <td align="left">FALSE</td>

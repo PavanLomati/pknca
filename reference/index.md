@@ -345,6 +345,9 @@
   [`interval_remove_param()`](https://humanpred.github.io/pknca/reference/interval_add_param.md)
   : Add or remove parameters in the intervals of a PKNCAdata object
 
+- [`interval_add_secondary()`](https://humanpred.github.io/pknca/reference/interval_add_secondary.md)
+  : Link a secondary parameter to the interval it is calculated against
+
 - [`is_sparse_pk()`](https://humanpred.github.io/pknca/reference/is_sparse_pk.md)
   : Is a PKNCA object used for sparse PK?
 
@@ -503,6 +506,9 @@
 - [`pk.calc.ptr()`](https://humanpred.github.io/pknca/reference/pk.calc.ptr.md)
   : Determine the peak-to-trough ratio
 
+- [`pk.calc.ratio()`](https://humanpred.github.io/pknca/reference/pk.calc.ratio.md)
+  : Calculate the ratio of a parameter between two intervals
+
 - [`pk.calc.sparse_auc()`](https://humanpred.github.io/pknca/reference/pk.calc.sparse_auc.md)
   [`pk.calc.sparse_auclast()`](https://humanpred.github.io/pknca/reference/pk.calc.sparse_auc.md)
   : Calculate AUC and related parameters using sparse NCA methods
@@ -604,11 +610,21 @@
 - [`pknca_presets()`](https://humanpred.github.io/pknca/reference/pknca_presets.md)
   : Named argument sets for building an interval specification
 
+- [`pknca_ref()`](https://humanpred.github.io/pknca/reference/pknca_ref.md)
+  [`is_pknca_ref()`](https://humanpred.github.io/pknca/reference/pknca_ref.md)
+  : Mark a formalsmap entry as coming from the reference interval
+
 - [`pknca_unit_conversion()`](https://humanpred.github.io/pknca/reference/pknca_unit_conversion.md)
   : Perform unit conversion (if possible) on PKNCA results
 
+- [`pknca_unit_reconcile_factor()`](https://humanpred.github.io/pknca/reference/pknca_unit_reconcile_factor.md)
+  : Find the conversion factor between two units, when there is one
+
 - [`pknca_units_add_paren()`](https://humanpred.github.io/pknca/reference/pknca_units_add_paren.md)
   : Add parentheses to a unit value, if needed
+
+- [`pknca_units_conversion_factor()`](https://humanpred.github.io/pknca/reference/pknca_units_conversion_factor.md)
+  : Find the factor converting a value from one unit to another
 
 - [`pknca_units_table()`](https://humanpred.github.io/pknca/reference/pknca_units_table.md)
   : Create a unit assignment and conversion table

@@ -16,6 +16,7 @@
 <url><loc>https://humanpred.github.io/pknca/articles/v07-post-processing.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/articles/v07-unit-conversion.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/articles/v08-data-imputation.html</loc></url>
+<url><loc>https://humanpred.github.io/pknca/articles/v09-secondary-parameters.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/articles/v20-superposition.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/articles/v21-methods-for-dose-aware-interpolation-and-extrapolation.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/articles/v22-time-to-steady-state.html</loc></url>
@@ -115,6 +116,7 @@
 <url><loc>https://humanpred.github.io/pknca/reference/interp_extrap_conc_method.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/interval_add_impute.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/interval_add_param.html</loc></url>
+<url><loc>https://humanpred.github.io/pknca/reference/interval_add_secondary.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/interval_longer.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/is_sparse_pk.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/model.frame.PKNCAconc.html</loc></url>
@@ -152,6 +154,7 @@
 <url><loc>https://humanpred.github.io/pknca/reference/pk.calc.kel.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pk.calc.mrt.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pk.calc.ptr.html</loc></url>
+<url><loc>https://humanpred.github.io/pknca/reference/pk.calc.ratio.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pk.calc.sparse_auc.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pk.calc.sparse_aumc.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pk.calc.thalf.eff.html</loc></url>
@@ -180,8 +183,11 @@
 <url><loc>https://humanpred.github.io/pknca/reference/pknca_interval_table.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pknca_parameter_table.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pknca_presets.html</loc></url>
+<url><loc>https://humanpred.github.io/pknca/reference/pknca_ref.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pknca_unit_conversion.html</loc></url>
+<url><loc>https://humanpred.github.io/pknca/reference/pknca_unit_reconcile_factor.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pknca_units_add_paren.html</loc></url>
+<url><loc>https://humanpred.github.io/pknca/reference/pknca_units_conversion_factor.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pknca_units_table.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/print.PKNCAconc.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/print.PKNCAdata.html</loc></url>

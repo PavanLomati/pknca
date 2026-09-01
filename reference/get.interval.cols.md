@@ -25,11 +25,13 @@ Other Interval specifications:
 [`get.parameter.deps()`](https://humanpred.github.io/pknca/reference/get.parameter.deps.md),
 [`interval_add_impute()`](https://humanpred.github.io/pknca/reference/interval_add_impute.md),
 [`interval_add_param()`](https://humanpred.github.io/pknca/reference/interval_add_param.md),
+[`interval_add_secondary()`](https://humanpred.github.io/pknca/reference/interval_add_secondary.md),
 [`pknca_check_parameter_classification()`](https://humanpred.github.io/pknca/reference/pknca_check_parameter_classification.md),
 [`pknca_concepts()`](https://humanpred.github.io/pknca/reference/pknca_concepts.md),
 [`pknca_interval_table()`](https://humanpred.github.io/pknca/reference/pknca_interval_table.md),
 [`pknca_parameter_table()`](https://humanpred.github.io/pknca/reference/pknca_parameter_table.md),
-[`pknca_presets()`](https://humanpred.github.io/pknca/reference/pknca_presets.md)
+[`pknca_presets()`](https://humanpred.github.io/pknca/reference/pknca_presets.md),
+[`pknca_ref()`](https://humanpred.github.io/pknca/reference/pknca_ref.md)
 
 ## Examples
 
@@ -190,6 +192,22 @@ get.interval.cols()
 #> $auclast$requires_conc_dur
 #> [1] FALSE
 #> 
+#> $auclast$arg_spec
+#> $auclast$arg_spec$arglist
+#> $auclast$arg_spec$arglist$conc
+#> [1] "conc"
+#> 
+#> $auclast$arg_spec$arglist$time
+#> [1] "time"
+#> 
+#> $auclast$arg_spec$arglist$options
+#> [1] "options"
+#> 
+#> 
+#> $auclast$arg_spec$required
+#> [1] "conc" "time"
+#> 
+#> 
 #> 
 #> $aucall
 #> $aucall$FUN
@@ -236,6 +254,21 @@ get.interval.cols()
 #> 
 #> $aucall$selection
 #> list()
+#> 
+#> $aucall$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aucall$requires_dose_time
+#> [1] FALSE
+#> 
+#> $aucall$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucall$requires_volume
+#> [1] FALSE
+#> 
+#> $aucall$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $aumclast
@@ -284,6 +317,21 @@ get.interval.cols()
 #> $aumclast$selection
 #> list()
 #> 
+#> $aumclast$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aumclast$requires_dose_time
+#> [1] FALSE
+#> 
+#> $aumclast$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aumclast$requires_volume
+#> [1] FALSE
+#> 
+#> $aumclast$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $aumcall
 #> $aumcall$FUN
@@ -330,6 +378,21 @@ get.interval.cols()
 #> 
 #> $aumcall$selection
 #> list()
+#> 
+#> $aumcall$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aumcall$requires_dose_time
+#> [1] FALSE
+#> 
+#> $aumcall$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aumcall$requires_volume
+#> [1] FALSE
+#> 
+#> $aumcall$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $aucint.last
@@ -386,6 +449,21 @@ get.interval.cols()
 #> $aucint.last$selection
 #> list()
 #> 
+#> $aucint.last$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aucint.last$requires_dose_time
+#> [1] FALSE
+#> 
+#> $aucint.last$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucint.last$requires_volume
+#> [1] FALSE
+#> 
+#> $aucint.last$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $aucint.last.dose
 #> $aucint.last.dose$FUN
@@ -440,6 +518,21 @@ get.interval.cols()
 #> 
 #> $aucint.last.dose$selection
 #> list()
+#> 
+#> $aucint.last.dose$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aucint.last.dose$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aucint.last.dose$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucint.last.dose$requires_volume
+#> [1] FALSE
+#> 
+#> $aucint.last.dose$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $aucint.all
@@ -496,6 +589,21 @@ get.interval.cols()
 #> $aucint.all$selection
 #> list()
 #> 
+#> $aucint.all$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aucint.all$requires_dose_time
+#> [1] FALSE
+#> 
+#> $aucint.all$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucint.all$requires_volume
+#> [1] FALSE
+#> 
+#> $aucint.all$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $aucint.all.dose
 #> $aucint.all.dose$FUN
@@ -550,6 +658,21 @@ get.interval.cols()
 #> 
 #> $aucint.all.dose$selection
 #> list()
+#> 
+#> $aucint.all.dose$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aucint.all.dose$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aucint.all.dose$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucint.all.dose$requires_volume
+#> [1] FALSE
+#> 
+#> $aucint.all.dose$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $aumcint.last
@@ -606,6 +729,21 @@ get.interval.cols()
 #> $aumcint.last$selection
 #> list()
 #> 
+#> $aumcint.last$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aumcint.last$requires_dose_time
+#> [1] FALSE
+#> 
+#> $aumcint.last$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aumcint.last$requires_volume
+#> [1] FALSE
+#> 
+#> $aumcint.last$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $aumcint.last.dose
 #> $aumcint.last.dose$FUN
@@ -660,6 +798,21 @@ get.interval.cols()
 #> 
 #> $aumcint.last.dose$selection
 #> list()
+#> 
+#> $aumcint.last.dose$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aumcint.last.dose$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aumcint.last.dose$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aumcint.last.dose$requires_volume
+#> [1] FALSE
+#> 
+#> $aumcint.last.dose$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $aumcint.all
@@ -716,6 +869,21 @@ get.interval.cols()
 #> $aumcint.all$selection
 #> list()
 #> 
+#> $aumcint.all$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aumcint.all$requires_dose_time
+#> [1] FALSE
+#> 
+#> $aumcint.all$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aumcint.all$requires_volume
+#> [1] FALSE
+#> 
+#> $aumcint.all$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $aumcint.all.dose
 #> $aumcint.all.dose$FUN
@@ -771,6 +939,21 @@ get.interval.cols()
 #> $aumcint.all.dose$selection
 #> list()
 #> 
+#> $aumcint.all.dose$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aumcint.all.dose$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aumcint.all.dose$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aumcint.all.dose$requires_volume
+#> [1] FALSE
+#> 
+#> $aumcint.all.dose$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $c0
 #> $c0$FUN
@@ -817,6 +1000,21 @@ get.interval.cols()
 #> 
 #> $c0$selection
 #> list()
+#> 
+#> $c0$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $c0$requires_dose_time
+#> [1] TRUE
+#> 
+#> $c0$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $c0$requires_volume
+#> [1] FALSE
+#> 
+#> $c0$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $cmax
@@ -880,6 +1078,19 @@ get.interval.cols()
 #> $cmax$requires_conc_dur
 #> [1] FALSE
 #> 
+#> $cmax$arg_spec
+#> $cmax$arg_spec$arglist
+#> $cmax$arg_spec$arglist$conc
+#> [1] "conc"
+#> 
+#> $cmax$arg_spec$arglist$check
+#> [1] "check"
+#> 
+#> 
+#> $cmax$arg_spec$required
+#> [1] "conc"
+#> 
+#> 
 #> 
 #> $cmin
 #> $cmin$FUN
@@ -926,6 +1137,21 @@ get.interval.cols()
 #> 
 #> $cmin$selection
 #> list()
+#> 
+#> $cmin$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $cmin$requires_dose_time
+#> [1] FALSE
+#> 
+#> $cmin$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $cmin$requires_volume
+#> [1] FALSE
+#> 
+#> $cmin$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $tmax
@@ -989,6 +1215,28 @@ get.interval.cols()
 #> $tmax$requires_conc_dur
 #> [1] FALSE
 #> 
+#> $tmax$arg_spec
+#> $tmax$arg_spec$arglist
+#> $tmax$arg_spec$arglist$conc
+#> [1] "conc"
+#> 
+#> $tmax$arg_spec$arglist$time
+#> [1] "time"
+#> 
+#> $tmax$arg_spec$arglist$options
+#> [1] "options"
+#> 
+#> $tmax$arg_spec$arglist$first.tmax
+#> [1] "first.tmax"
+#> 
+#> $tmax$arg_spec$arglist$check
+#> [1] "check"
+#> 
+#> 
+#> $tmax$arg_spec$required
+#> [1] "conc" "time"
+#> 
+#> 
 #> 
 #> $tmin
 #> $tmin$FUN
@@ -1035,6 +1283,21 @@ get.interval.cols()
 #> 
 #> $tmin$selection
 #> list()
+#> 
+#> $tmin$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $tmin$requires_dose_time
+#> [1] FALSE
+#> 
+#> $tmin$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $tmin$requires_volume
+#> [1] FALSE
+#> 
+#> $tmin$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $tlast
@@ -1083,6 +1346,37 @@ get.interval.cols()
 #> $tlast$selection
 #> list()
 #> 
+#> $tlast$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $tlast$requires_dose_time
+#> [1] FALSE
+#> 
+#> $tlast$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $tlast$requires_volume
+#> [1] FALSE
+#> 
+#> $tlast$requires_conc_dur
+#> [1] FALSE
+#> 
+#> $tlast$arg_spec
+#> $tlast$arg_spec$arglist
+#> $tlast$arg_spec$arglist$conc
+#> [1] "conc"
+#> 
+#> $tlast$arg_spec$arglist$time
+#> [1] "time"
+#> 
+#> $tlast$arg_spec$arglist$check
+#> [1] "check"
+#> 
+#> 
+#> $tlast$arg_spec$required
+#> [1] "conc" "time"
+#> 
+#> 
 #> 
 #> $tfirst
 #> $tfirst$FUN
@@ -1130,6 +1424,21 @@ get.interval.cols()
 #> $tfirst$selection
 #> list()
 #> 
+#> $tfirst$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $tfirst$requires_dose_time
+#> [1] FALSE
+#> 
+#> $tfirst$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $tfirst$requires_volume
+#> [1] FALSE
+#> 
+#> $tfirst$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $clast.obs
 #> $clast.obs$FUN
@@ -1176,6 +1485,37 @@ get.interval.cols()
 #> 
 #> $clast.obs$selection
 #> list()
+#> 
+#> $clast.obs$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $clast.obs$requires_dose_time
+#> [1] FALSE
+#> 
+#> $clast.obs$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $clast.obs$requires_volume
+#> [1] FALSE
+#> 
+#> $clast.obs$requires_conc_dur
+#> [1] FALSE
+#> 
+#> $clast.obs$arg_spec
+#> $clast.obs$arg_spec$arglist
+#> $clast.obs$arg_spec$arglist$conc
+#> [1] "conc"
+#> 
+#> $clast.obs$arg_spec$arglist$time
+#> [1] "time"
+#> 
+#> $clast.obs$arg_spec$arglist$check
+#> [1] "check"
+#> 
+#> 
+#> $clast.obs$arg_spec$required
+#> [1] "conc" "time"
+#> 
 #> 
 #> 
 #> $cl.last
@@ -1240,6 +1580,21 @@ get.interval.cols()
 #> $cl.last$selection
 #> list()
 #> 
+#> $cl.last$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $cl.last$requires_dose_time
+#> [1] FALSE
+#> 
+#> $cl.last$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $cl.last$requires_volume
+#> [1] FALSE
+#> 
+#> $cl.last$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $cl.all
 #> $cl.all$FUN
@@ -1303,6 +1658,21 @@ get.interval.cols()
 #> $cl.all$selection
 #> list()
 #> 
+#> $cl.all$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $cl.all$requires_dose_time
+#> [1] FALSE
+#> 
+#> $cl.all$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $cl.all$requires_volume
+#> [1] FALSE
+#> 
+#> $cl.all$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $cl.int.all
 #> $cl.int.all$FUN
@@ -1351,6 +1721,21 @@ get.interval.cols()
 #> 
 #> $cl.int.all$selection
 #> list()
+#> 
+#> $cl.int.all$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $cl.int.all$requires_dose_time
+#> [1] FALSE
+#> 
+#> $cl.int.all$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $cl.int.all$requires_volume
+#> [1] FALSE
+#> 
+#> $cl.int.all$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $cl.int.last
@@ -1401,54 +1786,20 @@ get.interval.cols()
 #> $cl.int.last$selection
 #> list()
 #> 
-#> 
-#> $f
-#> $f$FUN
-#> [1] "pk.calc.f"
-#> 
-#> $f$values
-#> [1] FALSE  TRUE
-#> 
-#> $f$unit_type
-#> [1] "fraction"
-#> 
-#> $f$pretty_name
-#> [1] "Bioavailability"
-#> 
-#> $f$desc
-#> [1] "Bioavailability (absolute or relative)"
-#> 
-#> $f$sparse
-#> [1] FALSE
-#> 
-#> $f$formalsmap
-#> list()
-#> 
-#> $f$depends
-#> NULL
-#> 
-#> $f$datatype
-#> [1] "interval"
-#> 
-#> $f$pptestcd_cdisc
-#> [1] "FAB"
-#> 
-#> $f$pptest_cdisc
-#> [1] "Absolute Bioavailability"
-#> 
-#> $f$formula
-#> [1] "$F = \\frac{AUC_2 / Dose_2}{AUC_1 / Dose_1}$"
-#> 
-#> $f$formula_note
-#> NULL
-#> 
-#> $f$tier
-#> [1] "uncommon"
-#> 
-#> $f$selection
-#> $f$selection$secondary
+#> $cl.int.last$requires_dose_amt
 #> [1] TRUE
 #> 
+#> $cl.int.last$requires_dose_time
+#> [1] FALSE
+#> 
+#> $cl.int.last$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $cl.int.last$requires_volume
+#> [1] FALSE
+#> 
+#> $cl.int.last$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $mrt.last
@@ -1516,6 +1867,21 @@ get.interval.cols()
 #> $mrt.last$selection
 #> list()
 #> 
+#> $mrt.last$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $mrt.last$requires_dose_time
+#> [1] FALSE
+#> 
+#> $mrt.last$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $mrt.last$requires_volume
+#> [1] FALSE
+#> 
+#> $mrt.last$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $mrt.all
 #> $mrt.all$FUN
@@ -1567,6 +1933,21 @@ get.interval.cols()
 #> 
 #> $mrt.all$selection
 #> list()
+#> 
+#> $mrt.all$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $mrt.all$requires_dose_time
+#> [1] FALSE
+#> 
+#> $mrt.all$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $mrt.all$requires_volume
+#> [1] FALSE
+#> 
+#> $mrt.all$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $mrt.int.all
@@ -1620,6 +2001,21 @@ get.interval.cols()
 #> $mrt.int.all$selection
 #> list()
 #> 
+#> $mrt.int.all$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $mrt.int.all$requires_dose_time
+#> [1] FALSE
+#> 
+#> $mrt.int.all$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $mrt.int.all$requires_volume
+#> [1] FALSE
+#> 
+#> $mrt.int.all$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $mrt.int.last
 #> $mrt.int.last$FUN
@@ -1672,6 +2068,21 @@ get.interval.cols()
 #> $mrt.int.last$selection
 #> list()
 #> 
+#> $mrt.int.last$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $mrt.int.last$requires_dose_time
+#> [1] FALSE
+#> 
+#> $mrt.int.last$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $mrt.int.last$requires_volume
+#> [1] FALSE
+#> 
+#> $mrt.int.last$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $mrt.iv.last
 #> $mrt.iv.last$FUN
@@ -1723,6 +2134,21 @@ get.interval.cols()
 #> 
 #> $mrt.iv.last$selection
 #> list()
+#> 
+#> $mrt.iv.last$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $mrt.iv.last$requires_dose_time
+#> [1] FALSE
+#> 
+#> $mrt.iv.last$requires_dose_dur
+#> [1] TRUE
+#> 
+#> $mrt.iv.last$requires_volume
+#> [1] FALSE
+#> 
+#> $mrt.iv.last$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $vss.last
@@ -1790,6 +2216,21 @@ get.interval.cols()
 #> $vss.last$selection
 #> list()
 #> 
+#> $vss.last$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $vss.last$requires_dose_time
+#> [1] FALSE
+#> 
+#> $vss.last$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $vss.last$requires_volume
+#> [1] FALSE
+#> 
+#> $vss.last$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $vss.iv.last
 #> $vss.iv.last$FUN
@@ -1841,6 +2282,21 @@ get.interval.cols()
 #> 
 #> $vss.iv.last$selection
 #> list()
+#> 
+#> $vss.iv.last$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $vss.iv.last$requires_dose_time
+#> [1] FALSE
+#> 
+#> $vss.iv.last$requires_dose_dur
+#> [1] TRUE
+#> 
+#> $vss.iv.last$requires_volume
+#> [1] FALSE
+#> 
+#> $vss.iv.last$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $vss.all
@@ -1894,6 +2350,21 @@ get.interval.cols()
 #> $vss.all$selection
 #> list()
 #> 
+#> $vss.all$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $vss.all$requires_dose_time
+#> [1] FALSE
+#> 
+#> $vss.all$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $vss.all$requires_volume
+#> [1] FALSE
+#> 
+#> $vss.all$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $vss.int.all
 #> $vss.int.all$FUN
@@ -1945,6 +2416,21 @@ get.interval.cols()
 #> 
 #> $vss.int.all$selection
 #> list()
+#> 
+#> $vss.int.all$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $vss.int.all$requires_dose_time
+#> [1] FALSE
+#> 
+#> $vss.int.all$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $vss.int.all$requires_volume
+#> [1] FALSE
+#> 
+#> $vss.int.all$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $vss.int.last
@@ -1998,6 +2484,21 @@ get.interval.cols()
 #> $vss.int.last$selection
 #> list()
 #> 
+#> $vss.int.last$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $vss.int.last$requires_dose_time
+#> [1] FALSE
+#> 
+#> $vss.int.last$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $vss.int.last$requires_volume
+#> [1] FALSE
+#> 
+#> $vss.int.last$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $cav
 #> $cav$FUN
@@ -2046,6 +2547,21 @@ get.interval.cols()
 #> 
 #> $cav$selection
 #> list()
+#> 
+#> $cav$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $cav$requires_dose_time
+#> [1] FALSE
+#> 
+#> $cav$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $cav$requires_volume
+#> [1] FALSE
+#> 
+#> $cav$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $cav.int.last
@@ -2096,6 +2612,21 @@ get.interval.cols()
 #> $cav.int.last$selection
 #> list()
 #> 
+#> $cav.int.last$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $cav.int.last$requires_dose_time
+#> [1] FALSE
+#> 
+#> $cav.int.last$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $cav.int.last$requires_volume
+#> [1] FALSE
+#> 
+#> $cav.int.last$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $cav.int.all
 #> $cav.int.all$FUN
@@ -2144,6 +2675,21 @@ get.interval.cols()
 #> 
 #> $cav.int.all$selection
 #> list()
+#> 
+#> $cav.int.all$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $cav.int.all$requires_dose_time
+#> [1] FALSE
+#> 
+#> $cav.int.all$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $cav.int.all$requires_volume
+#> [1] FALSE
+#> 
+#> $cav.int.all$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $ctrough
@@ -2194,6 +2740,21 @@ get.interval.cols()
 #> [1] "multiple"     "steady_state"
 #> 
 #> 
+#> $ctrough$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $ctrough$requires_dose_time
+#> [1] FALSE
+#> 
+#> $ctrough$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $ctrough$requires_volume
+#> [1] FALSE
+#> 
+#> $ctrough$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $cstart
 #> $cstart$FUN
@@ -2241,6 +2802,21 @@ get.interval.cols()
 #> $cstart$selection
 #> list()
 #> 
+#> $cstart$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $cstart$requires_dose_time
+#> [1] FALSE
+#> 
+#> $cstart$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $cstart$requires_volume
+#> [1] FALSE
+#> 
+#> $cstart$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $ptr
 #> $ptr$FUN
@@ -2287,6 +2863,21 @@ get.interval.cols()
 #> 
 #> $ptr$selection
 #> list()
+#> 
+#> $ptr$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $ptr$requires_dose_time
+#> [1] FALSE
+#> 
+#> $ptr$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $ptr$requires_volume
+#> [1] FALSE
+#> 
+#> $ptr$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $tlag
@@ -2337,6 +2928,21 @@ get.interval.cols()
 #> [1] "extravascular"
 #> 
 #> 
+#> $tlag$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $tlag$requires_dose_time
+#> [1] FALSE
+#> 
+#> $tlag$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $tlag$requires_volume
+#> [1] FALSE
+#> 
+#> $tlag$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $deg.fluc
 #> $deg.fluc$FUN
@@ -2385,6 +2991,21 @@ get.interval.cols()
 #> $deg.fluc$selection$dosing
 #> [1] "multiple"     "steady_state"
 #> 
+#> 
+#> $deg.fluc$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $deg.fluc$requires_dose_time
+#> [1] FALSE
+#> 
+#> $deg.fluc$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $deg.fluc$requires_volume
+#> [1] FALSE
+#> 
+#> $deg.fluc$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $swing
@@ -2435,6 +3056,21 @@ get.interval.cols()
 #> [1] "multiple"     "steady_state"
 #> 
 #> 
+#> $swing$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $swing$requires_dose_time
+#> [1] FALSE
+#> 
+#> $swing$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $swing$requires_volume
+#> [1] FALSE
+#> 
+#> $swing$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $ceoi
 #> $ceoi$FUN
@@ -2483,6 +3119,21 @@ get.interval.cols()
 #> $ceoi$selection$route
 #> [1] "iv_infusion"
 #> 
+#> 
+#> $ceoi$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $ceoi$requires_dose_time
+#> [1] FALSE
+#> 
+#> $ceoi$requires_dose_dur
+#> [1] TRUE
+#> 
+#> $ceoi$requires_volume
+#> [1] FALSE
+#> 
+#> $ceoi$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $aucabove.predose.all
@@ -2533,6 +3184,21 @@ get.interval.cols()
 #> $aucabove.predose.all$selection
 #> list()
 #> 
+#> $aucabove.predose.all$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aucabove.predose.all$requires_dose_time
+#> [1] FALSE
+#> 
+#> $aucabove.predose.all$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucabove.predose.all$requires_volume
+#> [1] FALSE
+#> 
+#> $aucabove.predose.all$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $aucabove.trough.all
 #> $aucabove.trough.all$FUN
@@ -2582,6 +3248,21 @@ get.interval.cols()
 #> $aucabove.trough.all$selection
 #> list()
 #> 
+#> $aucabove.trough.all$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aucabove.trough.all$requires_dose_time
+#> [1] FALSE
+#> 
+#> $aucabove.trough.all$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucabove.trough.all$requires_volume
+#> [1] FALSE
+#> 
+#> $aucabove.trough.all$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $count_conc
 #> $count_conc$FUN
@@ -2628,6 +3309,21 @@ get.interval.cols()
 #> 
 #> $count_conc$selection
 #> list()
+#> 
+#> $count_conc$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $count_conc$requires_dose_time
+#> [1] FALSE
+#> 
+#> $count_conc$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $count_conc$requires_volume
+#> [1] FALSE
+#> 
+#> $count_conc$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $count_conc_measured
@@ -2676,6 +3372,21 @@ get.interval.cols()
 #> $count_conc_measured$selection
 #> list()
 #> 
+#> $count_conc_measured$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $count_conc_measured$requires_dose_time
+#> [1] FALSE
+#> 
+#> $count_conc_measured$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $count_conc_measured$requires_volume
+#> [1] FALSE
+#> 
+#> $count_conc_measured$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $totdose
 #> $totdose$FUN
@@ -2722,6 +3433,21 @@ get.interval.cols()
 #> 
 #> $totdose$selection
 #> list()
+#> 
+#> $totdose$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $totdose$requires_dose_time
+#> [1] FALSE
+#> 
+#> $totdose$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $totdose$requires_volume
+#> [1] FALSE
+#> 
+#> $totdose$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $volpk
@@ -2770,6 +3496,21 @@ get.interval.cols()
 #> $volpk$selection
 #> list()
 #> 
+#> $volpk$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $volpk$requires_dose_time
+#> [1] FALSE
+#> 
+#> $volpk$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $volpk$requires_volume
+#> [1] TRUE
+#> 
+#> $volpk$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $ae
 #> $ae$FUN
@@ -2817,6 +3558,21 @@ get.interval.cols()
 #> $ae$selection
 #> list()
 #> 
+#> $ae$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $ae$requires_dose_time
+#> [1] FALSE
+#> 
+#> $ae$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $ae$requires_volume
+#> [1] TRUE
+#> 
+#> $ae$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $clr.last
 #> $clr.last$FUN
@@ -2839,7 +3595,11 @@ get.interval.cols()
 #> 
 #> $clr.last$formalsmap
 #> $clr.last$formalsmap$auc
+#> $param
 #> [1] "auclast"
+#> 
+#> attr(,"class")
+#> [1] "pknca_ref"
 #> 
 #> 
 #> $clr.last$depends
@@ -2868,6 +3628,21 @@ get.interval.cols()
 #> [1] TRUE
 #> 
 #> 
+#> $clr.last$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $clr.last$requires_dose_time
+#> [1] FALSE
+#> 
+#> $clr.last$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $clr.last$requires_volume
+#> [1] TRUE
+#> 
+#> $clr.last$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $clr.obs
 #> $clr.obs$FUN
@@ -2890,7 +3665,11 @@ get.interval.cols()
 #> 
 #> $clr.obs$formalsmap
 #> $clr.obs$formalsmap$auc
+#> $param
 #> [1] "aucinf.obs"
+#> 
+#> attr(,"class")
+#> [1] "pknca_ref"
 #> 
 #> 
 #> $clr.obs$depends
@@ -2919,6 +3698,21 @@ get.interval.cols()
 #> [1] TRUE
 #> 
 #> 
+#> $clr.obs$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $clr.obs$requires_dose_time
+#> [1] FALSE
+#> 
+#> $clr.obs$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $clr.obs$requires_volume
+#> [1] TRUE
+#> 
+#> $clr.obs$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $clr.pred
 #> $clr.pred$FUN
@@ -2941,7 +3735,11 @@ get.interval.cols()
 #> 
 #> $clr.pred$formalsmap
 #> $clr.pred$formalsmap$auc
+#> $param
 #> [1] "aucinf.pred"
+#> 
+#> attr(,"class")
+#> [1] "pknca_ref"
 #> 
 #> 
 #> $clr.pred$depends
@@ -2969,6 +3767,21 @@ get.interval.cols()
 #> $clr.pred$selection$secondary
 #> [1] TRUE
 #> 
+#> 
+#> $clr.pred$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $clr.pred$requires_dose_time
+#> [1] FALSE
+#> 
+#> $clr.pred$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $clr.pred$requires_volume
+#> [1] TRUE
+#> 
+#> $clr.pred$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $fe
@@ -3017,6 +3830,21 @@ get.interval.cols()
 #> $fe$selection
 #> list()
 #> 
+#> $fe$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $fe$requires_dose_time
+#> [1] FALSE
+#> 
+#> $fe$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $fe$requires_volume
+#> [1] TRUE
+#> 
+#> $fe$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $ertlst
 #> $ertlst$FUN
@@ -3063,6 +3891,21 @@ get.interval.cols()
 #> 
 #> $ertlst$selection
 #> list()
+#> 
+#> $ertlst$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $ertlst$requires_dose_time
+#> [1] FALSE
+#> 
+#> $ertlst$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $ertlst$requires_volume
+#> [1] TRUE
+#> 
+#> $ertlst$requires_conc_dur
+#> [1] TRUE
 #> 
 #> 
 #> $ermax
@@ -3111,6 +3954,21 @@ get.interval.cols()
 #> $ermax$selection
 #> list()
 #> 
+#> $ermax$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $ermax$requires_dose_time
+#> [1] FALSE
+#> 
+#> $ermax$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $ermax$requires_volume
+#> [1] TRUE
+#> 
+#> $ermax$requires_conc_dur
+#> [1] TRUE
+#> 
 #> 
 #> $ertmax
 #> $ertmax$FUN
@@ -3157,6 +4015,21 @@ get.interval.cols()
 #> 
 #> $ertmax$selection
 #> list()
+#> 
+#> $ertmax$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $ertmax$requires_dose_time
+#> [1] FALSE
+#> 
+#> $ertmax$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $ertmax$requires_volume
+#> [1] TRUE
+#> 
+#> $ertmax$requires_conc_dur
+#> [1] TRUE
 #> 
 #> 
 #> $erint
@@ -3205,6 +4078,21 @@ get.interval.cols()
 #> $erint$selection
 #> list()
 #> 
+#> $erint$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $erint$requires_dose_time
+#> [1] FALSE
+#> 
+#> $erint$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $erint$requires_volume
+#> [1] TRUE
+#> 
+#> $erint$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $erlst
 #> $erlst$FUN
@@ -3251,6 +4139,313 @@ get.interval.cols()
 #> 
 #> $erlst$selection
 #> list()
+#> 
+#> $erlst$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $erlst$requires_dose_time
+#> [1] FALSE
+#> 
+#> $erlst$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $erlst$requires_volume
+#> [1] TRUE
+#> 
+#> $erlst$requires_conc_dur
+#> [1] TRUE
+#> 
+#> 
+#> $ratio.cmax
+#> $ratio.cmax$FUN
+#> [1] "pk.calc.ratio"
+#> 
+#> $ratio.cmax$values
+#> [1] FALSE  TRUE
+#> 
+#> $ratio.cmax$unit_type
+#> [1] "fraction"
+#> 
+#> $ratio.cmax$pretty_name
+#> [1] "Ratio of Cmax to reference"
+#> 
+#> $ratio.cmax$desc
+#> [1] "Ratio of Cmax to reference"
+#> 
+#> $ratio.cmax$sparse
+#> [1] FALSE
+#> 
+#> $ratio.cmax$formalsmap
+#> $ratio.cmax$formalsmap$test
+#> [1] "cmax"
+#> 
+#> $ratio.cmax$formalsmap$reference
+#> $param
+#> [1] "cmax"
+#> 
+#> attr(,"class")
+#> [1] "pknca_ref"
+#> 
+#> 
+#> $ratio.cmax$depends
+#> [1] "cmax"
+#> 
+#> $ratio.cmax$datatype
+#> [1] "interval"
+#> 
+#> $ratio.cmax$pptestcd_cdisc
+#> [1] "ratio.cmax"
+#> 
+#> $ratio.cmax$pptest_cdisc
+#> [1] "Ratio of Cmax to Reference"
+#> 
+#> $ratio.cmax$formula
+#> NULL
+#> 
+#> $ratio.cmax$formula_note
+#> NULL
+#> 
+#> $ratio.cmax$tier
+#> [1] "uncommon"
+#> 
+#> $ratio.cmax$selection
+#> $ratio.cmax$selection$concept
+#> [1] "parameter_ratio"
+#> 
+#> 
+#> $ratio.cmax$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $ratio.cmax$requires_dose_time
+#> [1] FALSE
+#> 
+#> $ratio.cmax$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $ratio.cmax$requires_volume
+#> [1] FALSE
+#> 
+#> $ratio.cmax$requires_conc_dur
+#> [1] FALSE
+#> 
+#> 
+#> $ratio.auclast
+#> $ratio.auclast$FUN
+#> [1] "pk.calc.ratio"
+#> 
+#> $ratio.auclast$values
+#> [1] FALSE  TRUE
+#> 
+#> $ratio.auclast$unit_type
+#> [1] "fraction"
+#> 
+#> $ratio.auclast$pretty_name
+#> [1] "Ratio of AUClast to reference"
+#> 
+#> $ratio.auclast$desc
+#> [1] "Ratio of AUClast to reference"
+#> 
+#> $ratio.auclast$sparse
+#> [1] FALSE
+#> 
+#> $ratio.auclast$formalsmap
+#> $ratio.auclast$formalsmap$test
+#> [1] "auclast"
+#> 
+#> $ratio.auclast$formalsmap$reference
+#> $param
+#> [1] "auclast"
+#> 
+#> attr(,"class")
+#> [1] "pknca_ref"
+#> 
+#> 
+#> $ratio.auclast$depends
+#> [1] "auclast"
+#> 
+#> $ratio.auclast$datatype
+#> [1] "interval"
+#> 
+#> $ratio.auclast$pptestcd_cdisc
+#> [1] "ratio.auclast"
+#> 
+#> $ratio.auclast$pptest_cdisc
+#> [1] "Ratio of AUClast to Reference"
+#> 
+#> $ratio.auclast$formula
+#> NULL
+#> 
+#> $ratio.auclast$formula_note
+#> NULL
+#> 
+#> $ratio.auclast$tier
+#> [1] "uncommon"
+#> 
+#> $ratio.auclast$selection
+#> $ratio.auclast$selection$concept
+#> [1] "parameter_ratio"
+#> 
+#> 
+#> $ratio.auclast$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $ratio.auclast$requires_dose_time
+#> [1] FALSE
+#> 
+#> $ratio.auclast$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $ratio.auclast$requires_volume
+#> [1] FALSE
+#> 
+#> $ratio.auclast$requires_conc_dur
+#> [1] FALSE
+#> 
+#> 
+#> $ratio.aucint.last
+#> $ratio.aucint.last$FUN
+#> [1] "pk.calc.ratio"
+#> 
+#> $ratio.aucint.last$values
+#> [1] FALSE  TRUE
+#> 
+#> $ratio.aucint.last$unit_type
+#> [1] "fraction"
+#> 
+#> $ratio.aucint.last$pretty_name
+#> [1] "Ratio of AUCint,last to reference"
+#> 
+#> $ratio.aucint.last$desc
+#> [1] "Ratio of AUCint,last to reference"
+#> 
+#> $ratio.aucint.last$sparse
+#> [1] FALSE
+#> 
+#> $ratio.aucint.last$formalsmap
+#> $ratio.aucint.last$formalsmap$test
+#> [1] "aucint.last"
+#> 
+#> $ratio.aucint.last$formalsmap$reference
+#> $param
+#> [1] "aucint.last"
+#> 
+#> attr(,"class")
+#> [1] "pknca_ref"
+#> 
+#> 
+#> $ratio.aucint.last$depends
+#> [1] "aucint.last"
+#> 
+#> $ratio.aucint.last$datatype
+#> [1] "interval"
+#> 
+#> $ratio.aucint.last$pptestcd_cdisc
+#> [1] "ratio.aucint.last"
+#> 
+#> $ratio.aucint.last$pptest_cdisc
+#> [1] "Ratio of AUCint,last to Reference"
+#> 
+#> $ratio.aucint.last$formula
+#> NULL
+#> 
+#> $ratio.aucint.last$formula_note
+#> NULL
+#> 
+#> $ratio.aucint.last$tier
+#> [1] "uncommon"
+#> 
+#> $ratio.aucint.last$selection
+#> $ratio.aucint.last$selection$concept
+#> [1] "parameter_ratio"
+#> 
+#> 
+#> $ratio.aucint.last$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $ratio.aucint.last$requires_dose_time
+#> [1] FALSE
+#> 
+#> $ratio.aucint.last$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $ratio.aucint.last$requires_volume
+#> [1] FALSE
+#> 
+#> $ratio.aucint.last$requires_conc_dur
+#> [1] FALSE
+#> 
+#> 
+#> $ratio.aucint.all
+#> $ratio.aucint.all$FUN
+#> [1] "pk.calc.ratio"
+#> 
+#> $ratio.aucint.all$values
+#> [1] FALSE  TRUE
+#> 
+#> $ratio.aucint.all$unit_type
+#> [1] "fraction"
+#> 
+#> $ratio.aucint.all$pretty_name
+#> [1] "Ratio of AUCint,all to reference"
+#> 
+#> $ratio.aucint.all$desc
+#> [1] "Ratio of AUCint,all to reference"
+#> 
+#> $ratio.aucint.all$sparse
+#> [1] FALSE
+#> 
+#> $ratio.aucint.all$formalsmap
+#> $ratio.aucint.all$formalsmap$test
+#> [1] "aucint.all"
+#> 
+#> $ratio.aucint.all$formalsmap$reference
+#> $param
+#> [1] "aucint.all"
+#> 
+#> attr(,"class")
+#> [1] "pknca_ref"
+#> 
+#> 
+#> $ratio.aucint.all$depends
+#> [1] "aucint.all"
+#> 
+#> $ratio.aucint.all$datatype
+#> [1] "interval"
+#> 
+#> $ratio.aucint.all$pptestcd_cdisc
+#> [1] "ratio.aucint.all"
+#> 
+#> $ratio.aucint.all$pptest_cdisc
+#> [1] "Ratio of AUCint,all to Reference"
+#> 
+#> $ratio.aucint.all$formula
+#> NULL
+#> 
+#> $ratio.aucint.all$formula_note
+#> NULL
+#> 
+#> $ratio.aucint.all$tier
+#> [1] "uncommon"
+#> 
+#> $ratio.aucint.all$selection
+#> $ratio.aucint.all$selection$concept
+#> [1] "parameter_ratio"
+#> 
+#> 
+#> $ratio.aucint.all$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $ratio.aucint.all$requires_dose_time
+#> [1] FALSE
+#> 
+#> $ratio.aucint.all$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $ratio.aucint.all$requires_volume
+#> [1] FALSE
+#> 
+#> $ratio.aucint.all$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $sparse_auclast
@@ -3299,6 +4494,21 @@ get.interval.cols()
 #> $sparse_auclast$selection
 #> list()
 #> 
+#> $sparse_auclast$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $sparse_auclast$requires_dose_time
+#> [1] FALSE
+#> 
+#> $sparse_auclast$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $sparse_auclast$requires_volume
+#> [1] FALSE
+#> 
+#> $sparse_auclast$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $sparse_auc_se
 #> $sparse_auc_se$FUN
@@ -3345,6 +4555,21 @@ get.interval.cols()
 #> 
 #> $sparse_auc_se$selection
 #> list()
+#> 
+#> $sparse_auc_se$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $sparse_auc_se$requires_dose_time
+#> [1] FALSE
+#> 
+#> $sparse_auc_se$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $sparse_auc_se$requires_volume
+#> [1] FALSE
+#> 
+#> $sparse_auc_se$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $sparse_auc_df
@@ -3393,6 +4618,21 @@ get.interval.cols()
 #> $sparse_auc_df$selection
 #> list()
 #> 
+#> $sparse_auc_df$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $sparse_auc_df$requires_dose_time
+#> [1] FALSE
+#> 
+#> $sparse_auc_df$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $sparse_auc_df$requires_volume
+#> [1] FALSE
+#> 
+#> $sparse_auc_df$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $sparse_aumclast
 #> $sparse_aumclast$FUN
@@ -3439,6 +4679,21 @@ get.interval.cols()
 #> 
 #> $sparse_aumclast$selection
 #> list()
+#> 
+#> $sparse_aumclast$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $sparse_aumclast$requires_dose_time
+#> [1] FALSE
+#> 
+#> $sparse_aumclast$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $sparse_aumclast$requires_volume
+#> [1] FALSE
+#> 
+#> $sparse_aumclast$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $sparse_aumc_se
@@ -3487,6 +4742,21 @@ get.interval.cols()
 #> $sparse_aumc_se$selection
 #> list()
 #> 
+#> $sparse_aumc_se$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $sparse_aumc_se$requires_dose_time
+#> [1] FALSE
+#> 
+#> $sparse_aumc_se$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $sparse_aumc_se$requires_volume
+#> [1] FALSE
+#> 
+#> $sparse_aumc_se$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $sparse_aumc_df
 #> $sparse_aumc_df$FUN
@@ -3534,6 +4804,21 @@ get.interval.cols()
 #> $sparse_aumc_df$selection
 #> list()
 #> 
+#> $sparse_aumc_df$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $sparse_aumc_df$requires_dose_time
+#> [1] FALSE
+#> 
+#> $sparse_aumc_df$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $sparse_aumc_df$requires_volume
+#> [1] FALSE
+#> 
+#> $sparse_aumc_df$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $time_above
 #> $time_above$FUN
@@ -3580,6 +4865,21 @@ get.interval.cols()
 #> 
 #> $time_above$selection
 #> list()
+#> 
+#> $time_above$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $time_above$requires_dose_time
+#> [1] FALSE
+#> 
+#> $time_above$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $time_above$requires_volume
+#> [1] FALSE
+#> 
+#> $time_above$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $aucivlast
@@ -3639,6 +4939,21 @@ get.interval.cols()
 #> $aucivlast$selection
 #> list()
 #> 
+#> $aucivlast$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aucivlast$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aucivlast$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucivlast$requires_volume
+#> [1] FALSE
+#> 
+#> $aucivlast$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $aucivall
 #> $aucivall$FUN
@@ -3696,6 +5011,21 @@ get.interval.cols()
 #> 
 #> $aucivall$selection
 #> list()
+#> 
+#> $aucivall$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aucivall$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aucivall$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucivall$requires_volume
+#> [1] FALSE
+#> 
+#> $aucivall$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $aucivint.last
@@ -3755,6 +5085,21 @@ get.interval.cols()
 #> $aucivint.last$selection
 #> list()
 #> 
+#> $aucivint.last$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aucivint.last$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aucivint.last$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucivint.last$requires_volume
+#> [1] FALSE
+#> 
+#> $aucivint.last$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $aucivint.all
 #> $aucivint.all$FUN
@@ -3813,6 +5158,21 @@ get.interval.cols()
 #> $aucivint.all$selection
 #> list()
 #> 
+#> $aucivint.all$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aucivint.all$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aucivint.all$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucivint.all$requires_volume
+#> [1] FALSE
+#> 
+#> $aucivint.all$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $aucivpbextlast
 #> $aucivpbextlast$FUN
@@ -3864,6 +5224,21 @@ get.interval.cols()
 #> 
 #> $aucivpbextlast$selection
 #> list()
+#> 
+#> $aucivpbextlast$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aucivpbextlast$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aucivpbextlast$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucivpbextlast$requires_volume
+#> [1] FALSE
+#> 
+#> $aucivpbextlast$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $aucivpbextall
@@ -3917,6 +5292,21 @@ get.interval.cols()
 #> $aucivpbextall$selection
 #> list()
 #> 
+#> $aucivpbextall$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aucivpbextall$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aucivpbextall$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucivpbextall$requires_volume
+#> [1] FALSE
+#> 
+#> $aucivpbextall$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $aucivpbextint.last
 #> $aucivpbextint.last$FUN
@@ -3969,6 +5359,21 @@ get.interval.cols()
 #> $aucivpbextint.last$selection
 #> list()
 #> 
+#> $aucivpbextint.last$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aucivpbextint.last$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aucivpbextint.last$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucivpbextint.last$requires_volume
+#> [1] FALSE
+#> 
+#> $aucivpbextint.last$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $aucivpbextint.all
 #> $aucivpbextint.all$FUN
@@ -4020,6 +5425,21 @@ get.interval.cols()
 #> 
 #> $aucivpbextint.all$selection
 #> list()
+#> 
+#> $aucivpbextint.all$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aucivpbextint.all$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aucivpbextint.all$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucivpbextint.all$requires_volume
+#> [1] FALSE
+#> 
+#> $aucivpbextint.all$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $aumcivlast
@@ -4079,6 +5499,21 @@ get.interval.cols()
 #> $aumcivlast$selection
 #> list()
 #> 
+#> $aumcivlast$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aumcivlast$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aumcivlast$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aumcivlast$requires_volume
+#> [1] FALSE
+#> 
+#> $aumcivlast$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $aumcivall
 #> $aumcivall$FUN
@@ -4136,6 +5571,21 @@ get.interval.cols()
 #> 
 #> $aumcivall$selection
 #> list()
+#> 
+#> $aumcivall$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aumcivall$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aumcivall$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aumcivall$requires_volume
+#> [1] FALSE
+#> 
+#> $aumcivall$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $aumcivint.last
@@ -4195,6 +5645,21 @@ get.interval.cols()
 #> $aumcivint.last$selection
 #> list()
 #> 
+#> $aumcivint.last$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aumcivint.last$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aumcivint.last$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aumcivint.last$requires_volume
+#> [1] FALSE
+#> 
+#> $aumcivint.last$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $aumcivint.all
 #> $aumcivint.all$FUN
@@ -4252,6 +5717,21 @@ get.interval.cols()
 #> 
 #> $aumcivint.all$selection
 #> list()
+#> 
+#> $aumcivint.all$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aumcivint.all$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aumcivint.all$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aumcivint.all$requires_volume
+#> [1] FALSE
+#> 
+#> $aumcivint.all$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $half.life
@@ -4315,6 +5795,73 @@ get.interval.cols()
 #> $half.life$requires_conc_dur
 #> [1] FALSE
 #> 
+#> $half.life$arg_spec
+#> $half.life$arg_spec$arglist
+#> $half.life$arg_spec$arglist$conc
+#> [1] "conc"
+#> 
+#> $half.life$arg_spec$arglist$time
+#> [1] "time"
+#> 
+#> $half.life$arg_spec$arglist$tmax
+#> [1] "tmax"
+#> 
+#> $half.life$arg_spec$arglist$tlast
+#> [1] "tlast"
+#> 
+#> $half.life$arg_spec$arglist$time.dose
+#> [1] "time.dose"
+#> 
+#> $half.life$arg_spec$arglist$duration.dose
+#> [1] "duration.dose"
+#> 
+#> $half.life$arg_spec$arglist$lloq
+#> [1] "lloq"
+#> 
+#> $half.life$arg_spec$arglist$hl_method
+#> [1] "hl_method"
+#> 
+#> $half.life$arg_spec$arglist$manually.selected.points
+#> [1] "manually.selected.points"
+#> 
+#> $half.life$arg_spec$arglist$options
+#> [1] "options"
+#> 
+#> $half.life$arg_spec$arglist$min.hl.points
+#> [1] "min.hl.points"
+#> 
+#> $half.life$arg_spec$arglist$adj.r.squared.factor
+#> [1] "adj.r.squared.factor"
+#> 
+#> $half.life$arg_spec$arglist$r.squared.factor
+#> [1] "r.squared.factor"
+#> 
+#> $half.life$arg_spec$arglist$tobit_n_points_penalty
+#> [1] "tobit_n_points_penalty"
+#> 
+#> $half.life$arg_spec$arglist$tobit_optim_control
+#> [1] "tobit_optim_control"
+#> 
+#> $half.life$arg_spec$arglist$conc.blq
+#> [1] "conc.blq"
+#> 
+#> $half.life$arg_spec$arglist$conc.na
+#> [1] "conc.na"
+#> 
+#> $half.life$arg_spec$arglist$first.tmax
+#> [1] "first.tmax"
+#> 
+#> $half.life$arg_spec$arglist$allow.tmax.in.half.life
+#> [1] "allow.tmax.in.half.life"
+#> 
+#> $half.life$arg_spec$arglist$check
+#> [1] "check"
+#> 
+#> 
+#> $half.life$arg_spec$required
+#> [1] "conc"  "time"  "tmax"  "tlast"
+#> 
+#> 
 #> 
 #> $r.squared
 #> $r.squared$FUN
@@ -4361,6 +5908,21 @@ get.interval.cols()
 #> 
 #> $r.squared$selection
 #> list()
+#> 
+#> $r.squared$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $r.squared$requires_dose_time
+#> [1] FALSE
+#> 
+#> $r.squared$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $r.squared$requires_volume
+#> [1] FALSE
+#> 
+#> $r.squared$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $adj.r.squared
@@ -4409,6 +5971,21 @@ get.interval.cols()
 #> $adj.r.squared$selection
 #> list()
 #> 
+#> $adj.r.squared$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $adj.r.squared$requires_dose_time
+#> [1] FALSE
+#> 
+#> $adj.r.squared$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $adj.r.squared$requires_volume
+#> [1] FALSE
+#> 
+#> $adj.r.squared$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $lambda.z.corrxy
 #> $lambda.z.corrxy$FUN
@@ -4455,6 +6032,21 @@ get.interval.cols()
 #> 
 #> $lambda.z.corrxy$selection
 #> list()
+#> 
+#> $lambda.z.corrxy$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $lambda.z.corrxy$requires_dose_time
+#> [1] FALSE
+#> 
+#> $lambda.z.corrxy$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $lambda.z.corrxy$requires_volume
+#> [1] FALSE
+#> 
+#> $lambda.z.corrxy$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $lambda.z
@@ -4503,6 +6095,21 @@ get.interval.cols()
 #> $lambda.z$selection
 #> list()
 #> 
+#> $lambda.z$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $lambda.z$requires_dose_time
+#> [1] FALSE
+#> 
+#> $lambda.z$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $lambda.z$requires_volume
+#> [1] FALSE
+#> 
+#> $lambda.z$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $lambda.z.time.first
 #> $lambda.z.time.first$FUN
@@ -4549,6 +6156,21 @@ get.interval.cols()
 #> 
 #> $lambda.z.time.first$selection
 #> list()
+#> 
+#> $lambda.z.time.first$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $lambda.z.time.first$requires_dose_time
+#> [1] FALSE
+#> 
+#> $lambda.z.time.first$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $lambda.z.time.first$requires_volume
+#> [1] FALSE
+#> 
+#> $lambda.z.time.first$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $lambda.z.time.last
@@ -4597,6 +6219,21 @@ get.interval.cols()
 #> $lambda.z.time.last$selection
 #> list()
 #> 
+#> $lambda.z.time.last$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $lambda.z.time.last$requires_dose_time
+#> [1] FALSE
+#> 
+#> $lambda.z.time.last$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $lambda.z.time.last$requires_volume
+#> [1] FALSE
+#> 
+#> $lambda.z.time.last$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $lambda.z.n.points
 #> $lambda.z.n.points$FUN
@@ -4643,6 +6280,21 @@ get.interval.cols()
 #> 
 #> $lambda.z.n.points$selection
 #> list()
+#> 
+#> $lambda.z.n.points$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $lambda.z.n.points$requires_dose_time
+#> [1] FALSE
+#> 
+#> $lambda.z.n.points$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $lambda.z.n.points$requires_volume
+#> [1] FALSE
+#> 
+#> $lambda.z.n.points$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $clast.pred
@@ -4693,6 +6345,21 @@ get.interval.cols()
 #> [1] "last_conc"
 #> 
 #> 
+#> $clast.pred$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $clast.pred$requires_dose_time
+#> [1] FALSE
+#> 
+#> $clast.pred$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $clast.pred$requires_volume
+#> [1] FALSE
+#> 
+#> $clast.pred$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $span.ratio
 #> $span.ratio$FUN
@@ -4739,6 +6406,21 @@ get.interval.cols()
 #> 
 #> $span.ratio$selection
 #> list()
+#> 
+#> $span.ratio$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $span.ratio$requires_dose_time
+#> [1] FALSE
+#> 
+#> $span.ratio$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $span.ratio$requires_volume
+#> [1] FALSE
+#> 
+#> $span.ratio$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $tobit_residual
@@ -4787,6 +6469,21 @@ get.interval.cols()
 #> $tobit_residual$selection
 #> list()
 #> 
+#> $tobit_residual$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $tobit_residual$requires_dose_time
+#> [1] FALSE
+#> 
+#> $tobit_residual$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $tobit_residual$requires_volume
+#> [1] FALSE
+#> 
+#> $tobit_residual$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $adj_tobit_residual
 #> $adj_tobit_residual$FUN
@@ -4834,6 +6531,21 @@ get.interval.cols()
 #> $adj_tobit_residual$selection
 #> list()
 #> 
+#> $adj_tobit_residual$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $adj_tobit_residual$requires_dose_time
+#> [1] FALSE
+#> 
+#> $adj_tobit_residual$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $adj_tobit_residual$requires_volume
+#> [1] FALSE
+#> 
+#> $adj_tobit_residual$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $lambda.z.n.points_blq
 #> $lambda.z.n.points_blq$FUN
@@ -4880,6 +6592,21 @@ get.interval.cols()
 #> 
 #> $lambda.z.n.points_blq$selection
 #> list()
+#> 
+#> $lambda.z.n.points_blq$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $lambda.z.n.points_blq$requires_dose_time
+#> [1] FALSE
+#> 
+#> $lambda.z.n.points_blq$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $lambda.z.n.points_blq$requires_volume
+#> [1] FALSE
+#> 
+#> $lambda.z.n.points_blq$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $thalf.eff.last
@@ -4930,6 +6657,21 @@ get.interval.cols()
 #> $thalf.eff.last$selection
 #> list()
 #> 
+#> $thalf.eff.last$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $thalf.eff.last$requires_dose_time
+#> [1] FALSE
+#> 
+#> $thalf.eff.last$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $thalf.eff.last$requires_volume
+#> [1] FALSE
+#> 
+#> $thalf.eff.last$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $thalf.eff.iv.last
 #> $thalf.eff.iv.last$FUN
@@ -4978,6 +6720,21 @@ get.interval.cols()
 #> 
 #> $thalf.eff.iv.last$selection
 #> list()
+#> 
+#> $thalf.eff.iv.last$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $thalf.eff.iv.last$requires_dose_time
+#> [1] FALSE
+#> 
+#> $thalf.eff.iv.last$requires_dose_dur
+#> [1] TRUE
+#> 
+#> $thalf.eff.iv.last$requires_volume
+#> [1] FALSE
+#> 
+#> $thalf.eff.iv.last$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $kel.last
@@ -5028,6 +6785,21 @@ get.interval.cols()
 #> $kel.last$selection
 #> list()
 #> 
+#> $kel.last$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $kel.last$requires_dose_time
+#> [1] FALSE
+#> 
+#> $kel.last$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $kel.last$requires_volume
+#> [1] FALSE
+#> 
+#> $kel.last$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $kel.iv.last
 #> $kel.iv.last$FUN
@@ -5076,6 +6848,21 @@ get.interval.cols()
 #> 
 #> $kel.iv.last$selection
 #> list()
+#> 
+#> $kel.iv.last$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $kel.iv.last$requires_dose_time
+#> [1] FALSE
+#> 
+#> $kel.iv.last$requires_dose_dur
+#> [1] TRUE
+#> 
+#> $kel.iv.last$requires_volume
+#> [1] FALSE
+#> 
+#> $kel.iv.last$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $kel.all
@@ -5126,6 +6913,21 @@ get.interval.cols()
 #> $kel.all$selection
 #> list()
 #> 
+#> $kel.all$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $kel.all$requires_dose_time
+#> [1] FALSE
+#> 
+#> $kel.all$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $kel.all$requires_volume
+#> [1] FALSE
+#> 
+#> $kel.all$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $kel.int.all
 #> $kel.int.all$FUN
@@ -5174,6 +6976,21 @@ get.interval.cols()
 #> 
 #> $kel.int.all$selection
 #> list()
+#> 
+#> $kel.int.all$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $kel.int.all$requires_dose_time
+#> [1] FALSE
+#> 
+#> $kel.int.all$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $kel.int.all$requires_volume
+#> [1] FALSE
+#> 
+#> $kel.int.all$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $kel.int.last
@@ -5224,6 +7041,21 @@ get.interval.cols()
 #> $kel.int.last$selection
 #> list()
 #> 
+#> $kel.int.last$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $kel.int.last$requires_dose_time
+#> [1] FALSE
+#> 
+#> $kel.int.last$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $kel.int.last$requires_volume
+#> [1] FALSE
+#> 
+#> $kel.int.last$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $cl.iv.all
 #> $cl.iv.all$FUN
@@ -5272,6 +7104,21 @@ get.interval.cols()
 #> 
 #> $cl.iv.all$selection
 #> list()
+#> 
+#> $cl.iv.all$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $cl.iv.all$requires_dose_time
+#> [1] TRUE
+#> 
+#> $cl.iv.all$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $cl.iv.all$requires_volume
+#> [1] FALSE
+#> 
+#> $cl.iv.all$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $cl.iv.last
@@ -5322,6 +7169,21 @@ get.interval.cols()
 #> $cl.iv.last$selection
 #> list()
 #> 
+#> $cl.iv.last$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $cl.iv.last$requires_dose_time
+#> [1] TRUE
+#> 
+#> $cl.iv.last$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $cl.iv.last$requires_volume
+#> [1] FALSE
+#> 
+#> $cl.iv.last$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $cl.ivint.all
 #> $cl.ivint.all$FUN
@@ -5370,6 +7232,21 @@ get.interval.cols()
 #> 
 #> $cl.ivint.all$selection
 #> list()
+#> 
+#> $cl.ivint.all$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $cl.ivint.all$requires_dose_time
+#> [1] TRUE
+#> 
+#> $cl.ivint.all$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $cl.ivint.all$requires_volume
+#> [1] FALSE
+#> 
+#> $cl.ivint.all$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $cl.ivint.last
@@ -5420,6 +7297,21 @@ get.interval.cols()
 #> $cl.ivint.last$selection
 #> list()
 #> 
+#> $cl.ivint.last$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $cl.ivint.last$requires_dose_time
+#> [1] TRUE
+#> 
+#> $cl.ivint.last$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $cl.ivint.last$requires_volume
+#> [1] FALSE
+#> 
+#> $cl.ivint.last$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $cl.sparse.last
 #> $cl.sparse.last$FUN
@@ -5468,6 +7360,270 @@ get.interval.cols()
 #> 
 #> $cl.sparse.last$selection
 #> list()
+#> 
+#> $cl.sparse.last$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $cl.sparse.last$requires_dose_time
+#> [1] FALSE
+#> 
+#> $cl.sparse.last$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $cl.sparse.last$requires_volume
+#> [1] FALSE
+#> 
+#> $cl.sparse.last$requires_conc_dur
+#> [1] FALSE
+#> 
+#> 
+#> $f.last
+#> $f.last$FUN
+#> [1] "pk.calc.f"
+#> 
+#> $f.last$values
+#> [1] FALSE  TRUE
+#> 
+#> $f.last$unit_type
+#> [1] "fraction"
+#> 
+#> $f.last$pretty_name
+#> [1] "Bioavailability (AUClast)"
+#> 
+#> $f.last$desc
+#> [1] "Bioavailability from AUClast"
+#> 
+#> $f.last$sparse
+#> [1] FALSE
+#> 
+#> $f.last$formalsmap
+#> $f.last$formalsmap$dose1
+#> $param
+#> [1] "totdose"
+#> 
+#> attr(,"class")
+#> [1] "pknca_ref"
+#> 
+#> $f.last$formalsmap$auc1
+#> $param
+#> [1] "auclast"
+#> 
+#> attr(,"class")
+#> [1] "pknca_ref"
+#> 
+#> $f.last$formalsmap$dose2
+#> [1] "totdose"
+#> 
+#> $f.last$formalsmap$auc2
+#> [1] "auclast"
+#> 
+#> 
+#> $f.last$depends
+#> [1] "totdose" "auclast"
+#> 
+#> $f.last$datatype
+#> [1] "interval"
+#> 
+#> $f.last$pptestcd_cdisc
+#> [1] "FAB"
+#> 
+#> $f.last$pptest_cdisc
+#> [1] "Absolute Bioavailability"
+#> 
+#> $f.last$formula
+#> [1] "$F = \\frac{AUC_{last,2} / Dose_2}{AUC_{last,1} / Dose_1}$"
+#> 
+#> $f.last$formula_note
+#> NULL
+#> 
+#> $f.last$tier
+#> [1] "uncommon"
+#> 
+#> $f.last$selection
+#> $f.last$selection$secondary
+#> [1] TRUE
+#> 
+#> 
+#> $f.last$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $f.last$requires_dose_time
+#> [1] FALSE
+#> 
+#> $f.last$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $f.last$requires_volume
+#> [1] FALSE
+#> 
+#> $f.last$requires_conc_dur
+#> [1] FALSE
+#> 
+#> 
+#> $f.int.last
+#> $f.int.last$FUN
+#> [1] "pk.calc.f"
+#> 
+#> $f.int.last$values
+#> [1] FALSE  TRUE
+#> 
+#> $f.int.last$unit_type
+#> [1] "fraction"
+#> 
+#> $f.int.last$pretty_name
+#> [1] "Bioavailability (AUCint,last)"
+#> 
+#> $f.int.last$desc
+#> [1] "Bioavailability from AUCint,last"
+#> 
+#> $f.int.last$sparse
+#> [1] FALSE
+#> 
+#> $f.int.last$formalsmap
+#> $f.int.last$formalsmap$dose1
+#> $param
+#> [1] "totdose"
+#> 
+#> attr(,"class")
+#> [1] "pknca_ref"
+#> 
+#> $f.int.last$formalsmap$auc1
+#> $param
+#> [1] "aucint.last"
+#> 
+#> attr(,"class")
+#> [1] "pknca_ref"
+#> 
+#> $f.int.last$formalsmap$dose2
+#> [1] "totdose"
+#> 
+#> $f.int.last$formalsmap$auc2
+#> [1] "aucint.last"
+#> 
+#> 
+#> $f.int.last$depends
+#> [1] "totdose"     "aucint.last"
+#> 
+#> $f.int.last$datatype
+#> [1] "interval"
+#> 
+#> $f.int.last$pptestcd_cdisc
+#> [1] "FAB"
+#> 
+#> $f.int.last$pptest_cdisc
+#> [1] "Absolute Bioavailability"
+#> 
+#> $f.int.last$formula
+#> [1] "$F = \\frac{AUC_{int,last,2} / Dose_2}{AUC_{int,last,1} / Dose_1}$"
+#> 
+#> $f.int.last$formula_note
+#> NULL
+#> 
+#> $f.int.last$tier
+#> [1] "uncommon"
+#> 
+#> $f.int.last$selection
+#> $f.int.last$selection$secondary
+#> [1] TRUE
+#> 
+#> 
+#> $f.int.last$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $f.int.last$requires_dose_time
+#> [1] FALSE
+#> 
+#> $f.int.last$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $f.int.last$requires_volume
+#> [1] FALSE
+#> 
+#> $f.int.last$requires_conc_dur
+#> [1] FALSE
+#> 
+#> 
+#> $f.int.all
+#> $f.int.all$FUN
+#> [1] "pk.calc.f"
+#> 
+#> $f.int.all$values
+#> [1] FALSE  TRUE
+#> 
+#> $f.int.all$unit_type
+#> [1] "fraction"
+#> 
+#> $f.int.all$pretty_name
+#> [1] "Bioavailability (AUCint,all)"
+#> 
+#> $f.int.all$desc
+#> [1] "Bioavailability from AUCint,all"
+#> 
+#> $f.int.all$sparse
+#> [1] FALSE
+#> 
+#> $f.int.all$formalsmap
+#> $f.int.all$formalsmap$dose1
+#> $param
+#> [1] "totdose"
+#> 
+#> attr(,"class")
+#> [1] "pknca_ref"
+#> 
+#> $f.int.all$formalsmap$auc1
+#> $param
+#> [1] "aucint.all"
+#> 
+#> attr(,"class")
+#> [1] "pknca_ref"
+#> 
+#> $f.int.all$formalsmap$dose2
+#> [1] "totdose"
+#> 
+#> $f.int.all$formalsmap$auc2
+#> [1] "aucint.all"
+#> 
+#> 
+#> $f.int.all$depends
+#> [1] "totdose"    "aucint.all"
+#> 
+#> $f.int.all$datatype
+#> [1] "interval"
+#> 
+#> $f.int.all$pptestcd_cdisc
+#> [1] "FAB"
+#> 
+#> $f.int.all$pptest_cdisc
+#> [1] "Absolute Bioavailability"
+#> 
+#> $f.int.all$formula
+#> [1] "$F = \\frac{AUC_{int,all,2} / Dose_2}{AUC_{int,all,1} / Dose_1}$"
+#> 
+#> $f.int.all$formula_note
+#> NULL
+#> 
+#> $f.int.all$tier
+#> [1] "uncommon"
+#> 
+#> $f.int.all$selection
+#> $f.int.all$selection$secondary
+#> [1] TRUE
+#> 
+#> 
+#> $f.int.all$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $f.int.all$requires_dose_time
+#> [1] FALSE
+#> 
+#> $f.int.all$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $f.int.all$requires_volume
+#> [1] FALSE
+#> 
+#> $f.int.all$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $mrt.sparse.last
@@ -5521,6 +7677,21 @@ get.interval.cols()
 #> $mrt.sparse.last$selection
 #> list()
 #> 
+#> $mrt.sparse.last$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $mrt.sparse.last$requires_dose_time
+#> [1] FALSE
+#> 
+#> $mrt.sparse.last$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $mrt.sparse.last$requires_volume
+#> [1] FALSE
+#> 
+#> $mrt.sparse.last$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $mrt.iv.all
 #> $mrt.iv.all$FUN
@@ -5572,6 +7743,21 @@ get.interval.cols()
 #> 
 #> $mrt.iv.all$selection
 #> list()
+#> 
+#> $mrt.iv.all$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $mrt.iv.all$requires_dose_time
+#> [1] TRUE
+#> 
+#> $mrt.iv.all$requires_dose_dur
+#> [1] TRUE
+#> 
+#> $mrt.iv.all$requires_volume
+#> [1] FALSE
+#> 
+#> $mrt.iv.all$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $mrt.ivint.all
@@ -5625,6 +7811,21 @@ get.interval.cols()
 #> $mrt.ivint.all$selection
 #> list()
 #> 
+#> $mrt.ivint.all$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $mrt.ivint.all$requires_dose_time
+#> [1] TRUE
+#> 
+#> $mrt.ivint.all$requires_dose_dur
+#> [1] TRUE
+#> 
+#> $mrt.ivint.all$requires_volume
+#> [1] FALSE
+#> 
+#> $mrt.ivint.all$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $mrt.ivint.last
 #> $mrt.ivint.last$FUN
@@ -5677,6 +7878,21 @@ get.interval.cols()
 #> $mrt.ivint.last$selection
 #> list()
 #> 
+#> $mrt.ivint.last$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $mrt.ivint.last$requires_dose_time
+#> [1] TRUE
+#> 
+#> $mrt.ivint.last$requires_dose_dur
+#> [1] TRUE
+#> 
+#> $mrt.ivint.last$requires_volume
+#> [1] FALSE
+#> 
+#> $mrt.ivint.last$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $vz.all
 #> $vz.all$FUN
@@ -5725,6 +7941,21 @@ get.interval.cols()
 #> 
 #> $vz.all$selection
 #> list()
+#> 
+#> $vz.all$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $vz.all$requires_dose_time
+#> [1] FALSE
+#> 
+#> $vz.all$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $vz.all$requires_volume
+#> [1] FALSE
+#> 
+#> $vz.all$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $vz.int.all
@@ -5775,6 +8006,21 @@ get.interval.cols()
 #> $vz.int.all$selection
 #> list()
 #> 
+#> $vz.int.all$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $vz.int.all$requires_dose_time
+#> [1] FALSE
+#> 
+#> $vz.int.all$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $vz.int.all$requires_volume
+#> [1] FALSE
+#> 
+#> $vz.int.all$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $vz.int.last
 #> $vz.int.last$FUN
@@ -5823,6 +8069,21 @@ get.interval.cols()
 #> 
 #> $vz.int.last$selection
 #> list()
+#> 
+#> $vz.int.last$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $vz.int.last$requires_dose_time
+#> [1] FALSE
+#> 
+#> $vz.int.last$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $vz.int.last$requires_volume
+#> [1] FALSE
+#> 
+#> $vz.int.last$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $vz.iv.all
@@ -5873,6 +8134,21 @@ get.interval.cols()
 #> $vz.iv.all$selection
 #> list()
 #> 
+#> $vz.iv.all$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $vz.iv.all$requires_dose_time
+#> [1] TRUE
+#> 
+#> $vz.iv.all$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $vz.iv.all$requires_volume
+#> [1] FALSE
+#> 
+#> $vz.iv.all$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $vz.iv.last
 #> $vz.iv.last$FUN
@@ -5921,6 +8197,21 @@ get.interval.cols()
 #> 
 #> $vz.iv.last$selection
 #> list()
+#> 
+#> $vz.iv.last$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $vz.iv.last$requires_dose_time
+#> [1] TRUE
+#> 
+#> $vz.iv.last$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $vz.iv.last$requires_volume
+#> [1] FALSE
+#> 
+#> $vz.iv.last$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $vz.ivint.all
@@ -5971,6 +8262,21 @@ get.interval.cols()
 #> $vz.ivint.all$selection
 #> list()
 #> 
+#> $vz.ivint.all$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $vz.ivint.all$requires_dose_time
+#> [1] TRUE
+#> 
+#> $vz.ivint.all$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $vz.ivint.all$requires_volume
+#> [1] FALSE
+#> 
+#> $vz.ivint.all$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $vz.ivint.last
 #> $vz.ivint.last$FUN
@@ -6020,6 +8326,21 @@ get.interval.cols()
 #> $vz.ivint.last$selection
 #> list()
 #> 
+#> $vz.ivint.last$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $vz.ivint.last$requires_dose_time
+#> [1] TRUE
+#> 
+#> $vz.ivint.last$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $vz.ivint.last$requires_volume
+#> [1] FALSE
+#> 
+#> $vz.ivint.last$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $vz.last
 #> $vz.last$FUN
@@ -6068,6 +8389,21 @@ get.interval.cols()
 #> 
 #> $vz.last$selection
 #> list()
+#> 
+#> $vz.last$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $vz.last$requires_dose_time
+#> [1] FALSE
+#> 
+#> $vz.last$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $vz.last$requires_volume
+#> [1] FALSE
+#> 
+#> $vz.last$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $vss.iv.all
@@ -6121,6 +8457,21 @@ get.interval.cols()
 #> $vss.iv.all$selection
 #> list()
 #> 
+#> $vss.iv.all$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $vss.iv.all$requires_dose_time
+#> [1] TRUE
+#> 
+#> $vss.iv.all$requires_dose_dur
+#> [1] TRUE
+#> 
+#> $vss.iv.all$requires_volume
+#> [1] FALSE
+#> 
+#> $vss.iv.all$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $vss.ivint.all
 #> $vss.ivint.all$FUN
@@ -6172,6 +8523,21 @@ get.interval.cols()
 #> 
 #> $vss.ivint.all$selection
 #> list()
+#> 
+#> $vss.ivint.all$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $vss.ivint.all$requires_dose_time
+#> [1] TRUE
+#> 
+#> $vss.ivint.all$requires_dose_dur
+#> [1] TRUE
+#> 
+#> $vss.ivint.all$requires_volume
+#> [1] FALSE
+#> 
+#> $vss.ivint.all$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $vss.ivint.last
@@ -6225,6 +8591,21 @@ get.interval.cols()
 #> $vss.ivint.last$selection
 #> list()
 #> 
+#> $vss.ivint.last$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $vss.ivint.last$requires_dose_time
+#> [1] TRUE
+#> 
+#> $vss.ivint.last$requires_dose_dur
+#> [1] TRUE
+#> 
+#> $vss.ivint.last$requires_volume
+#> [1] FALSE
+#> 
+#> $vss.ivint.last$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $vss.sparse.last
 #> $vss.sparse.last$FUN
@@ -6276,6 +8657,21 @@ get.interval.cols()
 #> 
 #> $vss.sparse.last$selection
 #> list()
+#> 
+#> $vss.sparse.last$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $vss.sparse.last$requires_dose_time
+#> [1] FALSE
+#> 
+#> $vss.sparse.last$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $vss.sparse.last$requires_volume
+#> [1] FALSE
+#> 
+#> $vss.sparse.last$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $aucinf.obs
@@ -6339,6 +8735,28 @@ get.interval.cols()
 #> $aucinf.obs$requires_conc_dur
 #> [1] FALSE
 #> 
+#> $aucinf.obs$arg_spec
+#> $aucinf.obs$arg_spec$arglist
+#> $aucinf.obs$arg_spec$arglist$conc
+#> [1] "conc"
+#> 
+#> $aucinf.obs$arg_spec$arglist$time
+#> [1] "time"
+#> 
+#> $aucinf.obs$arg_spec$arglist$clast.obs
+#> [1] "clast.obs"
+#> 
+#> $aucinf.obs$arg_spec$arglist$options
+#> [1] "options"
+#> 
+#> $aucinf.obs$arg_spec$arglist$lambda.z
+#> [1] "lambda.z"
+#> 
+#> 
+#> $aucinf.obs$arg_spec$required
+#> [1] "conc"      "time"      "clast.obs" "lambda.z" 
+#> 
+#> 
 #> 
 #> $aucinf.pred
 #> $aucinf.pred$FUN
@@ -6385,6 +8803,21 @@ get.interval.cols()
 #> 
 #> $aucinf.pred$selection
 #> list()
+#> 
+#> $aucinf.pred$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aucinf.pred$requires_dose_time
+#> [1] FALSE
+#> 
+#> $aucinf.pred$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucinf.pred$requires_volume
+#> [1] FALSE
+#> 
+#> $aucinf.pred$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $aumcinf.obs
@@ -6433,6 +8866,21 @@ get.interval.cols()
 #> $aumcinf.obs$selection
 #> list()
 #> 
+#> $aumcinf.obs$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aumcinf.obs$requires_dose_time
+#> [1] FALSE
+#> 
+#> $aumcinf.obs$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aumcinf.obs$requires_volume
+#> [1] FALSE
+#> 
+#> $aumcinf.obs$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $aumcinf.pred
 #> $aumcinf.pred$FUN
@@ -6479,6 +8927,21 @@ get.interval.cols()
 #> 
 #> $aumcinf.pred$selection
 #> list()
+#> 
+#> $aumcinf.pred$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aumcinf.pred$requires_dose_time
+#> [1] FALSE
+#> 
+#> $aumcinf.pred$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aumcinf.pred$requires_volume
+#> [1] FALSE
+#> 
+#> $aumcinf.pred$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $aucint.inf.obs
@@ -6535,6 +8998,21 @@ get.interval.cols()
 #> $aucint.inf.obs$selection
 #> list()
 #> 
+#> $aucint.inf.obs$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aucint.inf.obs$requires_dose_time
+#> [1] FALSE
+#> 
+#> $aucint.inf.obs$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucint.inf.obs$requires_volume
+#> [1] FALSE
+#> 
+#> $aucint.inf.obs$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $aucint.inf.obs.dose
 #> $aucint.inf.obs.dose$FUN
@@ -6589,6 +9067,21 @@ get.interval.cols()
 #> 
 #> $aucint.inf.obs.dose$selection
 #> list()
+#> 
+#> $aucint.inf.obs.dose$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aucint.inf.obs.dose$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aucint.inf.obs.dose$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucint.inf.obs.dose$requires_volume
+#> [1] FALSE
+#> 
+#> $aucint.inf.obs.dose$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $aucint.inf.pred
@@ -6645,6 +9138,21 @@ get.interval.cols()
 #> $aucint.inf.pred$selection
 #> list()
 #> 
+#> $aucint.inf.pred$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aucint.inf.pred$requires_dose_time
+#> [1] FALSE
+#> 
+#> $aucint.inf.pred$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucint.inf.pred$requires_volume
+#> [1] FALSE
+#> 
+#> $aucint.inf.pred$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $aucint.inf.pred.dose
 #> $aucint.inf.pred.dose$FUN
@@ -6699,6 +9207,21 @@ get.interval.cols()
 #> 
 #> $aucint.inf.pred.dose$selection
 #> list()
+#> 
+#> $aucint.inf.pred.dose$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aucint.inf.pred.dose$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aucint.inf.pred.dose$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucint.inf.pred.dose$requires_volume
+#> [1] FALSE
+#> 
+#> $aucint.inf.pred.dose$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $aumcint.inf.obs
@@ -6755,6 +9278,21 @@ get.interval.cols()
 #> $aumcint.inf.obs$selection
 #> list()
 #> 
+#> $aumcint.inf.obs$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aumcint.inf.obs$requires_dose_time
+#> [1] FALSE
+#> 
+#> $aumcint.inf.obs$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aumcint.inf.obs$requires_volume
+#> [1] FALSE
+#> 
+#> $aumcint.inf.obs$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $aumcint.inf.obs.dose
 #> $aumcint.inf.obs.dose$FUN
@@ -6809,6 +9347,21 @@ get.interval.cols()
 #> 
 #> $aumcint.inf.obs.dose$selection
 #> list()
+#> 
+#> $aumcint.inf.obs.dose$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aumcint.inf.obs.dose$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aumcint.inf.obs.dose$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aumcint.inf.obs.dose$requires_volume
+#> [1] FALSE
+#> 
+#> $aumcint.inf.obs.dose$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $aumcint.inf.pred
@@ -6865,6 +9418,21 @@ get.interval.cols()
 #> $aumcint.inf.pred$selection
 #> list()
 #> 
+#> $aumcint.inf.pred$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aumcint.inf.pred$requires_dose_time
+#> [1] FALSE
+#> 
+#> $aumcint.inf.pred$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aumcint.inf.pred$requires_volume
+#> [1] FALSE
+#> 
+#> $aumcint.inf.pred$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $aumcint.inf.pred.dose
 #> $aumcint.inf.pred.dose$FUN
@@ -6919,6 +9487,21 @@ get.interval.cols()
 #> 
 #> $aumcint.inf.pred.dose$selection
 #> list()
+#> 
+#> $aumcint.inf.pred.dose$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aumcint.inf.pred.dose$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aumcint.inf.pred.dose$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aumcint.inf.pred.dose$requires_volume
+#> [1] FALSE
+#> 
+#> $aumcint.inf.pred.dose$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $aucivinf.obs
@@ -6975,6 +9558,21 @@ get.interval.cols()
 #> $aucivinf.obs$selection
 #> list()
 #> 
+#> $aucivinf.obs$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aucivinf.obs$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aucivinf.obs$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucivinf.obs$requires_volume
+#> [1] FALSE
+#> 
+#> $aucivinf.obs$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $aucivinf.pred
 #> $aucivinf.pred$FUN
@@ -7030,6 +9628,21 @@ get.interval.cols()
 #> $aucivinf.pred$selection
 #> list()
 #> 
+#> $aucivinf.pred$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aucivinf.pred$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aucivinf.pred$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucivinf.pred$requires_volume
+#> [1] FALSE
+#> 
+#> $aucivinf.pred$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $aucivpbextinf.obs
 #> $aucivpbextinf.obs$FUN
@@ -7082,6 +9695,21 @@ get.interval.cols()
 #> $aucivpbextinf.obs$selection
 #> list()
 #> 
+#> $aucivpbextinf.obs$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aucivpbextinf.obs$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aucivpbextinf.obs$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucivpbextinf.obs$requires_volume
+#> [1] FALSE
+#> 
+#> $aucivpbextinf.obs$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $aucivpbextinf.pred
 #> $aucivpbextinf.pred$FUN
@@ -7133,6 +9761,21 @@ get.interval.cols()
 #> 
 #> $aucivpbextinf.pred$selection
 #> list()
+#> 
+#> $aucivpbextinf.pred$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aucivpbextinf.pred$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aucivpbextinf.pred$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucivpbextinf.pred$requires_volume
+#> [1] FALSE
+#> 
+#> $aucivpbextinf.pred$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $aumcivinf.obs
@@ -7189,6 +9832,21 @@ get.interval.cols()
 #> $aumcivinf.obs$selection
 #> list()
 #> 
+#> $aumcivinf.obs$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aumcivinf.obs$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aumcivinf.obs$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aumcivinf.obs$requires_volume
+#> [1] FALSE
+#> 
+#> $aumcivinf.obs$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $aumcivinf.pred
 #> $aumcivinf.pred$FUN
@@ -7243,6 +9901,21 @@ get.interval.cols()
 #> 
 #> $aumcivinf.pred$selection
 #> list()
+#> 
+#> $aumcivinf.pred$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aumcivinf.pred$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aumcivinf.pred$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aumcivinf.pred$requires_volume
+#> [1] FALSE
+#> 
+#> $aumcivinf.pred$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $aucpext.obs
@@ -7308,6 +9981,19 @@ get.interval.cols()
 #> $aucpext.obs$requires_conc_dur
 #> [1] FALSE
 #> 
+#> $aucpext.obs$arg_spec
+#> $aucpext.obs$arg_spec$arglist
+#> $aucpext.obs$arg_spec$arglist$auclast
+#> [1] "auclast"
+#> 
+#> $aucpext.obs$arg_spec$arglist$aucinf
+#> [1] "aucinf.obs"
+#> 
+#> 
+#> $aucpext.obs$arg_spec$required
+#> [1] "auclast" "aucinf" 
+#> 
+#> 
 #> 
 #> $aucpext.pred
 #> $aucpext.pred$FUN
@@ -7356,6 +10042,21 @@ get.interval.cols()
 #> 
 #> $aucpext.pred$selection
 #> list()
+#> 
+#> $aucpext.pred$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aucpext.pred$requires_dose_time
+#> [1] FALSE
+#> 
+#> $aucpext.pred$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucpext.pred$requires_volume
+#> [1] FALSE
+#> 
+#> $aucpext.pred$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $kel.iv.all
@@ -7406,6 +10107,21 @@ get.interval.cols()
 #> $kel.iv.all$selection
 #> list()
 #> 
+#> $kel.iv.all$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $kel.iv.all$requires_dose_time
+#> [1] TRUE
+#> 
+#> $kel.iv.all$requires_dose_dur
+#> [1] TRUE
+#> 
+#> $kel.iv.all$requires_volume
+#> [1] FALSE
+#> 
+#> $kel.iv.all$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $kel.ivint.all
 #> $kel.ivint.all$FUN
@@ -7454,6 +10170,21 @@ get.interval.cols()
 #> 
 #> $kel.ivint.all$selection
 #> list()
+#> 
+#> $kel.ivint.all$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $kel.ivint.all$requires_dose_time
+#> [1] TRUE
+#> 
+#> $kel.ivint.all$requires_dose_dur
+#> [1] TRUE
+#> 
+#> $kel.ivint.all$requires_volume
+#> [1] FALSE
+#> 
+#> $kel.ivint.all$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $kel.ivint.last
@@ -7504,6 +10235,21 @@ get.interval.cols()
 #> $kel.ivint.last$selection
 #> list()
 #> 
+#> $kel.ivint.last$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $kel.ivint.last$requires_dose_time
+#> [1] TRUE
+#> 
+#> $kel.ivint.last$requires_dose_dur
+#> [1] TRUE
+#> 
+#> $kel.ivint.last$requires_volume
+#> [1] FALSE
+#> 
+#> $kel.ivint.last$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $kel.sparse.last
 #> $kel.sparse.last$FUN
@@ -7552,6 +10298,21 @@ get.interval.cols()
 #> 
 #> $kel.sparse.last$selection
 #> list()
+#> 
+#> $kel.sparse.last$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $kel.sparse.last$requires_dose_time
+#> [1] FALSE
+#> 
+#> $kel.sparse.last$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $kel.sparse.last$requires_volume
+#> [1] FALSE
+#> 
+#> $kel.sparse.last$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $cl.obs
@@ -7616,6 +10377,21 @@ get.interval.cols()
 #> $cl.obs$selection
 #> list()
 #> 
+#> $cl.obs$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $cl.obs$requires_dose_time
+#> [1] FALSE
+#> 
+#> $cl.obs$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $cl.obs$requires_volume
+#> [1] FALSE
+#> 
+#> $cl.obs$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $cl.pred
 #> $cl.pred$FUN
@@ -7679,6 +10455,21 @@ get.interval.cols()
 #> $cl.pred$selection
 #> list()
 #> 
+#> $cl.pred$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $cl.pred$requires_dose_time
+#> [1] FALSE
+#> 
+#> $cl.pred$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $cl.pred$requires_volume
+#> [1] FALSE
+#> 
+#> $cl.pred$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $cl.int.inf.obs
 #> $cl.int.inf.obs$FUN
@@ -7727,6 +10518,21 @@ get.interval.cols()
 #> 
 #> $cl.int.inf.obs$selection
 #> list()
+#> 
+#> $cl.int.inf.obs$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $cl.int.inf.obs$requires_dose_time
+#> [1] FALSE
+#> 
+#> $cl.int.inf.obs$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $cl.int.inf.obs$requires_volume
+#> [1] FALSE
+#> 
+#> $cl.int.inf.obs$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $cl.int.inf.pred
@@ -7777,6 +10583,21 @@ get.interval.cols()
 #> $cl.int.inf.pred$selection
 #> list()
 #> 
+#> $cl.int.inf.pred$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $cl.int.inf.pred$requires_dose_time
+#> [1] FALSE
+#> 
+#> $cl.int.inf.pred$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $cl.int.inf.pred$requires_volume
+#> [1] FALSE
+#> 
+#> $cl.int.inf.pred$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $cl.iv.obs
 #> $cl.iv.obs$FUN
@@ -7826,6 +10647,21 @@ get.interval.cols()
 #> $cl.iv.obs$selection
 #> list()
 #> 
+#> $cl.iv.obs$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $cl.iv.obs$requires_dose_time
+#> [1] TRUE
+#> 
+#> $cl.iv.obs$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $cl.iv.obs$requires_volume
+#> [1] FALSE
+#> 
+#> $cl.iv.obs$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $cl.iv.pred
 #> $cl.iv.pred$FUN
@@ -7874,6 +10710,353 @@ get.interval.cols()
 #> 
 #> $cl.iv.pred$selection
 #> list()
+#> 
+#> $cl.iv.pred$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $cl.iv.pred$requires_dose_time
+#> [1] TRUE
+#> 
+#> $cl.iv.pred$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $cl.iv.pred$requires_volume
+#> [1] FALSE
+#> 
+#> $cl.iv.pred$requires_conc_dur
+#> [1] FALSE
+#> 
+#> 
+#> $f.obs
+#> $f.obs$FUN
+#> [1] "pk.calc.f"
+#> 
+#> $f.obs$values
+#> [1] FALSE  TRUE
+#> 
+#> $f.obs$unit_type
+#> [1] "fraction"
+#> 
+#> $f.obs$pretty_name
+#> [1] "Bioavailability (AUCinf,obs)"
+#> 
+#> $f.obs$desc
+#> [1] "Bioavailability from AUCinf,obs"
+#> 
+#> $f.obs$sparse
+#> [1] FALSE
+#> 
+#> $f.obs$formalsmap
+#> $f.obs$formalsmap$dose1
+#> $param
+#> [1] "totdose"
+#> 
+#> attr(,"class")
+#> [1] "pknca_ref"
+#> 
+#> $f.obs$formalsmap$auc1
+#> $param
+#> [1] "aucinf.obs"
+#> 
+#> attr(,"class")
+#> [1] "pknca_ref"
+#> 
+#> $f.obs$formalsmap$dose2
+#> [1] "totdose"
+#> 
+#> $f.obs$formalsmap$auc2
+#> [1] "aucinf.obs"
+#> 
+#> 
+#> $f.obs$depends
+#> [1] "totdose"    "aucinf.obs"
+#> 
+#> $f.obs$datatype
+#> [1] "interval"
+#> 
+#> $f.obs$pptestcd_cdisc
+#> [1] "FAB"
+#> 
+#> $f.obs$pptest_cdisc
+#> [1] "Absolute Bioavailability"
+#> 
+#> $f.obs$formula
+#> [1] "$F = \\frac{AUC_{\\infty,obs,2} / Dose_2}{AUC_{\\infty,obs,1} / Dose_1}$"
+#> 
+#> $f.obs$formula_note
+#> NULL
+#> 
+#> $f.obs$tier
+#> [1] "uncommon"
+#> 
+#> $f.obs$selection
+#> $f.obs$selection$secondary
+#> [1] TRUE
+#> 
+#> 
+#> $f.obs$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $f.obs$requires_dose_time
+#> [1] FALSE
+#> 
+#> $f.obs$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $f.obs$requires_volume
+#> [1] FALSE
+#> 
+#> $f.obs$requires_conc_dur
+#> [1] FALSE
+#> 
+#> 
+#> $f.pred
+#> $f.pred$FUN
+#> [1] "pk.calc.f"
+#> 
+#> $f.pred$values
+#> [1] FALSE  TRUE
+#> 
+#> $f.pred$unit_type
+#> [1] "fraction"
+#> 
+#> $f.pred$pretty_name
+#> [1] "Bioavailability (AUCinf,pred)"
+#> 
+#> $f.pred$desc
+#> [1] "Bioavailability from AUCinf,pred"
+#> 
+#> $f.pred$sparse
+#> [1] FALSE
+#> 
+#> $f.pred$formalsmap
+#> $f.pred$formalsmap$dose1
+#> $param
+#> [1] "totdose"
+#> 
+#> attr(,"class")
+#> [1] "pknca_ref"
+#> 
+#> $f.pred$formalsmap$auc1
+#> $param
+#> [1] "aucinf.pred"
+#> 
+#> attr(,"class")
+#> [1] "pknca_ref"
+#> 
+#> $f.pred$formalsmap$dose2
+#> [1] "totdose"
+#> 
+#> $f.pred$formalsmap$auc2
+#> [1] "aucinf.pred"
+#> 
+#> 
+#> $f.pred$depends
+#> [1] "totdose"     "aucinf.pred"
+#> 
+#> $f.pred$datatype
+#> [1] "interval"
+#> 
+#> $f.pred$pptestcd_cdisc
+#> [1] "FAB"
+#> 
+#> $f.pred$pptest_cdisc
+#> [1] "Absolute Bioavailability"
+#> 
+#> $f.pred$formula
+#> [1] "$F = \\frac{AUC_{\\infty,pred,2} / Dose_2}{AUC_{\\infty,pred,1} / Dose_1}$"
+#> 
+#> $f.pred$formula_note
+#> NULL
+#> 
+#> $f.pred$tier
+#> [1] "uncommon"
+#> 
+#> $f.pred$selection
+#> $f.pred$selection$secondary
+#> [1] TRUE
+#> 
+#> 
+#> $f.pred$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $f.pred$requires_dose_time
+#> [1] FALSE
+#> 
+#> $f.pred$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $f.pred$requires_volume
+#> [1] FALSE
+#> 
+#> $f.pred$requires_conc_dur
+#> [1] FALSE
+#> 
+#> 
+#> $f.int.obs
+#> $f.int.obs$FUN
+#> [1] "pk.calc.f"
+#> 
+#> $f.int.obs$values
+#> [1] FALSE  TRUE
+#> 
+#> $f.int.obs$unit_type
+#> [1] "fraction"
+#> 
+#> $f.int.obs$pretty_name
+#> [1] "Bioavailability (AUCint,inf,obs)"
+#> 
+#> $f.int.obs$desc
+#> [1] "Bioavailability from AUCint,inf,obs"
+#> 
+#> $f.int.obs$sparse
+#> [1] FALSE
+#> 
+#> $f.int.obs$formalsmap
+#> $f.int.obs$formalsmap$dose1
+#> $param
+#> [1] "totdose"
+#> 
+#> attr(,"class")
+#> [1] "pknca_ref"
+#> 
+#> $f.int.obs$formalsmap$auc1
+#> $param
+#> [1] "aucint.inf.obs"
+#> 
+#> attr(,"class")
+#> [1] "pknca_ref"
+#> 
+#> $f.int.obs$formalsmap$dose2
+#> [1] "totdose"
+#> 
+#> $f.int.obs$formalsmap$auc2
+#> [1] "aucint.inf.obs"
+#> 
+#> 
+#> $f.int.obs$depends
+#> [1] "totdose"        "aucint.inf.obs"
+#> 
+#> $f.int.obs$datatype
+#> [1] "interval"
+#> 
+#> $f.int.obs$pptestcd_cdisc
+#> [1] "FAB"
+#> 
+#> $f.int.obs$pptest_cdisc
+#> [1] "Absolute Bioavailability"
+#> 
+#> $f.int.obs$formula
+#> [1] "$F = \\frac{AUC_{int,\\infty,obs,2} / Dose_2}{AUC_{int,\\infty,obs,1} / Dose_1}$"
+#> 
+#> $f.int.obs$formula_note
+#> NULL
+#> 
+#> $f.int.obs$tier
+#> [1] "uncommon"
+#> 
+#> $f.int.obs$selection
+#> $f.int.obs$selection$secondary
+#> [1] TRUE
+#> 
+#> 
+#> $f.int.obs$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $f.int.obs$requires_dose_time
+#> [1] FALSE
+#> 
+#> $f.int.obs$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $f.int.obs$requires_volume
+#> [1] FALSE
+#> 
+#> $f.int.obs$requires_conc_dur
+#> [1] FALSE
+#> 
+#> 
+#> $f.int.pred
+#> $f.int.pred$FUN
+#> [1] "pk.calc.f"
+#> 
+#> $f.int.pred$values
+#> [1] FALSE  TRUE
+#> 
+#> $f.int.pred$unit_type
+#> [1] "fraction"
+#> 
+#> $f.int.pred$pretty_name
+#> [1] "Bioavailability (AUCint,inf,pred)"
+#> 
+#> $f.int.pred$desc
+#> [1] "Bioavailability from AUCint,inf,pred"
+#> 
+#> $f.int.pred$sparse
+#> [1] FALSE
+#> 
+#> $f.int.pred$formalsmap
+#> $f.int.pred$formalsmap$dose1
+#> $param
+#> [1] "totdose"
+#> 
+#> attr(,"class")
+#> [1] "pknca_ref"
+#> 
+#> $f.int.pred$formalsmap$auc1
+#> $param
+#> [1] "aucint.inf.pred"
+#> 
+#> attr(,"class")
+#> [1] "pknca_ref"
+#> 
+#> $f.int.pred$formalsmap$dose2
+#> [1] "totdose"
+#> 
+#> $f.int.pred$formalsmap$auc2
+#> [1] "aucint.inf.pred"
+#> 
+#> 
+#> $f.int.pred$depends
+#> [1] "totdose"         "aucint.inf.pred"
+#> 
+#> $f.int.pred$datatype
+#> [1] "interval"
+#> 
+#> $f.int.pred$pptestcd_cdisc
+#> [1] "FAB"
+#> 
+#> $f.int.pred$pptest_cdisc
+#> [1] "Absolute Bioavailability"
+#> 
+#> $f.int.pred$formula
+#> [1] "$F = \\frac{AUC_{int,\\infty,pred,2} / Dose_2}{AUC_{int,\\infty,pred,1} / Dose_1}$"
+#> 
+#> $f.int.pred$formula_note
+#> NULL
+#> 
+#> $f.int.pred$tier
+#> [1] "uncommon"
+#> 
+#> $f.int.pred$selection
+#> $f.int.pred$selection$secondary
+#> [1] TRUE
+#> 
+#> 
+#> $f.int.pred$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $f.int.pred$requires_dose_time
+#> [1] FALSE
+#> 
+#> $f.int.pred$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $f.int.pred$requires_volume
+#> [1] FALSE
+#> 
+#> $f.int.pred$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $mrt.obs
@@ -7941,6 +11124,21 @@ get.interval.cols()
 #> $mrt.obs$selection
 #> list()
 #> 
+#> $mrt.obs$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $mrt.obs$requires_dose_time
+#> [1] FALSE
+#> 
+#> $mrt.obs$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $mrt.obs$requires_volume
+#> [1] FALSE
+#> 
+#> $mrt.obs$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $mrt.pred
 #> $mrt.pred$FUN
@@ -8007,6 +11205,21 @@ get.interval.cols()
 #> $mrt.pred$selection
 #> list()
 #> 
+#> $mrt.pred$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $mrt.pred$requires_dose_time
+#> [1] FALSE
+#> 
+#> $mrt.pred$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $mrt.pred$requires_volume
+#> [1] FALSE
+#> 
+#> $mrt.pred$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $mrt.int.inf.obs
 #> $mrt.int.inf.obs$FUN
@@ -8058,6 +11271,21 @@ get.interval.cols()
 #> 
 #> $mrt.int.inf.obs$selection
 #> list()
+#> 
+#> $mrt.int.inf.obs$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $mrt.int.inf.obs$requires_dose_time
+#> [1] FALSE
+#> 
+#> $mrt.int.inf.obs$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $mrt.int.inf.obs$requires_volume
+#> [1] FALSE
+#> 
+#> $mrt.int.inf.obs$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $mrt.int.inf.pred
@@ -8111,6 +11339,21 @@ get.interval.cols()
 #> $mrt.int.inf.pred$selection
 #> list()
 #> 
+#> $mrt.int.inf.pred$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $mrt.int.inf.pred$requires_dose_time
+#> [1] FALSE
+#> 
+#> $mrt.int.inf.pred$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $mrt.int.inf.pred$requires_volume
+#> [1] FALSE
+#> 
+#> $mrt.int.inf.pred$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $mrt.iv.obs
 #> $mrt.iv.obs$FUN
@@ -8163,6 +11406,21 @@ get.interval.cols()
 #> $mrt.iv.obs$selection
 #> list()
 #> 
+#> $mrt.iv.obs$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $mrt.iv.obs$requires_dose_time
+#> [1] FALSE
+#> 
+#> $mrt.iv.obs$requires_dose_dur
+#> [1] TRUE
+#> 
+#> $mrt.iv.obs$requires_volume
+#> [1] FALSE
+#> 
+#> $mrt.iv.obs$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $mrt.iv.pred
 #> $mrt.iv.pred$FUN
@@ -8214,6 +11472,21 @@ get.interval.cols()
 #> 
 #> $mrt.iv.pred$selection
 #> list()
+#> 
+#> $mrt.iv.pred$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $mrt.iv.pred$requires_dose_time
+#> [1] FALSE
+#> 
+#> $mrt.iv.pred$requires_dose_dur
+#> [1] TRUE
+#> 
+#> $mrt.iv.pred$requires_volume
+#> [1] FALSE
+#> 
+#> $mrt.iv.pred$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $mrt.md.obs
@@ -8272,6 +11545,21 @@ get.interval.cols()
 #> [1] "multiple"     "steady_state"
 #> 
 #> 
+#> $mrt.md.obs$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $mrt.md.obs$requires_dose_time
+#> [1] FALSE
+#> 
+#> $mrt.md.obs$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $mrt.md.obs$requires_volume
+#> [1] FALSE
+#> 
+#> $mrt.md.obs$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $mrt.md.pred
 #> $mrt.md.pred$FUN
@@ -8328,6 +11616,21 @@ get.interval.cols()
 #> $mrt.md.pred$selection$dosing
 #> [1] "multiple"     "steady_state"
 #> 
+#> 
+#> $mrt.md.pred$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $mrt.md.pred$requires_dose_time
+#> [1] FALSE
+#> 
+#> $mrt.md.pred$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $mrt.md.pred$requires_volume
+#> [1] FALSE
+#> 
+#> $mrt.md.pred$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $mrt.ivmd.obs
@@ -8386,6 +11689,21 @@ get.interval.cols()
 #> [1] "multiple"     "steady_state"
 #> 
 #> 
+#> $mrt.ivmd.obs$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $mrt.ivmd.obs$requires_dose_time
+#> [1] FALSE
+#> 
+#> $mrt.ivmd.obs$requires_dose_dur
+#> [1] TRUE
+#> 
+#> $mrt.ivmd.obs$requires_volume
+#> [1] FALSE
+#> 
+#> $mrt.ivmd.obs$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $mrt.ivmd.pred
 #> $mrt.ivmd.pred$FUN
@@ -8442,6 +11760,21 @@ get.interval.cols()
 #> $mrt.ivmd.pred$selection$dosing
 #> [1] "multiple"     "steady_state"
 #> 
+#> 
+#> $mrt.ivmd.pred$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $mrt.ivmd.pred$requires_dose_time
+#> [1] FALSE
+#> 
+#> $mrt.ivmd.pred$requires_dose_dur
+#> [1] TRUE
+#> 
+#> $mrt.ivmd.pred$requires_volume
+#> [1] FALSE
+#> 
+#> $mrt.ivmd.pred$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $vz.obs
@@ -8506,6 +11839,21 @@ get.interval.cols()
 #> $vz.obs$selection
 #> list()
 #> 
+#> $vz.obs$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $vz.obs$requires_dose_time
+#> [1] FALSE
+#> 
+#> $vz.obs$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $vz.obs$requires_volume
+#> [1] FALSE
+#> 
+#> $vz.obs$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $vz.pred
 #> $vz.pred$FUN
@@ -8569,6 +11917,21 @@ get.interval.cols()
 #> $vz.pred$selection
 #> list()
 #> 
+#> $vz.pred$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $vz.pred$requires_dose_time
+#> [1] FALSE
+#> 
+#> $vz.pred$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $vz.pred$requires_volume
+#> [1] FALSE
+#> 
+#> $vz.pred$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $vz.int.inf.obs
 #> $vz.int.inf.obs$FUN
@@ -8617,6 +11980,21 @@ get.interval.cols()
 #> 
 #> $vz.int.inf.obs$selection
 #> list()
+#> 
+#> $vz.int.inf.obs$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $vz.int.inf.obs$requires_dose_time
+#> [1] FALSE
+#> 
+#> $vz.int.inf.obs$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $vz.int.inf.obs$requires_volume
+#> [1] FALSE
+#> 
+#> $vz.int.inf.obs$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $vz.int.inf.pred
@@ -8667,6 +12045,21 @@ get.interval.cols()
 #> $vz.int.inf.pred$selection
 #> list()
 #> 
+#> $vz.int.inf.pred$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $vz.int.inf.pred$requires_dose_time
+#> [1] FALSE
+#> 
+#> $vz.int.inf.pred$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $vz.int.inf.pred$requires_volume
+#> [1] FALSE
+#> 
+#> $vz.int.inf.pred$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $vz.iv.obs
 #> $vz.iv.obs$FUN
@@ -8716,6 +12109,21 @@ get.interval.cols()
 #> $vz.iv.obs$selection
 #> list()
 #> 
+#> $vz.iv.obs$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $vz.iv.obs$requires_dose_time
+#> [1] TRUE
+#> 
+#> $vz.iv.obs$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $vz.iv.obs$requires_volume
+#> [1] FALSE
+#> 
+#> $vz.iv.obs$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $vz.iv.pred
 #> $vz.iv.pred$FUN
@@ -8764,6 +12172,21 @@ get.interval.cols()
 #> 
 #> $vz.iv.pred$selection
 #> list()
+#> 
+#> $vz.iv.pred$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $vz.iv.pred$requires_dose_time
+#> [1] TRUE
+#> 
+#> $vz.iv.pred$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $vz.iv.pred$requires_volume
+#> [1] FALSE
+#> 
+#> $vz.iv.pred$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $vz.sparse.last
@@ -8816,6 +12239,21 @@ get.interval.cols()
 #> 
 #> $vz.sparse.last$selection
 #> list()
+#> 
+#> $vz.sparse.last$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $vz.sparse.last$requires_dose_time
+#> [1] FALSE
+#> 
+#> $vz.sparse.last$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $vz.sparse.last$requires_volume
+#> [1] FALSE
+#> 
+#> $vz.sparse.last$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $vss.obs
@@ -8883,6 +12321,21 @@ get.interval.cols()
 #> $vss.obs$selection
 #> list()
 #> 
+#> $vss.obs$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $vss.obs$requires_dose_time
+#> [1] FALSE
+#> 
+#> $vss.obs$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $vss.obs$requires_volume
+#> [1] FALSE
+#> 
+#> $vss.obs$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $vss.pred
 #> $vss.pred$FUN
@@ -8949,6 +12402,21 @@ get.interval.cols()
 #> $vss.pred$selection
 #> list()
 #> 
+#> $vss.pred$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $vss.pred$requires_dose_time
+#> [1] FALSE
+#> 
+#> $vss.pred$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $vss.pred$requires_volume
+#> [1] FALSE
+#> 
+#> $vss.pred$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $vss.iv.obs
 #> $vss.iv.obs$FUN
@@ -9001,6 +12469,21 @@ get.interval.cols()
 #> $vss.iv.obs$selection
 #> list()
 #> 
+#> $vss.iv.obs$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $vss.iv.obs$requires_dose_time
+#> [1] FALSE
+#> 
+#> $vss.iv.obs$requires_dose_dur
+#> [1] TRUE
+#> 
+#> $vss.iv.obs$requires_volume
+#> [1] FALSE
+#> 
+#> $vss.iv.obs$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $vss.iv.pred
 #> $vss.iv.pred$FUN
@@ -9052,6 +12535,21 @@ get.interval.cols()
 #> 
 #> $vss.iv.pred$selection
 #> list()
+#> 
+#> $vss.iv.pred$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $vss.iv.pred$requires_dose_time
+#> [1] FALSE
+#> 
+#> $vss.iv.pred$requires_dose_dur
+#> [1] TRUE
+#> 
+#> $vss.iv.pred$requires_volume
+#> [1] FALSE
+#> 
+#> $vss.iv.pred$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $vss.md.obs
@@ -9107,6 +12605,21 @@ get.interval.cols()
 #> [1] "multiple"     "steady_state"
 #> 
 #> 
+#> $vss.md.obs$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $vss.md.obs$requires_dose_time
+#> [1] FALSE
+#> 
+#> $vss.md.obs$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $vss.md.obs$requires_volume
+#> [1] FALSE
+#> 
+#> $vss.md.obs$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $vss.md.pred
 #> $vss.md.pred$FUN
@@ -9160,6 +12673,21 @@ get.interval.cols()
 #> $vss.md.pred$selection$dosing
 #> [1] "multiple"     "steady_state"
 #> 
+#> 
+#> $vss.md.pred$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $vss.md.pred$requires_dose_time
+#> [1] FALSE
+#> 
+#> $vss.md.pred$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $vss.md.pred$requires_volume
+#> [1] FALSE
+#> 
+#> $vss.md.pred$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $vss.ivmd.obs
@@ -9215,6 +12743,21 @@ get.interval.cols()
 #> [1] "multiple"     "steady_state"
 #> 
 #> 
+#> $vss.ivmd.obs$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $vss.ivmd.obs$requires_dose_time
+#> [1] FALSE
+#> 
+#> $vss.ivmd.obs$requires_dose_dur
+#> [1] TRUE
+#> 
+#> $vss.ivmd.obs$requires_volume
+#> [1] FALSE
+#> 
+#> $vss.ivmd.obs$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $vss.ivmd.pred
 #> $vss.ivmd.pred$FUN
@@ -9269,6 +12812,21 @@ get.interval.cols()
 #> [1] "multiple"     "steady_state"
 #> 
 #> 
+#> $vss.ivmd.pred$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $vss.ivmd.pred$requires_dose_time
+#> [1] FALSE
+#> 
+#> $vss.ivmd.pred$requires_dose_dur
+#> [1] TRUE
+#> 
+#> $vss.ivmd.pred$requires_volume
+#> [1] FALSE
+#> 
+#> $vss.ivmd.pred$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $vss.int.inf.obs
 #> $vss.int.inf.obs$FUN
@@ -9320,6 +12878,21 @@ get.interval.cols()
 #> 
 #> $vss.int.inf.obs$selection
 #> list()
+#> 
+#> $vss.int.inf.obs$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $vss.int.inf.obs$requires_dose_time
+#> [1] FALSE
+#> 
+#> $vss.int.inf.obs$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $vss.int.inf.obs$requires_volume
+#> [1] FALSE
+#> 
+#> $vss.int.inf.obs$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $vss.int.inf.pred
@@ -9373,6 +12946,21 @@ get.interval.cols()
 #> $vss.int.inf.pred$selection
 #> list()
 #> 
+#> $vss.int.inf.pred$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $vss.int.inf.pred$requires_dose_time
+#> [1] FALSE
+#> 
+#> $vss.int.inf.pred$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $vss.int.inf.pred$requires_volume
+#> [1] FALSE
+#> 
+#> $vss.int.inf.pred$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $cav.int.inf.obs
 #> $cav.int.inf.obs$FUN
@@ -9421,6 +13009,21 @@ get.interval.cols()
 #> 
 #> $cav.int.inf.obs$selection
 #> list()
+#> 
+#> $cav.int.inf.obs$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $cav.int.inf.obs$requires_dose_time
+#> [1] FALSE
+#> 
+#> $cav.int.inf.obs$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $cav.int.inf.obs$requires_volume
+#> [1] FALSE
+#> 
+#> $cav.int.inf.obs$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $cav.int.inf.pred
@@ -9471,6 +13074,167 @@ get.interval.cols()
 #> $cav.int.inf.pred$selection
 #> list()
 #> 
+#> $cav.int.inf.pred$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $cav.int.inf.pred$requires_dose_time
+#> [1] FALSE
+#> 
+#> $cav.int.inf.pred$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $cav.int.inf.pred$requires_volume
+#> [1] FALSE
+#> 
+#> $cav.int.inf.pred$requires_conc_dur
+#> [1] FALSE
+#> 
+#> 
+#> $ratio.aucinf.obs
+#> $ratio.aucinf.obs$FUN
+#> [1] "pk.calc.ratio"
+#> 
+#> $ratio.aucinf.obs$values
+#> [1] FALSE  TRUE
+#> 
+#> $ratio.aucinf.obs$unit_type
+#> [1] "fraction"
+#> 
+#> $ratio.aucinf.obs$pretty_name
+#> [1] "Ratio of AUCinf,obs to reference"
+#> 
+#> $ratio.aucinf.obs$desc
+#> [1] "Ratio of AUCinf,obs to reference"
+#> 
+#> $ratio.aucinf.obs$sparse
+#> [1] FALSE
+#> 
+#> $ratio.aucinf.obs$formalsmap
+#> $ratio.aucinf.obs$formalsmap$test
+#> [1] "aucinf.obs"
+#> 
+#> $ratio.aucinf.obs$formalsmap$reference
+#> $param
+#> [1] "aucinf.obs"
+#> 
+#> attr(,"class")
+#> [1] "pknca_ref"
+#> 
+#> 
+#> $ratio.aucinf.obs$depends
+#> [1] "aucinf.obs"
+#> 
+#> $ratio.aucinf.obs$datatype
+#> [1] "interval"
+#> 
+#> $ratio.aucinf.obs$pptestcd_cdisc
+#> [1] "ratio.aucinf.obs"
+#> 
+#> $ratio.aucinf.obs$pptest_cdisc
+#> [1] "Ratio of AUCinf,obs to Reference"
+#> 
+#> $ratio.aucinf.obs$formula
+#> NULL
+#> 
+#> $ratio.aucinf.obs$formula_note
+#> NULL
+#> 
+#> $ratio.aucinf.obs$tier
+#> [1] "uncommon"
+#> 
+#> $ratio.aucinf.obs$selection
+#> $ratio.aucinf.obs$selection$concept
+#> [1] "parameter_ratio"
+#> 
+#> 
+#> $ratio.aucinf.obs$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $ratio.aucinf.obs$requires_dose_time
+#> [1] FALSE
+#> 
+#> $ratio.aucinf.obs$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $ratio.aucinf.obs$requires_volume
+#> [1] FALSE
+#> 
+#> $ratio.aucinf.obs$requires_conc_dur
+#> [1] FALSE
+#> 
+#> 
+#> $ratio.aucinf.pred
+#> $ratio.aucinf.pred$FUN
+#> [1] "pk.calc.ratio"
+#> 
+#> $ratio.aucinf.pred$values
+#> [1] FALSE  TRUE
+#> 
+#> $ratio.aucinf.pred$unit_type
+#> [1] "fraction"
+#> 
+#> $ratio.aucinf.pred$pretty_name
+#> [1] "Ratio of AUCinf,pred to reference"
+#> 
+#> $ratio.aucinf.pred$desc
+#> [1] "Ratio of AUCinf,pred to reference"
+#> 
+#> $ratio.aucinf.pred$sparse
+#> [1] FALSE
+#> 
+#> $ratio.aucinf.pred$formalsmap
+#> $ratio.aucinf.pred$formalsmap$test
+#> [1] "aucinf.pred"
+#> 
+#> $ratio.aucinf.pred$formalsmap$reference
+#> $param
+#> [1] "aucinf.pred"
+#> 
+#> attr(,"class")
+#> [1] "pknca_ref"
+#> 
+#> 
+#> $ratio.aucinf.pred$depends
+#> [1] "aucinf.pred"
+#> 
+#> $ratio.aucinf.pred$datatype
+#> [1] "interval"
+#> 
+#> $ratio.aucinf.pred$pptestcd_cdisc
+#> [1] "ratio.aucinf.pred"
+#> 
+#> $ratio.aucinf.pred$pptest_cdisc
+#> [1] "Ratio of AUCinf,pred to Reference"
+#> 
+#> $ratio.aucinf.pred$formula
+#> NULL
+#> 
+#> $ratio.aucinf.pred$formula_note
+#> NULL
+#> 
+#> $ratio.aucinf.pred$tier
+#> [1] "uncommon"
+#> 
+#> $ratio.aucinf.pred$selection
+#> $ratio.aucinf.pred$selection$concept
+#> [1] "parameter_ratio"
+#> 
+#> 
+#> $ratio.aucinf.pred$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $ratio.aucinf.pred$requires_dose_time
+#> [1] FALSE
+#> 
+#> $ratio.aucinf.pred$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $ratio.aucinf.pred$requires_volume
+#> [1] FALSE
+#> 
+#> $ratio.aucinf.pred$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $thalf.eff.obs
 #> $thalf.eff.obs$FUN
@@ -9519,6 +13283,21 @@ get.interval.cols()
 #> 
 #> $thalf.eff.obs$selection
 #> list()
+#> 
+#> $thalf.eff.obs$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $thalf.eff.obs$requires_dose_time
+#> [1] FALSE
+#> 
+#> $thalf.eff.obs$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $thalf.eff.obs$requires_volume
+#> [1] FALSE
+#> 
+#> $thalf.eff.obs$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $thalf.eff.pred
@@ -9569,6 +13348,21 @@ get.interval.cols()
 #> $thalf.eff.pred$selection
 #> list()
 #> 
+#> $thalf.eff.pred$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $thalf.eff.pred$requires_dose_time
+#> [1] FALSE
+#> 
+#> $thalf.eff.pred$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $thalf.eff.pred$requires_volume
+#> [1] FALSE
+#> 
+#> $thalf.eff.pred$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $thalf.eff.iv.obs
 #> $thalf.eff.iv.obs$FUN
@@ -9617,6 +13411,21 @@ get.interval.cols()
 #> 
 #> $thalf.eff.iv.obs$selection
 #> list()
+#> 
+#> $thalf.eff.iv.obs$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $thalf.eff.iv.obs$requires_dose_time
+#> [1] FALSE
+#> 
+#> $thalf.eff.iv.obs$requires_dose_dur
+#> [1] TRUE
+#> 
+#> $thalf.eff.iv.obs$requires_volume
+#> [1] FALSE
+#> 
+#> $thalf.eff.iv.obs$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $thalf.eff.iv.pred
@@ -9667,6 +13476,21 @@ get.interval.cols()
 #> $thalf.eff.iv.pred$selection
 #> list()
 #> 
+#> $thalf.eff.iv.pred$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $thalf.eff.iv.pred$requires_dose_time
+#> [1] FALSE
+#> 
+#> $thalf.eff.iv.pred$requires_dose_dur
+#> [1] TRUE
+#> 
+#> $thalf.eff.iv.pred$requires_volume
+#> [1] FALSE
+#> 
+#> $thalf.eff.iv.pred$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $kel.obs
 #> $kel.obs$FUN
@@ -9715,6 +13539,21 @@ get.interval.cols()
 #> 
 #> $kel.obs$selection
 #> list()
+#> 
+#> $kel.obs$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $kel.obs$requires_dose_time
+#> [1] FALSE
+#> 
+#> $kel.obs$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $kel.obs$requires_volume
+#> [1] FALSE
+#> 
+#> $kel.obs$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $kel.pred
@@ -9765,6 +13604,21 @@ get.interval.cols()
 #> $kel.pred$selection
 #> list()
 #> 
+#> $kel.pred$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $kel.pred$requires_dose_time
+#> [1] FALSE
+#> 
+#> $kel.pred$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $kel.pred$requires_volume
+#> [1] FALSE
+#> 
+#> $kel.pred$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $kel.iv.obs
 #> $kel.iv.obs$FUN
@@ -9813,6 +13667,21 @@ get.interval.cols()
 #> 
 #> $kel.iv.obs$selection
 #> list()
+#> 
+#> $kel.iv.obs$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $kel.iv.obs$requires_dose_time
+#> [1] FALSE
+#> 
+#> $kel.iv.obs$requires_dose_dur
+#> [1] TRUE
+#> 
+#> $kel.iv.obs$requires_volume
+#> [1] FALSE
+#> 
+#> $kel.iv.obs$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $kel.iv.pred
@@ -9863,6 +13732,21 @@ get.interval.cols()
 #> $kel.iv.pred$selection
 #> list()
 #> 
+#> $kel.iv.pred$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $kel.iv.pred$requires_dose_time
+#> [1] FALSE
+#> 
+#> $kel.iv.pred$requires_dose_dur
+#> [1] TRUE
+#> 
+#> $kel.iv.pred$requires_volume
+#> [1] FALSE
+#> 
+#> $kel.iv.pred$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $kel.int.inf.obs
 #> $kel.int.inf.obs$FUN
@@ -9911,6 +13795,21 @@ get.interval.cols()
 #> 
 #> $kel.int.inf.obs$selection
 #> list()
+#> 
+#> $kel.int.inf.obs$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $kel.int.inf.obs$requires_dose_time
+#> [1] FALSE
+#> 
+#> $kel.int.inf.obs$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $kel.int.inf.obs$requires_volume
+#> [1] FALSE
+#> 
+#> $kel.int.inf.obs$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $kel.int.inf.pred
@@ -9961,6 +13860,21 @@ get.interval.cols()
 #> $kel.int.inf.pred$selection
 #> list()
 #> 
+#> $kel.int.inf.pred$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $kel.int.inf.pred$requires_dose_time
+#> [1] FALSE
+#> 
+#> $kel.int.inf.pred$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $kel.int.inf.pred$requires_volume
+#> [1] FALSE
+#> 
+#> $kel.int.inf.pred$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $auclast.dn
 #> $auclast.dn$FUN
@@ -10009,6 +13923,21 @@ get.interval.cols()
 #> 
 #> $auclast.dn$selection
 #> list()
+#> 
+#> $auclast.dn$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $auclast.dn$requires_dose_time
+#> [1] FALSE
+#> 
+#> $auclast.dn$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $auclast.dn$requires_volume
+#> [1] FALSE
+#> 
+#> $auclast.dn$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $aucall.dn
@@ -10059,6 +13988,21 @@ get.interval.cols()
 #> $aucall.dn$selection
 #> list()
 #> 
+#> $aucall.dn$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $aucall.dn$requires_dose_time
+#> [1] FALSE
+#> 
+#> $aucall.dn$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucall.dn$requires_volume
+#> [1] FALSE
+#> 
+#> $aucall.dn$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $aucinf.obs.dn
 #> $aucinf.obs.dn$FUN
@@ -10107,6 +14051,21 @@ get.interval.cols()
 #> 
 #> $aucinf.obs.dn$selection
 #> list()
+#> 
+#> $aucinf.obs.dn$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $aucinf.obs.dn$requires_dose_time
+#> [1] FALSE
+#> 
+#> $aucinf.obs.dn$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucinf.obs.dn$requires_volume
+#> [1] FALSE
+#> 
+#> $aucinf.obs.dn$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $aucinf.pred.dn
@@ -10157,6 +14116,21 @@ get.interval.cols()
 #> $aucinf.pred.dn$selection
 #> list()
 #> 
+#> $aucinf.pred.dn$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $aucinf.pred.dn$requires_dose_time
+#> [1] FALSE
+#> 
+#> $aucinf.pred.dn$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucinf.pred.dn$requires_volume
+#> [1] FALSE
+#> 
+#> $aucinf.pred.dn$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $aumclast.dn
 #> $aumclast.dn$FUN
@@ -10205,6 +14179,21 @@ get.interval.cols()
 #> 
 #> $aumclast.dn$selection
 #> list()
+#> 
+#> $aumclast.dn$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $aumclast.dn$requires_dose_time
+#> [1] FALSE
+#> 
+#> $aumclast.dn$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aumclast.dn$requires_volume
+#> [1] FALSE
+#> 
+#> $aumclast.dn$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $aumcall.dn
@@ -10255,6 +14244,21 @@ get.interval.cols()
 #> $aumcall.dn$selection
 #> list()
 #> 
+#> $aumcall.dn$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $aumcall.dn$requires_dose_time
+#> [1] FALSE
+#> 
+#> $aumcall.dn$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aumcall.dn$requires_volume
+#> [1] FALSE
+#> 
+#> $aumcall.dn$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $aumcinf.obs.dn
 #> $aumcinf.obs.dn$FUN
@@ -10303,6 +14307,21 @@ get.interval.cols()
 #> 
 #> $aumcinf.obs.dn$selection
 #> list()
+#> 
+#> $aumcinf.obs.dn$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $aumcinf.obs.dn$requires_dose_time
+#> [1] FALSE
+#> 
+#> $aumcinf.obs.dn$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aumcinf.obs.dn$requires_volume
+#> [1] FALSE
+#> 
+#> $aumcinf.obs.dn$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $aumcinf.pred.dn
@@ -10353,6 +14372,21 @@ get.interval.cols()
 #> $aumcinf.pred.dn$selection
 #> list()
 #> 
+#> $aumcinf.pred.dn$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $aumcinf.pred.dn$requires_dose_time
+#> [1] FALSE
+#> 
+#> $aumcinf.pred.dn$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aumcinf.pred.dn$requires_volume
+#> [1] FALSE
+#> 
+#> $aumcinf.pred.dn$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $cmax.dn
 #> $cmax.dn$FUN
@@ -10401,6 +14435,21 @@ get.interval.cols()
 #> 
 #> $cmax.dn$selection
 #> list()
+#> 
+#> $cmax.dn$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $cmax.dn$requires_dose_time
+#> [1] FALSE
+#> 
+#> $cmax.dn$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $cmax.dn$requires_volume
+#> [1] FALSE
+#> 
+#> $cmax.dn$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $cmin.dn
@@ -10451,6 +14500,21 @@ get.interval.cols()
 #> $cmin.dn$selection
 #> list()
 #> 
+#> $cmin.dn$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $cmin.dn$requires_dose_time
+#> [1] FALSE
+#> 
+#> $cmin.dn$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $cmin.dn$requires_volume
+#> [1] FALSE
+#> 
+#> $cmin.dn$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $clast.obs.dn
 #> $clast.obs.dn$FUN
@@ -10499,6 +14563,21 @@ get.interval.cols()
 #> 
 #> $clast.obs.dn$selection
 #> list()
+#> 
+#> $clast.obs.dn$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $clast.obs.dn$requires_dose_time
+#> [1] FALSE
+#> 
+#> $clast.obs.dn$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $clast.obs.dn$requires_volume
+#> [1] FALSE
+#> 
+#> $clast.obs.dn$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $clast.pred.dn
@@ -10549,6 +14628,21 @@ get.interval.cols()
 #> $clast.pred.dn$selection
 #> list()
 #> 
+#> $clast.pred.dn$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $clast.pred.dn$requires_dose_time
+#> [1] FALSE
+#> 
+#> $clast.pred.dn$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $clast.pred.dn$requires_volume
+#> [1] FALSE
+#> 
+#> $clast.pred.dn$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $cav.dn
 #> $cav.dn$FUN
@@ -10597,6 +14691,21 @@ get.interval.cols()
 #> 
 #> $cav.dn$selection
 #> list()
+#> 
+#> $cav.dn$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $cav.dn$requires_dose_time
+#> [1] FALSE
+#> 
+#> $cav.dn$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $cav.dn$requires_volume
+#> [1] FALSE
+#> 
+#> $cav.dn$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $ctrough.dn
@@ -10647,6 +14756,21 @@ get.interval.cols()
 #> $ctrough.dn$selection
 #> list()
 #> 
+#> $ctrough.dn$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $ctrough.dn$requires_dose_time
+#> [1] FALSE
+#> 
+#> $ctrough.dn$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $ctrough.dn$requires_volume
+#> [1] FALSE
+#> 
+#> $ctrough.dn$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $clr.last.dn
 #> $clr.last.dn$FUN
@@ -10695,6 +14819,21 @@ get.interval.cols()
 #> 
 #> $clr.last.dn$selection
 #> list()
+#> 
+#> $clr.last.dn$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $clr.last.dn$requires_dose_time
+#> [1] FALSE
+#> 
+#> $clr.last.dn$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $clr.last.dn$requires_volume
+#> [1] TRUE
+#> 
+#> $clr.last.dn$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 #> $clr.obs.dn
@@ -10745,6 +14884,21 @@ get.interval.cols()
 #> $clr.obs.dn$selection
 #> list()
 #> 
+#> $clr.obs.dn$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $clr.obs.dn$requires_dose_time
+#> [1] FALSE
+#> 
+#> $clr.obs.dn$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $clr.obs.dn$requires_volume
+#> [1] TRUE
+#> 
+#> $clr.obs.dn$requires_conc_dur
+#> [1] FALSE
+#> 
 #> 
 #> $clr.pred.dn
 #> $clr.pred.dn$FUN
@@ -10793,6 +14947,21 @@ get.interval.cols()
 #> 
 #> $clr.pred.dn$selection
 #> list()
+#> 
+#> $clr.pred.dn$requires_dose_amt
+#> [1] TRUE
+#> 
+#> $clr.pred.dn$requires_dose_time
+#> [1] FALSE
+#> 
+#> $clr.pred.dn$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $clr.pred.dn$requires_volume
+#> [1] TRUE
+#> 
+#> $clr.pred.dn$requires_conc_dur
+#> [1] FALSE
 #> 
 #> 
 ```
