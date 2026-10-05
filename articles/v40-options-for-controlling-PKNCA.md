@@ -6,7 +6,7 @@ PKNCA has many options that control its function. These options have
 effects throughout the package. The options are controlled using either
 the `PKNCA.options` function or by passing the `options` argument to any
 of the functions with that as an argument. All options supported by the
-current version of PKNCA (0.12.1.9000) are listed below with their
+current version of PKNCA (0.12.1.9002) are listed below with their
 descriptions.
 
 ## Options
@@ -146,6 +146,30 @@ dosing? See ‘choose.auc.intervals’ and ‘find.tau’ for more information.
 ‘NA’ means automatically look at any potential interval.
 
 The default value is: NA
+
+### auto.interval.method
+
+When automatically determining the intervals, where do the parameters to
+calculate come from? ‘builder’ asks ‘pknca_interval_table’ for the
+parameters that suit each interval’s context. ‘legacy’ uses the
+parameter lists PKNCA used before that was available: the
+‘single.dose.aucs’ option for single-dose data, and AUClast, Cmax, and
+Tmax for each interval of multiple-dose data. Only the choice of
+parameters differs; the intervals themselves are found the same way
+either way. See ‘choose.auc.intervals’ for more information.
+
+The default value is: builder
+
+### auto.interval.tolerance
+
+When automatically determining the intervals, how far from the boundary
+of an interval may a sample be drawn and still count as the sample at
+that boundary? It is given as a fraction of the interval’s length (the
+dosing interval, tau, for a dosing interval), so that a trough drawn at
+167.5 hours still ends an interval nominally ending at 168 hours. See
+‘choose.auc.intervals’ for more information.
+
+The default value is: 0.05
 
 ### single.dose.aucs
 

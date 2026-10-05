@@ -29,12 +29,12 @@ exclude_nca_tmax_0()
 - min.span.ratio:
 
   The minimum acceptable span ratio (uses
-  `PKNCA.options("min.span.ratio")` if not provided).
+  PKNCA.options("min.span.ratio") if not provided).
 
 - max.aucinf.pext:
 
   The maximum acceptable percent AUC extrapolation (uses
-  `PKNCA.options("max.aucinf.pext")` if not provided).
+  PKNCA.options("max.aucinf.pext") if not provided).
 
 - min_count:
 
@@ -47,7 +47,7 @@ exclude_nca_tmax_0()
 - min.hl.r.squared:
 
   The minimum acceptable r-squared value for half-life (uses
-  `PKNCA.options("min.hl.r.squared")` if not provided).
+  PKNCA.options("min.hl.r.squared") if not provided).
 
 - min.hl.adj.r.squared:
 
@@ -59,16 +59,26 @@ exclude_nca_tmax_0()
   The time for Tmax which is considered too early to be a valid NCA
   result
 
+## Value
+
+A function to give to
+[`exclude()`](https://humanpred.github.io/pknca/reference/exclude.md) as
+`FUN`. Its `pknca_affected_parameters` attribute lists the parameters it
+can exclude, and its `pknca_options` attribute lists the
+[`PKNCA.options()`](https://humanpred.github.io/pknca/reference/PKNCA.options.md)
+entries its thresholds came from (see
+[`pknca_exclude_rules()`](https://humanpred.github.io/pknca/reference/pknca_exclude_rules.md)).
+
 ## Functions
 
-- `exclude_nca_span.ratio()`: Exclude based on span.ratio
+- `exclude_nca_span.ratio()`: Exclude based on the half-life span ratio
 
-- `exclude_nca_max.aucinf.pext()`: Exclude based on AUC percent
-  extrapolated (both observed and predicted)
+- `exclude_nca_max.aucinf.pext()`: Exclude based on the percent of AUC
+  extrapolated to infinity (both observed and predicted)
 
-- `exclude_nca_count_conc_measured()`: Exclude AUC measurements based on
-  count of concentrations measured and not below the lower limit of
-  quantification
+- `exclude_nca_count_conc_measured()`: Exclude based on the count of
+  concentrations measured and not below the lower limit of
+  quantification (affects AUC and AUMC parameters)
 
 - `exclude_nca_min.hl.r.squared()`: Exclude based on half-life r-squared
 
@@ -79,12 +89,13 @@ exclude_nca_tmax_0()
   (often used for extravascular dosing with a Tmax value of 0)
 
 - `exclude_nca_tmax_0()`: Exclude based on implausibly early Tmax
-  (special case for `tmax_early = 0`)
+  (special case for tmax_early = 0)
 
 ## See also
 
 Other Result exclusions:
-[`exclude()`](https://humanpred.github.io/pknca/reference/exclude.md)
+[`exclude()`](https://humanpred.github.io/pknca/reference/exclude.md),
+[`pknca_exclude_rules()`](https://humanpred.github.io/pknca/reference/pknca_exclude_rules.md)
 
 ## Examples
 
@@ -100,7 +111,6 @@ my_data <- PKNCAdata(my_conc,
 my_result <- pk.nca(my_data)
 my_result_excluded <- exclude(my_result,
                               FUN=exclude_nca_max.aucinf.pext())
-#> Loading required namespace: testthat
 as.data.frame(my_result_excluded)
 #> # A tibble: 16 × 7
 #>    subject start   end PPTESTCD            PPORRES PPANMETH              exclude

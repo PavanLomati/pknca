@@ -27,9 +27,11 @@ Other Interval specifications:
 [`interval_add_impute()`](https://humanpred.github.io/pknca/reference/interval_add_impute.md),
 [`interval_add_param()`](https://humanpred.github.io/pknca/reference/interval_add_param.md),
 [`interval_add_secondary()`](https://humanpred.github.io/pknca/reference/interval_add_secondary.md),
+[`pknca_cdisc_codes()`](https://humanpred.github.io/pknca/reference/pknca_cdisc_codes.md),
 [`pknca_check_parameter_classification()`](https://humanpred.github.io/pknca/reference/pknca_check_parameter_classification.md),
 [`pknca_concepts()`](https://humanpred.github.io/pknca/reference/pknca_concepts.md),
 [`pknca_interval_table()`](https://humanpred.github.io/pknca/reference/pknca_interval_table.md),
+[`pknca_match_route()`](https://humanpred.github.io/pknca/reference/pknca_match_route.md),
 [`pknca_parameter_table()`](https://humanpred.github.io/pknca/reference/pknca_parameter_table.md),
 [`pknca_ref()`](https://humanpred.github.io/pknca/reference/pknca_ref.md)
 

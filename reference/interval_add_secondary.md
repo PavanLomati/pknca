@@ -58,7 +58,12 @@ interval_add_secondary(
   The `interval_id` to give the reference interval. The default of
   `NULL` keeps an identifier the reference rows already have and
   otherwise generates one matching the class of the `interval_id`
-  column.
+  column. A `ref_id` that differs from the identifier the reference rows
+  already have renames that interval, which is an error when another
+  interval points at the old identifier or already has `ref_id`.
+  Reference rows that already carry more than one `interval_id` are an
+  error (`pknca_error_secondary_ref_ambiguous_spec`) when `ref_id` is
+  given, as it cannot name more than one interval.
 
 - ...:
 
@@ -123,9 +128,11 @@ Other Interval specifications:
 [`get.parameter.deps()`](https://humanpred.github.io/pknca/reference/get.parameter.deps.md),
 [`interval_add_impute()`](https://humanpred.github.io/pknca/reference/interval_add_impute.md),
 [`interval_add_param()`](https://humanpred.github.io/pknca/reference/interval_add_param.md),
+[`pknca_cdisc_codes()`](https://humanpred.github.io/pknca/reference/pknca_cdisc_codes.md),
 [`pknca_check_parameter_classification()`](https://humanpred.github.io/pknca/reference/pknca_check_parameter_classification.md),
 [`pknca_concepts()`](https://humanpred.github.io/pknca/reference/pknca_concepts.md),
 [`pknca_interval_table()`](https://humanpred.github.io/pknca/reference/pknca_interval_table.md),
+[`pknca_match_route()`](https://humanpred.github.io/pknca/reference/pknca_match_route.md),
 [`pknca_parameter_table()`](https://humanpred.github.io/pknca/reference/pknca_parameter_table.md),
 [`pknca_presets()`](https://humanpred.github.io/pknca/reference/pknca_presets.md),
 [`pknca_ref()`](https://humanpred.github.io/pknca/reference/pknca_ref.md)

@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">PKNCA</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.12.1.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.12.1.9002</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -96,7 +96,7 @@ effects throughout the package. The options are controlled using either
 the <code>PKNCA.options</code> function or by passing the
 <code>options</code> argument to any of the functions with that as an
 argument. All options supported by the current version of PKNCA
-(0.12.1.9000) are listed below with their descriptions.</p>
+(0.12.1.9002) are listed below with their descriptions.</p>
 </div>
 <div class="section level2">
 <h2 id="options">Options<a class="anchor" aria-label="anchor" href="#options"></a>
@@ -238,6 +238,30 @@ multiple dosing? See ‘choose.auc.intervals’ and ‘find.tau’ for more
 information. ‘NA’ means automatically look at any potential
 interval.</p>
 <p>The default value is: NA</p>
+</div>
+<div class="section level3">
+<h3 id="auto-interval-method">auto.interval.method<a class="anchor" aria-label="anchor" href="#auto-interval-method"></a>
+</h3>
+<p>When automatically determining the intervals, where do the parameters
+to calculate come from? ‘builder’ asks ‘pknca_interval_table’ for the
+parameters that suit each interval’s context. ‘legacy’ uses the
+parameter lists PKNCA used before that was available: the
+‘single.dose.aucs’ option for single-dose data, and AUClast, Cmax, and
+Tmax for each interval of multiple-dose data. Only the choice of
+parameters differs; the intervals themselves are found the same way
+either way. See ‘choose.auc.intervals’ for more information.</p>
+<p>The default value is: builder</p>
+</div>
+<div class="section level3">
+<h3 id="auto-interval-tolerance">auto.interval.tolerance<a class="anchor" aria-label="anchor" href="#auto-interval-tolerance"></a>
+</h3>
+<p>When automatically determining the intervals, how far from the
+boundary of an interval may a sample be drawn and still count as the
+sample at that boundary? It is given as a fraction of the interval’s
+length (the dosing interval, tau, for a dosing interval), so that a
+trough drawn at 167.5 hours still ends an interval nominally ending at
+168 hours. See ‘choose.auc.intervals’ for more information.</p>
+<p>The default value is: 0.05</p>
 </div>
 <div class="section level3">
 <h3 id="single-dose-aucs">single.dose.aucs<a class="anchor" aria-label="anchor" href="#single-dose-aucs"></a>

@@ -136,6 +136,9 @@ and bug reports.
   [`PKNCA_impute_method_end_conc_drop()`](https://humanpred.github.io/pknca/reference/PKNCA_impute_method.md)
   : Methods for imputation of data with PKNCA
 
+- [`PKNCA_options_defaults()`](https://humanpred.github.io/pknca/reference/PKNCA_options_defaults.md)
+  : Get the default values of PKNCA options without changing them
+
 - [`PKNCAconc()`](https://humanpred.github.io/pknca/reference/PKNCAconc.md)
   : Create a PKNCAconc object
 
@@ -191,6 +194,9 @@ and bug reports.
 
 - [`assert_dosetau()`](https://humanpred.github.io/pknca/reference/assert_dosetau.md)
   : Assert that a value is a dosing interval
+
+- [`assert_impute_method()`](https://humanpred.github.io/pknca/reference/assert_impute_method.md)
+  : Check an imputation specification
 
 - [`assert_intervals()`](https://humanpred.github.io/pknca/reference/assert_intervals.md)
   : Assert Intervals
@@ -313,7 +319,7 @@ and bug reports.
   : Exclude NCA parameters based on examining the parameter set.
 
 - [`exclude_nca_by_param()`](https://humanpred.github.io/pknca/reference/exclude_nca_by_param.md)
-  : Exclude NCA Results Based on Parameter Thresholds
+  : Exclude based on NCA parameter thresholds
 
 - [`filter(`*`<PKNCAresults>`*`)`](https://humanpred.github.io/pknca/reference/filter.PKNCAresults.md)
   [`filter(`*`<PKNCAconc>`*`)`](https://humanpred.github.io/pknca/reference/filter.PKNCAresults.md)
@@ -695,6 +701,9 @@ and bug reports.
   : Convert the grouping info and list of results for each group into a
   results data.frame
 
+- [`pknca_cdisc_codes()`](https://humanpred.github.io/pknca/reference/pknca_cdisc_codes.md)
+  : Every registered CDISC PPTESTCD/PPTEST code, with CT membership
+
 - [`pknca_check_parameter_classification()`](https://humanpred.github.io/pknca/reference/pknca_check_parameter_classification.md)
   : Report parameters that PKNCA cannot classify for automatic selection
 
@@ -709,11 +718,20 @@ and bug reports.
   [`pknca_sample_types()`](https://humanpred.github.io/pknca/reference/pknca_concepts.md)
   : Concepts, tiers, and contexts used to classify NCA parameters
 
+- [`pknca_exclude_rules()`](https://humanpred.github.io/pknca/reference/pknca_exclude_rules.md)
+  : List the automatic NCA result exclusion rules
+
 - [`pknca_find_units_param()`](https://humanpred.github.io/pknca/reference/pknca_find_units_param.md)
   : Find NCA parameters with a given unit type
 
+- [`pknca_impute_methods()`](https://humanpred.github.io/pknca/reference/pknca_impute_methods.md)
+  : List the imputation methods
+
 - [`pknca_interval_table()`](https://humanpred.github.io/pknca/reference/pknca_interval_table.md)
   : Build an interval specification from a description of the analysis
+
+- [`pknca_match_route()`](https://humanpred.github.io/pknca/reference/pknca_match_route.md)
+  : Match spellings of a route of administration to the route PKNCA uses
 
 - [`pknca_parameter_table()`](https://humanpred.github.io/pknca/reference/pknca_parameter_table.md)
   : How each NCA parameter is classified for interval selection

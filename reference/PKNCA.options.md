@@ -74,7 +74,8 @@ options (`vignette("Options-for-Controlling-PKNCA", package="PKNCA")`).
 
 Other PKNCA calculation and summary settings:
 [`PKNCA.choose.option()`](https://humanpred.github.io/pknca/reference/PKNCA.choose.option.md),
-[`PKNCA.set.summary()`](https://humanpred.github.io/pknca/reference/PKNCA.set.summary.md)
+[`PKNCA.set.summary()`](https://humanpred.github.io/pknca/reference/PKNCA.set.summary.md),
+[`PKNCA_options_defaults()`](https://humanpred.github.io/pknca/reference/PKNCA_options_defaults.md)
 
 ## Examples
 
@@ -139,6 +140,12 @@ PKNCA.options()
 #> 
 #> $tau.choices
 #> [1] NA
+#> 
+#> $auto.interval.method
+#> [1] "builder"
+#> 
+#> $auto.interval.tolerance
+#> [1] 0.05
 #> 
 #> $single.dose.aucs
 #>   start end auclast auclast_se auclast_df aucall aumclast aumclast_se
