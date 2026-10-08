@@ -33,6 +33,7 @@
     <li><a class="dropdown-item" href="../articles/v21-methods-for-dose-aware-interpolation-and-extrapolation.html">Methods Used for Dose-Aware Concentration Interpolation/Extrapolation</a></li>
     <li><a class="dropdown-item" href="../articles/v22-time-to-steady-state.html">Noncompartmental evaluation of time to steady-state</a></li>
     <li><a class="dropdown-item" href="../articles/v23-auc-integration-methods.html">AUC integration methods</a></li>
+    <li><a class="dropdown-item" href="../articles/v24-sparse-auc-to-infinity.html">Sparse AUC to Infinity and the Uncertainty of lambda.z</a></li>
     <li><a class="dropdown-item" href="../articles/v30-training-session.html">PKNCA Training Sessions</a></li>
     <li><a class="dropdown-item" href="../articles/v31-FDA-introduction.html">PKNCA – an R package for noncompartmental analysis of pharmacokinetic data</a></li>
     <li><a class="dropdown-item" href="../articles/v40-options-for-controlling-PKNCA.html">Options for Controlling PKNCA</a></li>
@@ -144,6 +145,13 @@ summarization settings.</p>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Excluded results will not be included in the summary.</p>
+<p>A parameter whose summary instructions name it as the spread of another
+parameter (<code>spread_for</code> in <code><a href="PKNCA.set.summary.html">PKNCA.set.summary()</a></code>, such as the standard error
+of a sparse AUClast) has no column of its own.  Where its results are
+present, the other parameter is summarized with its instructions instead:
+for a sparse AUClast, the estimate with its standard error.  The caption
+gives the summary used.  A summary row with more than one sparse estimate is
+an error, since each standard error describes one estimate.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>

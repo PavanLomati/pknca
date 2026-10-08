@@ -12,7 +12,9 @@ pk.nca.intervals(
   options,
   impute,
   data_sparse_conc = NULL,
-  verbose = FALSE
+  verbose = FALSE,
+  timeu = NULL,
+  warning_prefix = ""
 )
 ```
 
@@ -53,6 +55,18 @@ pk.nca.intervals(
 
   Indicate, by [`message()`](https://rdrr.io/r/base/message.html), the
   current state of calculation.
+
+- timeu:
+
+  The time unit of the group's times: `NULL` when it is not known, which
+  is taken to be hours, or `NA` when it cannot be used. A \\\tau\\
+  detected from the dose times is matched to the nominal dosing
+  intervals for that unit (see
+  [`find.dose.regimen()`](https://humanpred.github.io/pknca/reference/find.dose.regimen.md)).
+
+- warning_prefix:
+
+  The text naming the group, put before each dose regimen warning
 
 ## Value
 

@@ -53,7 +53,7 @@ get.interval.cols()
 #> [1] "time"
 #> 
 #> $start$pretty_name
-#> [1] "Interval Start"
+#> [1] "Interval start"
 #> 
 #> $start$desc
 #> [1] "Starting time of the interval"
@@ -103,10 +103,10 @@ get.interval.cols()
 #> [1] "time"
 #> 
 #> $end$pretty_name
-#> [1] "Interval End"
+#> [1] "Interval end"
 #> 
 #> $end$desc
-#> [1] "End time of interval (may be Inf)"
+#> [1] "End time of the interval (may be Inf)"
 #> 
 #> $end$formalsmap
 #> list()
@@ -124,7 +124,7 @@ get.interval.cols()
 #> [1] "end"
 #> 
 #> $end$pptest_cdisc
-#> [1] "End time of interval (may be Inf)"
+#> [1] "End time of the interval (may be Inf)"
 #> 
 #> $end$formula
 #> NULL
@@ -323,10 +323,10 @@ get.interval.cols()
 #> [1] "Sparse AUClast degrees of freedom"
 #> 
 #> $auclast_df$formula
-#> [1] "$df = \\frac{\\left(\\sum w_i^2 \\hat{\\sigma}_{ii}/n_i\\right)^2}{\\sum w_i^4 \\hat{\\sigma}_{ii}^2 / (n_i^2(n_i-1))}$"
+#> [1] "$df = \\frac{\\left(tr(M\\Omega)\\right)^2}{tr\\left(\\left(M\\Omega\\right)^2\\right)}$"
 #> 
 #> $auclast_df$formula_note
-#> [1] "Satterthwaite approximation (Nedelman et al 1995, eq. 6a)"
+#> [1] "Satterthwaite approximation for any sampling design (Nedelman and Jia 1998, eq. 6)"
 #> 
 #> $auclast_df$tier
 #> [1] "uncommon"
@@ -355,7 +355,7 @@ get.interval.cols()
 #> [1] "pk.calc.auc.all"
 #> 
 #> $aucall$FUN_sparse
-#> [1] NA
+#> [1] "pk.calc.aucall_sparse"
 #> 
 #> $aucall$values
 #> [1] FALSE  TRUE
@@ -415,6 +415,136 @@ get.interval.cols()
 #> [1] FALSE
 #> 
 #> 
+#> $aucall_se
+#> $aucall_se$FUN
+#> [1] NA
+#> 
+#> $aucall_se$FUN_sparse
+#> [1] NA
+#> 
+#> $aucall_se$values
+#> [1] FALSE  TRUE
+#> 
+#> $aucall_se$unit_type
+#> [1] "auc"
+#> 
+#> $aucall_se$pretty_name
+#> [1] "AUCall standard error"
+#> 
+#> $aucall_se$desc
+#> [1] "SE of AUCall (sparse PK only)"
+#> 
+#> $aucall_se$formalsmap
+#> list()
+#> 
+#> $aucall_se$formalsmap_sparse
+#> list()
+#> 
+#> $aucall_se$depends
+#> [1] "aucall"
+#> 
+#> $aucall_se$datatype
+#> [1] "interval"
+#> 
+#> $aucall_se$pptestcd_cdisc
+#> [1] "AUCALLSE"
+#> 
+#> $aucall_se$pptest_cdisc
+#> [1] "Sparse AUCall standard error"
+#> 
+#> $aucall_se$formula
+#> NULL
+#> 
+#> $aucall_se$formula_note
+#> [1] "Variance from weighted covariance across subjects (Nedelman and Jia 1998, Holder 2001), with the trapezoidal weights to the time after tlast"
+#> 
+#> $aucall_se$tier
+#> [1] "uncommon"
+#> 
+#> $aucall_se$selection
+#> list()
+#> 
+#> $aucall_se$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aucall_se$requires_dose_time
+#> [1] FALSE
+#> 
+#> $aucall_se$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucall_se$requires_volume
+#> [1] FALSE
+#> 
+#> $aucall_se$requires_conc_dur
+#> [1] FALSE
+#> 
+#> 
+#> $aucall_df
+#> $aucall_df$FUN
+#> [1] NA
+#> 
+#> $aucall_df$FUN_sparse
+#> [1] NA
+#> 
+#> $aucall_df$values
+#> [1] FALSE  TRUE
+#> 
+#> $aucall_df$unit_type
+#> [1] "count"
+#> 
+#> $aucall_df$pretty_name
+#> [1] "AUCall degrees of freedom"
+#> 
+#> $aucall_df$desc
+#> [1] "DF for AUCall (sparse PK only)"
+#> 
+#> $aucall_df$formalsmap
+#> list()
+#> 
+#> $aucall_df$formalsmap_sparse
+#> list()
+#> 
+#> $aucall_df$depends
+#> [1] "aucall"
+#> 
+#> $aucall_df$datatype
+#> [1] "interval"
+#> 
+#> $aucall_df$pptestcd_cdisc
+#> [1] "AUCALLDF"
+#> 
+#> $aucall_df$pptest_cdisc
+#> [1] "Sparse AUCall degrees of freedom"
+#> 
+#> $aucall_df$formula
+#> [1] "$df = \\frac{\\left(tr(M\\Omega)\\right)^2}{tr\\left(\\left(M\\Omega\\right)^2\\right)}$"
+#> 
+#> $aucall_df$formula_note
+#> [1] "Satterthwaite approximation for any sampling design (Nedelman and Jia 1998, eq. 6)"
+#> 
+#> $aucall_df$tier
+#> [1] "uncommon"
+#> 
+#> $aucall_df$selection
+#> list()
+#> 
+#> $aucall_df$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aucall_df$requires_dose_time
+#> [1] FALSE
+#> 
+#> $aucall_df$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucall_df$requires_volume
+#> [1] FALSE
+#> 
+#> $aucall_df$requires_conc_dur
+#> [1] FALSE
+#> 
+#> 
 #> $aumclast
 #> $aumclast$FUN
 #> [1] "pk.calc.aumc.last"
@@ -429,7 +559,7 @@ get.interval.cols()
 #> [1] "aumc"
 #> 
 #> $aumclast$pretty_name
-#> [1] "AUMC,last"
+#> [1] "AUMClast"
 #> 
 #> $aumclast$desc
 #> [1] "AUMC start to last conc above LOQ"
@@ -499,7 +629,7 @@ get.interval.cols()
 #> [1] "aumc"
 #> 
 #> $aumclast_se$pretty_name
-#> [1] "AUMC,last standard error"
+#> [1] "AUMClast standard error"
 #> 
 #> $aumclast_se$desc
 #> [1] "SE of AUMClast (sparse PK only)"
@@ -564,7 +694,7 @@ get.interval.cols()
 #> [1] "count"
 #> 
 #> $aumclast_df$pretty_name
-#> [1] "AUMC,last degrees of freedom"
+#> [1] "AUMClast degrees of freedom"
 #> 
 #> $aumclast_df$desc
 #> [1] "DF for AUMClast (sparse PK only)"
@@ -588,10 +718,10 @@ get.interval.cols()
 #> [1] "Sparse AUMClast degrees of freedom"
 #> 
 #> $aumclast_df$formula
-#> [1] "$df = \\frac{\\left(\\sum w_i^2 \\hat{\\sigma}_{ii}/n_i\\right)^2}{\\sum w_i^4 \\hat{\\sigma}_{ii}^2 / (n_i^2(n_i-1))}$"
+#> [1] "$df = \\frac{\\left(tr(M\\Omega)\\right)^2}{tr\\left(\\left(M\\Omega\\right)^2\\right)}$"
 #> 
 #> $aumclast_df$formula_note
-#> [1] "Satterthwaite approximation (Nedelman et al 1995, eq. 6a)"
+#> [1] "Satterthwaite approximation for any sampling design (Nedelman and Jia 1998, eq. 6)"
 #> 
 #> $aumclast_df$tier
 #> [1] "uncommon"
@@ -620,7 +750,7 @@ get.interval.cols()
 #> [1] "pk.calc.aumc.all"
 #> 
 #> $aumcall$FUN_sparse
-#> [1] NA
+#> [1] "pk.calc.aumcall_sparse"
 #> 
 #> $aumcall$values
 #> [1] FALSE  TRUE
@@ -629,7 +759,7 @@ get.interval.cols()
 #> [1] "aumc"
 #> 
 #> $aumcall$pretty_name
-#> [1] "AUMC,all"
+#> [1] "AUMCall"
 #> 
 #> $aumcall$desc
 #> [1] "AUMClast plus triangle moment, 0 at BLQ"
@@ -677,6 +807,136 @@ get.interval.cols()
 #> [1] FALSE
 #> 
 #> $aumcall$requires_conc_dur
+#> [1] FALSE
+#> 
+#> 
+#> $aumcall_se
+#> $aumcall_se$FUN
+#> [1] NA
+#> 
+#> $aumcall_se$FUN_sparse
+#> [1] NA
+#> 
+#> $aumcall_se$values
+#> [1] FALSE  TRUE
+#> 
+#> $aumcall_se$unit_type
+#> [1] "aumc"
+#> 
+#> $aumcall_se$pretty_name
+#> [1] "AUMCall standard error"
+#> 
+#> $aumcall_se$desc
+#> [1] "SE of AUMCall (sparse PK only)"
+#> 
+#> $aumcall_se$formalsmap
+#> list()
+#> 
+#> $aumcall_se$formalsmap_sparse
+#> list()
+#> 
+#> $aumcall_se$depends
+#> [1] "aumcall"
+#> 
+#> $aumcall_se$datatype
+#> [1] "interval"
+#> 
+#> $aumcall_se$pptestcd_cdisc
+#> [1] "AUMCALSE"
+#> 
+#> $aumcall_se$pptest_cdisc
+#> [1] "Sparse AUMCall standard error"
+#> 
+#> $aumcall_se$formula
+#> NULL
+#> 
+#> $aumcall_se$formula_note
+#> [1] "Variance from weighted covariance across subjects (Nedelman and Jia 1998, Holder 2001), with the trapezoidal weights to the time after tlast"
+#> 
+#> $aumcall_se$tier
+#> [1] "uncommon"
+#> 
+#> $aumcall_se$selection
+#> list()
+#> 
+#> $aumcall_se$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aumcall_se$requires_dose_time
+#> [1] FALSE
+#> 
+#> $aumcall_se$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aumcall_se$requires_volume
+#> [1] FALSE
+#> 
+#> $aumcall_se$requires_conc_dur
+#> [1] FALSE
+#> 
+#> 
+#> $aumcall_df
+#> $aumcall_df$FUN
+#> [1] NA
+#> 
+#> $aumcall_df$FUN_sparse
+#> [1] NA
+#> 
+#> $aumcall_df$values
+#> [1] FALSE  TRUE
+#> 
+#> $aumcall_df$unit_type
+#> [1] "count"
+#> 
+#> $aumcall_df$pretty_name
+#> [1] "AUMCall degrees of freedom"
+#> 
+#> $aumcall_df$desc
+#> [1] "DF for AUMCall (sparse PK only)"
+#> 
+#> $aumcall_df$formalsmap
+#> list()
+#> 
+#> $aumcall_df$formalsmap_sparse
+#> list()
+#> 
+#> $aumcall_df$depends
+#> [1] "aumcall"
+#> 
+#> $aumcall_df$datatype
+#> [1] "interval"
+#> 
+#> $aumcall_df$pptestcd_cdisc
+#> [1] "AUMCALDF"
+#> 
+#> $aumcall_df$pptest_cdisc
+#> [1] "Sparse AUMCall degrees of freedom"
+#> 
+#> $aumcall_df$formula
+#> [1] "$df = \\frac{\\left(tr(M\\Omega)\\right)^2}{tr\\left(\\left(M\\Omega\\right)^2\\right)}$"
+#> 
+#> $aumcall_df$formula_note
+#> [1] "Satterthwaite approximation for any sampling design (Nedelman and Jia 1998, eq. 6)"
+#> 
+#> $aumcall_df$tier
+#> [1] "uncommon"
+#> 
+#> $aumcall_df$selection
+#> list()
+#> 
+#> $aumcall_df$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aumcall_df$requires_dose_time
+#> [1] FALSE
+#> 
+#> $aumcall_df$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aumcall_df$requires_volume
+#> [1] FALSE
+#> 
+#> $aumcall_df$requires_conc_dur
 #> [1] FALSE
 #> 
 #> 
@@ -1759,10 +2019,10 @@ get.interval.cols()
 #> [1] "clearance"
 #> 
 #> $cl.int.all$pretty_name
-#> [1] "CL (based on AUCint.all)"
+#> [1] "CL (based on AUCint,all)"
 #> 
 #> $cl.int.all$desc
-#> [1] "Clearance, AUCint.all"
+#> [1] "Clearance, AUCint,all"
 #> 
 #> $cl.int.all$formalsmap
 #> $cl.int.all$formalsmap$auc
@@ -1826,10 +2086,10 @@ get.interval.cols()
 #> [1] "clearance"
 #> 
 #> $cl.int.last$pretty_name
-#> [1] "CL (based on AUCint.last)"
+#> [1] "CL (based on AUCint,last)"
 #> 
 #> $cl.int.last$desc
-#> [1] "Clearance, AUCint.last"
+#> [1] "Clearance, AUCint,last"
 #> 
 #> $cl.int.last$formalsmap
 #> $cl.int.last$formalsmap$auc
@@ -2047,7 +2307,7 @@ get.interval.cols()
 #> [1] "time"
 #> 
 #> $mrt.int.all$pretty_name
-#> [1] "MRT (based on AUCint.all)"
+#> [1] "MRT (based on AUCint,all)"
 #> 
 #> $mrt.int.all$desc
 #> [1] "MRT, interval AUCall/AUMCall"
@@ -2117,7 +2377,7 @@ get.interval.cols()
 #> [1] "time"
 #> 
 #> $mrt.int.last$pretty_name
-#> [1] "MRT (based on AUCint.last)"
+#> [1] "MRT (based on AUCint,last)"
 #> 
 #> $mrt.int.last$desc
 #> [1] "MRT, interval AUClast/AUMClast"
@@ -2260,7 +2520,7 @@ get.interval.cols()
 #> [1] "Vss (based on AUClast)"
 #> 
 #> $vss.last$desc
-#> [1] "Vss, calc'd through Tlast"
+#> [1] "Vss, calc from AUClast"
 #> 
 #> $vss.last$formalsmap
 #> $vss.last$formalsmap$cl
@@ -2481,10 +2741,10 @@ get.interval.cols()
 #> [1] "volume"
 #> 
 #> $vss.int.all$pretty_name
-#> [1] "Vss (based on AUCint.all)"
+#> [1] "Vss (based on AUCint,all)"
 #> 
 #> $vss.int.all$desc
-#> [1] "Vss, calc from interval AUCint.all"
+#> [1] "Vss, calc from interval AUCint,all"
 #> 
 #> $vss.int.all$formalsmap
 #> $vss.int.all$formalsmap$cl
@@ -2551,10 +2811,10 @@ get.interval.cols()
 #> [1] "volume"
 #> 
 #> $vss.int.last$pretty_name
-#> [1] "Vss (based on AUCint.last)"
+#> [1] "Vss (based on AUCint,last)"
 #> 
 #> $vss.int.last$desc
-#> [1] "Vss, calc from interval AUCint.last"
+#> [1] "Vss, calc from interval AUCint,last"
 #> 
 #> $vss.int.last$formalsmap
 #> $vss.int.last$formalsmap$cl
@@ -2688,10 +2948,10 @@ get.interval.cols()
 #> [1] "conc"
 #> 
 #> $cav.int.last$pretty_name
-#> [1] "Cav"
+#> [1] "Cav (based on AUCint,last)"
 #> 
 #> $cav.int.last$desc
-#> [1] "Avg conc in interval (AUCint.last)"
+#> [1] "Avg conc in interval (AUCint,last)"
 #> 
 #> $cav.int.last$formalsmap
 #> $cav.int.last$formalsmap$auc
@@ -2755,10 +3015,10 @@ get.interval.cols()
 #> [1] "conc"
 #> 
 #> $cav.int.all$pretty_name
-#> [1] "Cav"
+#> [1] "Cav (based on AUCint,all)"
 #> 
 #> $cav.int.all$desc
-#> [1] "Avg conc in interval (AUCint.all)"
+#> [1] "Avg conc in interval (AUCint,all)"
 #> 
 #> $cav.int.all$formalsmap
 #> $cav.int.all$formalsmap$auc
@@ -3300,7 +3560,7 @@ get.interval.cols()
 #> [1] "auc"
 #> 
 #> $aucabove.predose.all$pretty_name
-#> [1] "AUC,above"
+#> [1] "AUC above predose"
 #> 
 #> $aucabove.predose.all$desc
 #> [1] "AUC above predose, floor at 0"
@@ -3367,7 +3627,7 @@ get.interval.cols()
 #> [1] "auc"
 #> 
 #> $aucabove.trough.all$pretty_name
-#> [1] "AUC,above"
+#> [1] "AUC above trough"
 #> 
 #> $aucabove.trough.all$desc
 #> [1] "AUC above trough, floor at 0"
@@ -3642,7 +3902,7 @@ get.interval.cols()
 #> [1] "volume"
 #> 
 #> $volpk$pretty_name
-#> [1] "Total Urine Volume"
+#> [1] "Total urine volume"
 #> 
 #> $volpk$desc
 #> [1] "Sum of urine volumes for interval"
@@ -3772,7 +4032,7 @@ get.interval.cols()
 #> [1] "renal_clearance"
 #> 
 #> $clr.last$pretty_name
-#> [1] "Renal clearance (from AUClast)"
+#> [1] "Renal clearance (based on AUClast)"
 #> 
 #> $clr.last$desc
 #> [1] "Renal clearance, AUClast"
@@ -3845,7 +4105,7 @@ get.interval.cols()
 #> [1] "renal_clearance"
 #> 
 #> $clr.obs$pretty_name
-#> [1] "Renal clearance (from AUCinf,obs)"
+#> [1] "Renal clearance (based on AUCinf,obs)"
 #> 
 #> $clr.obs$desc
 #> [1] "Renal clearance, AUCinf,obs"
@@ -3918,7 +4178,7 @@ get.interval.cols()
 #> [1] "renal_clearance"
 #> 
 #> $clr.pred$pretty_name
-#> [1] "Renal clearance (from AUCinf,pred)"
+#> [1] "Renal clearance (based on AUCinf,pred)"
 #> 
 #> $clr.pred$desc
 #> [1] "Renal clearance, AUCinf,pred"
@@ -4839,10 +5099,10 @@ get.interval.cols()
 #> [1] "Sparse AUClast degrees of freedom"
 #> 
 #> $sparse_auc_df$formula
-#> [1] "$df = \\frac{\\left(\\sum w_i^2 \\hat{\\sigma}_{ii}/n_i\\right)^2}{\\sum w_i^4 \\hat{\\sigma}_{ii}^2 / (n_i^2(n_i-1))}$"
+#> [1] "$df = \\frac{\\left(tr(M\\Omega)\\right)^2}{tr\\left(\\left(M\\Omega\\right)^2\\right)}$"
 #> 
 #> $sparse_auc_df$formula_note
-#> [1] "Satterthwaite approximation (Nedelman et al 1995, eq. 6a)"
+#> [1] "Satterthwaite approximation for any sampling design (Nedelman and Jia 1998, eq. 6)"
 #> 
 #> $sparse_auc_df$tier
 #> [1] "uncommon"
@@ -4945,7 +5205,7 @@ get.interval.cols()
 #> [1] "aumc"
 #> 
 #> $sparse_aumc_se$pretty_name
-#> [1] "Sparse AUMC standard error"
+#> [1] "Sparse AUMClast standard error"
 #> 
 #> $sparse_aumc_se$desc
 #> [1] "SE of sparse AUMC to last conc above LOQ"
@@ -5010,10 +5270,10 @@ get.interval.cols()
 #> [1] "count"
 #> 
 #> $sparse_aumc_df$pretty_name
-#> [1] "Sparse AUMC degrees of freedom"
+#> [1] "Sparse AUMClast degrees of freedom"
 #> 
 #> $sparse_aumc_df$desc
-#> [1] "variance DF for sparse AUMC to Tlast"
+#> [1] "DF for sparse AUMClast"
 #> 
 #> $sparse_aumc_df$formalsmap
 #> list()
@@ -5075,7 +5335,7 @@ get.interval.cols()
 #> [1] "time"
 #> 
 #> $time_above$pretty_name
-#> [1] "Time above Concentration"
+#> [1] "Time above concentration"
 #> 
 #> $time_above$desc
 #> [1] "Time above a given concentration"
@@ -5131,7 +5391,7 @@ get.interval.cols()
 #> [1] "pk.calc.auciv"
 #> 
 #> $aucivlast$FUN_sparse
-#> [1] NA
+#> [1] "pk.calc.aucivlast_sparse"
 #> 
 #> $aucivlast$values
 #> [1] FALSE  TRUE
@@ -5202,12 +5462,142 @@ get.interval.cols()
 #> [1] FALSE
 #> 
 #> 
+#> $aucivlast_se
+#> $aucivlast_se$FUN
+#> [1] NA
+#> 
+#> $aucivlast_se$FUN_sparse
+#> [1] NA
+#> 
+#> $aucivlast_se$values
+#> [1] FALSE  TRUE
+#> 
+#> $aucivlast_se$unit_type
+#> [1] "auc"
+#> 
+#> $aucivlast_se$pretty_name
+#> [1] "AUClast (IV dosing) standard error"
+#> 
+#> $aucivlast_se$desc
+#> [1] "SE of AUClast IV (sparse PK only)"
+#> 
+#> $aucivlast_se$formalsmap
+#> list()
+#> 
+#> $aucivlast_se$formalsmap_sparse
+#> list()
+#> 
+#> $aucivlast_se$depends
+#> [1] "aucivlast"
+#> 
+#> $aucivlast_se$datatype
+#> [1] "interval"
+#> 
+#> $aucivlast_se$pptestcd_cdisc
+#> [1] "AUCIVLSE"
+#> 
+#> $aucivlast_se$pptest_cdisc
+#> [1] "Sparse AUClast IV standard error"
+#> 
+#> $aucivlast_se$formula
+#> NULL
+#> 
+#> $aucivlast_se$formula_note
+#> [1] "With sparse PK, the trapezoidal weights plus the delta-method gradient of the back-extrapolated C0"
+#> 
+#> $aucivlast_se$tier
+#> [1] "uncommon"
+#> 
+#> $aucivlast_se$selection
+#> list()
+#> 
+#> $aucivlast_se$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aucivlast_se$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aucivlast_se$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucivlast_se$requires_volume
+#> [1] FALSE
+#> 
+#> $aucivlast_se$requires_conc_dur
+#> [1] FALSE
+#> 
+#> 
+#> $aucivlast_df
+#> $aucivlast_df$FUN
+#> [1] NA
+#> 
+#> $aucivlast_df$FUN_sparse
+#> [1] NA
+#> 
+#> $aucivlast_df$values
+#> [1] FALSE  TRUE
+#> 
+#> $aucivlast_df$unit_type
+#> [1] "count"
+#> 
+#> $aucivlast_df$pretty_name
+#> [1] "AUClast (IV dosing) degrees of freedom"
+#> 
+#> $aucivlast_df$desc
+#> [1] "DF for AUClast IV (sparse PK only)"
+#> 
+#> $aucivlast_df$formalsmap
+#> list()
+#> 
+#> $aucivlast_df$formalsmap_sparse
+#> list()
+#> 
+#> $aucivlast_df$depends
+#> [1] "aucivlast"
+#> 
+#> $aucivlast_df$datatype
+#> [1] "interval"
+#> 
+#> $aucivlast_df$pptestcd_cdisc
+#> [1] "AUCIVLDF"
+#> 
+#> $aucivlast_df$pptest_cdisc
+#> [1] "Sparse AUClast IV degrees of freedom"
+#> 
+#> $aucivlast_df$formula
+#> [1] "$df = \\frac{\\left(tr(M\\Omega)\\right)^2}{tr\\left(\\left(M\\Omega\\right)^2\\right)}$"
+#> 
+#> $aucivlast_df$formula_note
+#> [1] "Satterthwaite approximation for any sampling design (Nedelman and Jia 1998, eq. 6)"
+#> 
+#> $aucivlast_df$tier
+#> [1] "uncommon"
+#> 
+#> $aucivlast_df$selection
+#> list()
+#> 
+#> $aucivlast_df$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aucivlast_df$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aucivlast_df$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucivlast_df$requires_volume
+#> [1] FALSE
+#> 
+#> $aucivlast_df$requires_conc_dur
+#> [1] FALSE
+#> 
+#> 
 #> $aucivall
 #> $aucivall$FUN
 #> [1] "pk.calc.auciv"
 #> 
 #> $aucivall$FUN_sparse
-#> [1] NA
+#> [1] "pk.calc.aucivall_sparse"
 #> 
 #> $aucivall$values
 #> [1] FALSE  TRUE
@@ -5278,6 +5668,136 @@ get.interval.cols()
 #> [1] FALSE
 #> 
 #> 
+#> $aucivall_se
+#> $aucivall_se$FUN
+#> [1] NA
+#> 
+#> $aucivall_se$FUN_sparse
+#> [1] NA
+#> 
+#> $aucivall_se$values
+#> [1] FALSE  TRUE
+#> 
+#> $aucivall_se$unit_type
+#> [1] "auc"
+#> 
+#> $aucivall_se$pretty_name
+#> [1] "AUCall (IV dosing) standard error"
+#> 
+#> $aucivall_se$desc
+#> [1] "SE of AUCall IV (sparse PK only)"
+#> 
+#> $aucivall_se$formalsmap
+#> list()
+#> 
+#> $aucivall_se$formalsmap_sparse
+#> list()
+#> 
+#> $aucivall_se$depends
+#> [1] "aucivall"
+#> 
+#> $aucivall_se$datatype
+#> [1] "interval"
+#> 
+#> $aucivall_se$pptestcd_cdisc
+#> [1] "AUCIVASE"
+#> 
+#> $aucivall_se$pptest_cdisc
+#> [1] "Sparse AUCall IV standard error"
+#> 
+#> $aucivall_se$formula
+#> NULL
+#> 
+#> $aucivall_se$formula_note
+#> [1] "With sparse PK, the trapezoidal weights plus the delta-method gradient of the back-extrapolated C0"
+#> 
+#> $aucivall_se$tier
+#> [1] "uncommon"
+#> 
+#> $aucivall_se$selection
+#> list()
+#> 
+#> $aucivall_se$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aucivall_se$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aucivall_se$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucivall_se$requires_volume
+#> [1] FALSE
+#> 
+#> $aucivall_se$requires_conc_dur
+#> [1] FALSE
+#> 
+#> 
+#> $aucivall_df
+#> $aucivall_df$FUN
+#> [1] NA
+#> 
+#> $aucivall_df$FUN_sparse
+#> [1] NA
+#> 
+#> $aucivall_df$values
+#> [1] FALSE  TRUE
+#> 
+#> $aucivall_df$unit_type
+#> [1] "count"
+#> 
+#> $aucivall_df$pretty_name
+#> [1] "AUCall (IV dosing) degrees of freedom"
+#> 
+#> $aucivall_df$desc
+#> [1] "DF for AUCall IV (sparse PK only)"
+#> 
+#> $aucivall_df$formalsmap
+#> list()
+#> 
+#> $aucivall_df$formalsmap_sparse
+#> list()
+#> 
+#> $aucivall_df$depends
+#> [1] "aucivall"
+#> 
+#> $aucivall_df$datatype
+#> [1] "interval"
+#> 
+#> $aucivall_df$pptestcd_cdisc
+#> [1] "AUCIVADF"
+#> 
+#> $aucivall_df$pptest_cdisc
+#> [1] "Sparse AUCall IV degrees of freedom"
+#> 
+#> $aucivall_df$formula
+#> [1] "$df = \\frac{\\left(tr(M\\Omega)\\right)^2}{tr\\left(\\left(M\\Omega\\right)^2\\right)}$"
+#> 
+#> $aucivall_df$formula_note
+#> [1] "Satterthwaite approximation for any sampling design (Nedelman and Jia 1998, eq. 6)"
+#> 
+#> $aucivall_df$tier
+#> [1] "uncommon"
+#> 
+#> $aucivall_df$selection
+#> list()
+#> 
+#> $aucivall_df$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aucivall_df$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aucivall_df$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucivall_df$requires_volume
+#> [1] FALSE
+#> 
+#> $aucivall_df$requires_conc_dur
+#> [1] FALSE
+#> 
+#> 
 #> $aucivint.last
 #> $aucivint.last$FUN
 #> [1] "pk.calc.auciv"
@@ -5295,7 +5815,7 @@ get.interval.cols()
 #> [1] "AUCint,last (IV dosing)"
 #> 
 #> $aucivint.last$desc
-#> [1] "AUCint.last, IV back-extrap C0"
+#> [1] "AUCint,last, IV back-extrap C0"
 #> 
 #> $aucivint.last$formalsmap
 #> $aucivint.last$formalsmap$auc
@@ -5371,7 +5891,7 @@ get.interval.cols()
 #> [1] "AUCint,all (IV dosing)"
 #> 
 #> $aucivint.all$desc
-#> [1] "AUCint.all, IV back-extrap C0"
+#> [1] "AUCint,all, IV back-extrap C0"
 #> 
 #> $aucivint.all$formalsmap
 #> $aucivint.all$formalsmap$auc
@@ -5587,7 +6107,7 @@ get.interval.cols()
 #> [1] "AUCbext (based on AUCint,last)"
 #> 
 #> $aucivpbextint.last$desc
-#> [1] "Back-extrap %, IV, AUCint.last"
+#> [1] "Back-extrap %, IV, AUCint,last"
 #> 
 #> $aucivpbextint.last$formalsmap
 #> $aucivpbextint.last$formalsmap$auc
@@ -5657,7 +6177,7 @@ get.interval.cols()
 #> [1] "AUCbext (based on AUCint,all)"
 #> 
 #> $aucivpbextint.all$desc
-#> [1] "Back-extrap %, IV, AUCint.all"
+#> [1] "Back-extrap %, IV, AUCint,all"
 #> 
 #> $aucivpbextint.all$formalsmap
 #> $aucivpbextint.all$formalsmap$auc
@@ -5715,7 +6235,7 @@ get.interval.cols()
 #> [1] "pk.calc.aumciv"
 #> 
 #> $aumcivlast$FUN_sparse
-#> [1] NA
+#> [1] "pk.calc.aumcivlast_sparse"
 #> 
 #> $aumcivlast$values
 #> [1] FALSE  TRUE
@@ -5786,12 +6306,142 @@ get.interval.cols()
 #> [1] FALSE
 #> 
 #> 
+#> $aumcivlast_se
+#> $aumcivlast_se$FUN
+#> [1] NA
+#> 
+#> $aumcivlast_se$FUN_sparse
+#> [1] NA
+#> 
+#> $aumcivlast_se$values
+#> [1] FALSE  TRUE
+#> 
+#> $aumcivlast_se$unit_type
+#> [1] "aumc"
+#> 
+#> $aumcivlast_se$pretty_name
+#> [1] "AUMClast (IV dosing) standard error"
+#> 
+#> $aumcivlast_se$desc
+#> [1] "SE of AUMClast IV (sparse PK only)"
+#> 
+#> $aumcivlast_se$formalsmap
+#> list()
+#> 
+#> $aumcivlast_se$formalsmap_sparse
+#> list()
+#> 
+#> $aumcivlast_se$depends
+#> [1] "aumcivlast"
+#> 
+#> $aumcivlast_se$datatype
+#> [1] "interval"
+#> 
+#> $aumcivlast_se$pptestcd_cdisc
+#> [1] "AUMIVLSE"
+#> 
+#> $aumcivlast_se$pptest_cdisc
+#> [1] "Sparse AUMClast IV standard error"
+#> 
+#> $aumcivlast_se$formula
+#> NULL
+#> 
+#> $aumcivlast_se$formula_note
+#> [1] "With sparse PK, the trapezoidal weights on the moment means (C0 does not change the AUMC with the linear trapezoidal rule)"
+#> 
+#> $aumcivlast_se$tier
+#> [1] "uncommon"
+#> 
+#> $aumcivlast_se$selection
+#> list()
+#> 
+#> $aumcivlast_se$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aumcivlast_se$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aumcivlast_se$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aumcivlast_se$requires_volume
+#> [1] FALSE
+#> 
+#> $aumcivlast_se$requires_conc_dur
+#> [1] FALSE
+#> 
+#> 
+#> $aumcivlast_df
+#> $aumcivlast_df$FUN
+#> [1] NA
+#> 
+#> $aumcivlast_df$FUN_sparse
+#> [1] NA
+#> 
+#> $aumcivlast_df$values
+#> [1] FALSE  TRUE
+#> 
+#> $aumcivlast_df$unit_type
+#> [1] "count"
+#> 
+#> $aumcivlast_df$pretty_name
+#> [1] "AUMClast (IV dosing) degrees of freedom"
+#> 
+#> $aumcivlast_df$desc
+#> [1] "DF for AUMClast IV (sparse PK only)"
+#> 
+#> $aumcivlast_df$formalsmap
+#> list()
+#> 
+#> $aumcivlast_df$formalsmap_sparse
+#> list()
+#> 
+#> $aumcivlast_df$depends
+#> [1] "aumcivlast"
+#> 
+#> $aumcivlast_df$datatype
+#> [1] "interval"
+#> 
+#> $aumcivlast_df$pptestcd_cdisc
+#> [1] "AUMIVLDF"
+#> 
+#> $aumcivlast_df$pptest_cdisc
+#> [1] "Sparse AUMClast IV degrees of freedom"
+#> 
+#> $aumcivlast_df$formula
+#> [1] "$df = \\frac{\\left(tr(M\\Omega)\\right)^2}{tr\\left(\\left(M\\Omega\\right)^2\\right)}$"
+#> 
+#> $aumcivlast_df$formula_note
+#> [1] "Satterthwaite approximation for any sampling design (Nedelman and Jia 1998, eq. 6)"
+#> 
+#> $aumcivlast_df$tier
+#> [1] "uncommon"
+#> 
+#> $aumcivlast_df$selection
+#> list()
+#> 
+#> $aumcivlast_df$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aumcivlast_df$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aumcivlast_df$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aumcivlast_df$requires_volume
+#> [1] FALSE
+#> 
+#> $aumcivlast_df$requires_conc_dur
+#> [1] FALSE
+#> 
+#> 
 #> $aumcivall
 #> $aumcivall$FUN
 #> [1] "pk.calc.aumciv"
 #> 
 #> $aumcivall$FUN_sparse
-#> [1] NA
+#> [1] "pk.calc.aumcivall_sparse"
 #> 
 #> $aumcivall$values
 #> [1] FALSE  TRUE
@@ -5862,6 +6512,136 @@ get.interval.cols()
 #> [1] FALSE
 #> 
 #> 
+#> $aumcivall_se
+#> $aumcivall_se$FUN
+#> [1] NA
+#> 
+#> $aumcivall_se$FUN_sparse
+#> [1] NA
+#> 
+#> $aumcivall_se$values
+#> [1] FALSE  TRUE
+#> 
+#> $aumcivall_se$unit_type
+#> [1] "aumc"
+#> 
+#> $aumcivall_se$pretty_name
+#> [1] "AUMCall (IV dosing) standard error"
+#> 
+#> $aumcivall_se$desc
+#> [1] "SE of AUMCall IV (sparse PK only)"
+#> 
+#> $aumcivall_se$formalsmap
+#> list()
+#> 
+#> $aumcivall_se$formalsmap_sparse
+#> list()
+#> 
+#> $aumcivall_se$depends
+#> [1] "aumcivall"
+#> 
+#> $aumcivall_se$datatype
+#> [1] "interval"
+#> 
+#> $aumcivall_se$pptestcd_cdisc
+#> [1] "AUMIVASE"
+#> 
+#> $aumcivall_se$pptest_cdisc
+#> [1] "Sparse AUMCall IV standard error"
+#> 
+#> $aumcivall_se$formula
+#> NULL
+#> 
+#> $aumcivall_se$formula_note
+#> [1] "With sparse PK, the trapezoidal weights on the moment means (C0 does not change the AUMC with the linear trapezoidal rule)"
+#> 
+#> $aumcivall_se$tier
+#> [1] "uncommon"
+#> 
+#> $aumcivall_se$selection
+#> list()
+#> 
+#> $aumcivall_se$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aumcivall_se$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aumcivall_se$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aumcivall_se$requires_volume
+#> [1] FALSE
+#> 
+#> $aumcivall_se$requires_conc_dur
+#> [1] FALSE
+#> 
+#> 
+#> $aumcivall_df
+#> $aumcivall_df$FUN
+#> [1] NA
+#> 
+#> $aumcivall_df$FUN_sparse
+#> [1] NA
+#> 
+#> $aumcivall_df$values
+#> [1] FALSE  TRUE
+#> 
+#> $aumcivall_df$unit_type
+#> [1] "count"
+#> 
+#> $aumcivall_df$pretty_name
+#> [1] "AUMCall (IV dosing) degrees of freedom"
+#> 
+#> $aumcivall_df$desc
+#> [1] "DF for AUMCall IV (sparse PK only)"
+#> 
+#> $aumcivall_df$formalsmap
+#> list()
+#> 
+#> $aumcivall_df$formalsmap_sparse
+#> list()
+#> 
+#> $aumcivall_df$depends
+#> [1] "aumcivall"
+#> 
+#> $aumcivall_df$datatype
+#> [1] "interval"
+#> 
+#> $aumcivall_df$pptestcd_cdisc
+#> [1] "AUMIVADF"
+#> 
+#> $aumcivall_df$pptest_cdisc
+#> [1] "Sparse AUMCall IV degrees of freedom"
+#> 
+#> $aumcivall_df$formula
+#> [1] "$df = \\frac{\\left(tr(M\\Omega)\\right)^2}{tr\\left(\\left(M\\Omega\\right)^2\\right)}$"
+#> 
+#> $aumcivall_df$formula_note
+#> [1] "Satterthwaite approximation for any sampling design (Nedelman and Jia 1998, eq. 6)"
+#> 
+#> $aumcivall_df$tier
+#> [1] "uncommon"
+#> 
+#> $aumcivall_df$selection
+#> list()
+#> 
+#> $aumcivall_df$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aumcivall_df$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aumcivall_df$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aumcivall_df$requires_volume
+#> [1] FALSE
+#> 
+#> $aumcivall_df$requires_conc_dur
+#> [1] FALSE
+#> 
+#> 
 #> $aumcivint.last
 #> $aumcivint.last$FUN
 #> [1] "pk.calc.aumciv"
@@ -5879,7 +6659,7 @@ get.interval.cols()
 #> [1] "AUMCint,last (IV dosing)"
 #> 
 #> $aumcivint.last$desc
-#> [1] "AUMCint.last, IV back-extrap C0"
+#> [1] "AUMCint,last, IV back-extrap C0"
 #> 
 #> $aumcivint.last$formalsmap
 #> $aumcivint.last$formalsmap$aumc
@@ -5955,7 +6735,7 @@ get.interval.cols()
 #> [1] "AUMCint,all (IV dosing)"
 #> 
 #> $aumcivint.all$desc
-#> [1] "AUMCint.all, IV back-extrap C0"
+#> [1] "AUMCint,all, IV back-extrap C0"
 #> 
 #> $aumcivint.all$formalsmap
 #> $aumcivint.all$formalsmap$aumc
@@ -6112,6 +6892,12 @@ get.interval.cols()
 #> 
 #> $half.life$arg_spec$arglist$min.hl.points
 #> [1] "min.hl.points"
+#> 
+#> $half.life$arg_spec$arglist$max.hl.points
+#> [1] "max.hl.points"
+#> 
+#> $half.life$arg_spec$arglist$min.hl.start.time
+#> [1] "min.hl.start.time"
 #> 
 #> $half.life$arg_spec$arglist$adj.r.squared.factor
 #> [1] "adj.r.squared.factor"
@@ -6550,7 +7336,7 @@ get.interval.cols()
 #> [1] "count"
 #> 
 #> $lambda.z.n.points$pretty_name
-#> [1] "Number of points used for lambda_z"
+#> [1] "Number of points used for $\\lambda_z$"
 #> 
 #> $lambda.z.n.points$desc
 #> [1] "Number of points used, lambda.z"
@@ -6685,7 +7471,7 @@ get.interval.cols()
 #> [1] "Span ratio"
 #> 
 #> $span.ratio$desc
-#> [1] "Lambda z time span to half-life ratio"
+#> [1] "Ratio of lambda.z time span to half-life"
 #> 
 #> $span.ratio$formalsmap
 #> list()
@@ -6877,7 +7663,7 @@ get.interval.cols()
 #> [1] "count"
 #> 
 #> $lambda.z.n.points_blq$pretty_name
-#> [1] "Number of BLQ points for lambda_z (Tobit)"
+#> [1] "Number of BLQ points for $\\lambda_z$ (Tobit)"
 #> 
 #> $lambda.z.n.points_blq$desc
 #> [1] "BLQ points in Tobit lambda.z"
@@ -6942,7 +7728,7 @@ get.interval.cols()
 #> [1] "time"
 #> 
 #> $thalf.eff.last$pretty_name
-#> [1] "Effective half-life (based on MRT,last)"
+#> [1] "Effective half-life (based on MRTlast)"
 #> 
 #> $thalf.eff.last$desc
 #> [1] "Effective half-life, MRTlast"
@@ -7277,10 +8063,10 @@ get.interval.cols()
 #> [1] "inverse_time"
 #> 
 #> $kel.int.all$pretty_name
-#> [1] "Kel (based on AUCint.all)"
+#> [1] "Kel (based on AUCint,all)"
 #> 
 #> $kel.int.all$desc
-#> [1] "Elim rate, MRTint.all"
+#> [1] "Elim rate, MRTint,all"
 #> 
 #> $kel.int.all$formalsmap
 #> $kel.int.all$formalsmap$mrt
@@ -7344,10 +8130,10 @@ get.interval.cols()
 #> [1] "inverse_time"
 #> 
 #> $kel.int.last$pretty_name
-#> [1] "Kel (based on AUCint.last)"
+#> [1] "Kel (based on AUCint,last)"
 #> 
 #> $kel.int.last$desc
-#> [1] "Elim rate, MRTint.last"
+#> [1] "Elim rate, MRTint,last"
 #> 
 #> $kel.int.last$formalsmap
 #> $kel.int.last$formalsmap$mrt
@@ -7411,7 +8197,7 @@ get.interval.cols()
 #> [1] "clearance"
 #> 
 #> $cl.iv.all$pretty_name
-#> [1] "CL (for IV dosing,  based on AUCall)"
+#> [1] "CL (for IV dosing, based on AUCall)"
 #> 
 #> $cl.iv.all$desc
 #> [1] "IV clearance, AUCall"
@@ -7478,7 +8264,7 @@ get.interval.cols()
 #> [1] "clearance"
 #> 
 #> $cl.iv.last$pretty_name
-#> [1] "CL (for IV dosing,  based on AUClast)"
+#> [1] "CL (for IV dosing, based on AUClast)"
 #> 
 #> $cl.iv.last$desc
 #> [1] "IV clearance, AUClast"
@@ -7545,10 +8331,10 @@ get.interval.cols()
 #> [1] "clearance"
 #> 
 #> $cl.ivint.all$pretty_name
-#> [1] "CL (IV dose interval, based on AUCint.all)"
+#> [1] "CL (for IV dosing, based on AUCint,all)"
 #> 
 #> $cl.ivint.all$desc
-#> [1] "IV clearance, AUCint.all"
+#> [1] "IV clearance, AUCint,all"
 #> 
 #> $cl.ivint.all$formalsmap
 #> $cl.ivint.all$formalsmap$auc
@@ -7612,10 +8398,10 @@ get.interval.cols()
 #> [1] "clearance"
 #> 
 #> $cl.ivint.last$pretty_name
-#> [1] "CL (IV dose interval, based on AUCint.last)"
+#> [1] "CL (for IV dosing, based on AUCint,last)"
 #> 
 #> $cl.ivint.last$desc
-#> [1] "IV clearance, AUCint.last"
+#> [1] "IV clearance, AUCint,last"
 #> 
 #> $cl.ivint.last$formalsmap
 #> $cl.ivint.last$formalsmap$auc
@@ -7746,7 +8532,7 @@ get.interval.cols()
 #> [1] "fraction"
 #> 
 #> $f.last$pretty_name
-#> [1] "Bioavailability (AUClast)"
+#> [1] "Bioavailability (based on AUClast)"
 #> 
 #> $f.last$desc
 #> [1] "Bioavailability from AUClast"
@@ -7832,7 +8618,7 @@ get.interval.cols()
 #> [1] "fraction"
 #> 
 #> $f.int.last$pretty_name
-#> [1] "Bioavailability (AUCint,last)"
+#> [1] "Bioavailability (based on AUCint,last)"
 #> 
 #> $f.int.last$desc
 #> [1] "Bioavailability from AUCint,last"
@@ -7918,7 +8704,7 @@ get.interval.cols()
 #> [1] "fraction"
 #> 
 #> $f.int.all$pretty_name
-#> [1] "Bioavailability (AUCint,all)"
+#> [1] "Bioavailability (based on AUCint,all)"
 #> 
 #> $f.int.all$desc
 #> [1] "Bioavailability from AUCint,all"
@@ -8144,10 +8930,10 @@ get.interval.cols()
 #> [1] "time"
 #> 
 #> $mrt.ivint.all$pretty_name
-#> [1] "MRT (IV dose interval, based on AUCint.all)"
+#> [1] "MRT (for IV dosing, based on AUCint,all)"
 #> 
 #> $mrt.ivint.all$desc
-#> [1] "IV MRT, interval AUC/AUMCall"
+#> [1] "IV MRT, interval AUCall/AUMCall"
 #> 
 #> $mrt.ivint.all$formalsmap
 #> $mrt.ivint.all$formalsmap$auc
@@ -8214,10 +9000,10 @@ get.interval.cols()
 #> [1] "time"
 #> 
 #> $mrt.ivint.last$pretty_name
-#> [1] "MRT (IV dose interval, based on AUCint.last)"
+#> [1] "MRT (for IV dosing, based on AUCint,last)"
 #> 
 #> $mrt.ivint.last$desc
-#> [1] "IV MRT, interval AUC/AUMClast"
+#> [1] "IV MRT, interval AUClast/AUMClast"
 #> 
 #> $mrt.ivint.last$formalsmap
 #> $mrt.ivint.last$formalsmap$auc
@@ -8351,10 +9137,10 @@ get.interval.cols()
 #> [1] "volume"
 #> 
 #> $vz.int.all$pretty_name
-#> [1] "Vz (based on AUCint.all)"
+#> [1] "Vz (based on AUCint,all)"
 #> 
 #> $vz.int.all$desc
-#> [1] "Vz, interval AUCint.all"
+#> [1] "Vz, interval AUCint,all"
 #> 
 #> $vz.int.all$formalsmap
 #> $vz.int.all$formalsmap$cl
@@ -8418,10 +9204,10 @@ get.interval.cols()
 #> [1] "volume"
 #> 
 #> $vz.int.last$pretty_name
-#> [1] "Vz (based on AUCint.last)"
+#> [1] "Vz (based on AUCint,last)"
 #> 
 #> $vz.int.last$desc
-#> [1] "Vz, interval AUCint.last"
+#> [1] "Vz, interval AUCint,last"
 #> 
 #> $vz.int.last$formalsmap
 #> $vz.int.last$formalsmap$cl
@@ -8485,7 +9271,7 @@ get.interval.cols()
 #> [1] "volume"
 #> 
 #> $vz.iv.all$pretty_name
-#> [1] "Vz (for IV dosing,  based on AUCall)"
+#> [1] "Vz (for IV dosing, based on AUCall)"
 #> 
 #> $vz.iv.all$desc
 #> [1] "IV Vz, AUCall"
@@ -8552,7 +9338,7 @@ get.interval.cols()
 #> [1] "volume"
 #> 
 #> $vz.iv.last$pretty_name
-#> [1] "Vz (for IV dosing,  based on AUClast)"
+#> [1] "Vz (for IV dosing, based on AUClast)"
 #> 
 #> $vz.iv.last$desc
 #> [1] "IV Vz, AUClast"
@@ -8619,10 +9405,10 @@ get.interval.cols()
 #> [1] "volume"
 #> 
 #> $vz.ivint.all$pretty_name
-#> [1] "Vz (IV dose interval, based on AUCint.all)"
+#> [1] "Vz (for IV dosing, based on AUCint,all)"
 #> 
 #> $vz.ivint.all$desc
-#> [1] "IV Vz, interval AUCint.all"
+#> [1] "IV Vz, interval AUCint,all"
 #> 
 #> $vz.ivint.all$formalsmap
 #> $vz.ivint.all$formalsmap$cl
@@ -8686,10 +9472,10 @@ get.interval.cols()
 #> [1] "volume"
 #> 
 #> $vz.ivint.last$pretty_name
-#> [1] "Vz (IV dose interval, based on AUCint.last)"
+#> [1] "Vz (for IV dosing, based on AUCint,last)"
 #> 
 #> $vz.ivint.last$desc
-#> [1] "IV Vz, interval AUCint.last"
+#> [1] "IV Vz, interval AUCint,last"
 #> 
 #> $vz.ivint.last$formalsmap
 #> $vz.ivint.last$formalsmap$cl
@@ -8820,7 +9606,7 @@ get.interval.cols()
 #> [1] "volume"
 #> 
 #> $vss.iv.all$pretty_name
-#> [1] "Vss (for IV dosing,  based on AUCall)"
+#> [1] "Vss (for IV dosing, based on AUCall)"
 #> 
 #> $vss.iv.all$desc
 #> [1] "IV Vss, calc from AUCall"
@@ -8890,10 +9676,10 @@ get.interval.cols()
 #> [1] "volume"
 #> 
 #> $vss.ivint.all$pretty_name
-#> [1] "Vss (IV dose interval, based on AUCint.all)"
+#> [1] "Vss (for IV dosing, based on AUCint,all)"
 #> 
 #> $vss.ivint.all$desc
-#> [1] "IV Vss, calc from interval AUCint.all"
+#> [1] "IV Vss, calc from interval AUCint,all"
 #> 
 #> $vss.ivint.all$formalsmap
 #> $vss.ivint.all$formalsmap$cl
@@ -8960,10 +9746,10 @@ get.interval.cols()
 #> [1] "volume"
 #> 
 #> $vss.ivint.last$pretty_name
-#> [1] "Vss (IV dose interval, based on AUCint.last)"
+#> [1] "Vss (for IV dosing, based on AUCint,last)"
 #> 
 #> $vss.ivint.last$desc
-#> [1] "IV Vss, calc from interval AUCint.last"
+#> [1] "IV Vss, calc from interval AUCint,last"
 #> 
 #> $vss.ivint.last$formalsmap
 #> $vss.ivint.last$formalsmap$cl
@@ -9091,7 +9877,7 @@ get.interval.cols()
 #> [1] "pk.calc.auc.inf.obs"
 #> 
 #> $aucinf.obs$FUN_sparse
-#> [1] NA
+#> [1] "pk.calc.aucinf.obs_sparse"
 #> 
 #> $aucinf.obs$values
 #> [1] FALSE  TRUE
@@ -9173,6 +9959,136 @@ get.interval.cols()
 #> 
 #> 
 #> 
+#> $aucinf.obs_se
+#> $aucinf.obs_se$FUN
+#> [1] NA
+#> 
+#> $aucinf.obs_se$FUN_sparse
+#> [1] NA
+#> 
+#> $aucinf.obs_se$values
+#> [1] FALSE  TRUE
+#> 
+#> $aucinf.obs_se$unit_type
+#> [1] "auc"
+#> 
+#> $aucinf.obs_se$pretty_name
+#> [1] "AUCinf,obs standard error"
+#> 
+#> $aucinf.obs_se$desc
+#> [1] "SE of AUCinf,obs (sparse PK only)"
+#> 
+#> $aucinf.obs_se$formalsmap
+#> list()
+#> 
+#> $aucinf.obs_se$formalsmap_sparse
+#> list()
+#> 
+#> $aucinf.obs_se$depends
+#> [1] "aucinf.obs"
+#> 
+#> $aucinf.obs_se$datatype
+#> [1] "interval"
+#> 
+#> $aucinf.obs_se$pptestcd_cdisc
+#> [1] "AUCIFOSE"
+#> 
+#> $aucinf.obs_se$pptest_cdisc
+#> [1] "Sparse AUCinf obs standard error"
+#> 
+#> $aucinf.obs_se$formula
+#> [1] "$SE(AUC_{\\infty,\\text{obs}}) = \\sqrt{\\sum_{i,j} g_i g_j \\hat{\\sigma}_{ij} r_{ij} / (r_i r_j)}$"
+#> 
+#> $aucinf.obs_se$formula_note
+#> [1] "Weights g are the trapezoidal weights plus the extrapolation weight at tlast (Yuan 1993), with the delta-method gradient for lambda.z when the sparse_lambda_z_se option is \"delta\""
+#> 
+#> $aucinf.obs_se$tier
+#> [1] "uncommon"
+#> 
+#> $aucinf.obs_se$selection
+#> list()
+#> 
+#> $aucinf.obs_se$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aucinf.obs_se$requires_dose_time
+#> [1] FALSE
+#> 
+#> $aucinf.obs_se$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucinf.obs_se$requires_volume
+#> [1] FALSE
+#> 
+#> $aucinf.obs_se$requires_conc_dur
+#> [1] FALSE
+#> 
+#> 
+#> $aucinf.obs_df
+#> $aucinf.obs_df$FUN
+#> [1] NA
+#> 
+#> $aucinf.obs_df$FUN_sparse
+#> [1] NA
+#> 
+#> $aucinf.obs_df$values
+#> [1] FALSE  TRUE
+#> 
+#> $aucinf.obs_df$unit_type
+#> [1] "count"
+#> 
+#> $aucinf.obs_df$pretty_name
+#> [1] "AUCinf,obs degrees of freedom"
+#> 
+#> $aucinf.obs_df$desc
+#> [1] "DF for AUCinf,obs (sparse PK only)"
+#> 
+#> $aucinf.obs_df$formalsmap
+#> list()
+#> 
+#> $aucinf.obs_df$formalsmap_sparse
+#> list()
+#> 
+#> $aucinf.obs_df$depends
+#> [1] "aucinf.obs"
+#> 
+#> $aucinf.obs_df$datatype
+#> [1] "interval"
+#> 
+#> $aucinf.obs_df$pptestcd_cdisc
+#> [1] "AUCIFODF"
+#> 
+#> $aucinf.obs_df$pptest_cdisc
+#> [1] "Sparse AUCinf obs degrees of freedom"
+#> 
+#> $aucinf.obs_df$formula
+#> [1] "$df = \\frac{\\left(tr(M\\Omega)\\right)^2}{tr\\left(\\left(M\\Omega\\right)^2\\right)}$"
+#> 
+#> $aucinf.obs_df$formula_note
+#> [1] "Satterthwaite approximation for any sampling design (Nedelman and Jia 1998, eq. 6)"
+#> 
+#> $aucinf.obs_df$tier
+#> [1] "uncommon"
+#> 
+#> $aucinf.obs_df$selection
+#> list()
+#> 
+#> $aucinf.obs_df$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aucinf.obs_df$requires_dose_time
+#> [1] FALSE
+#> 
+#> $aucinf.obs_df$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucinf.obs_df$requires_volume
+#> [1] FALSE
+#> 
+#> $aucinf.obs_df$requires_conc_dur
+#> [1] FALSE
+#> 
+#> 
 #> $aucinf.pred
 #> $aucinf.pred$FUN
 #> [1] "pk.calc.auc.inf.pred"
@@ -9243,7 +10159,7 @@ get.interval.cols()
 #> [1] "pk.calc.aumc.inf.obs"
 #> 
 #> $aumcinf.obs$FUN_sparse
-#> [1] NA
+#> [1] "pk.calc.aumcinf.obs_sparse"
 #> 
 #> $aumcinf.obs$values
 #> [1] FALSE  TRUE
@@ -9252,7 +10168,7 @@ get.interval.cols()
 #> [1] "aumc"
 #> 
 #> $aumcinf.obs$pretty_name
-#> [1] "AUMC,inf,obs"
+#> [1] "AUMCinf,obs"
 #> 
 #> $aumcinf.obs$desc
 #> [1] "AUMC start to inf, obs Clast extrap"
@@ -9303,6 +10219,136 @@ get.interval.cols()
 #> [1] FALSE
 #> 
 #> 
+#> $aumcinf.obs_se
+#> $aumcinf.obs_se$FUN
+#> [1] NA
+#> 
+#> $aumcinf.obs_se$FUN_sparse
+#> [1] NA
+#> 
+#> $aumcinf.obs_se$values
+#> [1] FALSE  TRUE
+#> 
+#> $aumcinf.obs_se$unit_type
+#> [1] "aumc"
+#> 
+#> $aumcinf.obs_se$pretty_name
+#> [1] "AUMCinf,obs standard error"
+#> 
+#> $aumcinf.obs_se$desc
+#> [1] "SE of AUMCinf,obs (sparse PK only)"
+#> 
+#> $aumcinf.obs_se$formalsmap
+#> list()
+#> 
+#> $aumcinf.obs_se$formalsmap_sparse
+#> list()
+#> 
+#> $aumcinf.obs_se$depends
+#> [1] "aumcinf.obs"
+#> 
+#> $aumcinf.obs_se$datatype
+#> [1] "interval"
+#> 
+#> $aumcinf.obs_se$pptestcd_cdisc
+#> [1] "AUMIFOSE"
+#> 
+#> $aumcinf.obs_se$pptest_cdisc
+#> [1] "Sparse AUMCinf obs standard error"
+#> 
+#> $aumcinf.obs_se$formula
+#> [1] "$SE(AUMC_{\\infty,\\text{obs}}) = \\sqrt{\\sum_{i,j} g_i g_j \\hat{\\sigma}^{m}_{ij} r_{ij} / (r_i r_j)}$"
+#> 
+#> $aumcinf.obs_se$formula_note
+#> [1] "Weights g on the moment means are the trapezoidal weights plus the extrapolation weight at tlast, with the delta-method gradient for lambda.z when the sparse_lambda_z_se option is \"delta\""
+#> 
+#> $aumcinf.obs_se$tier
+#> [1] "uncommon"
+#> 
+#> $aumcinf.obs_se$selection
+#> list()
+#> 
+#> $aumcinf.obs_se$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aumcinf.obs_se$requires_dose_time
+#> [1] FALSE
+#> 
+#> $aumcinf.obs_se$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aumcinf.obs_se$requires_volume
+#> [1] FALSE
+#> 
+#> $aumcinf.obs_se$requires_conc_dur
+#> [1] FALSE
+#> 
+#> 
+#> $aumcinf.obs_df
+#> $aumcinf.obs_df$FUN
+#> [1] NA
+#> 
+#> $aumcinf.obs_df$FUN_sparse
+#> [1] NA
+#> 
+#> $aumcinf.obs_df$values
+#> [1] FALSE  TRUE
+#> 
+#> $aumcinf.obs_df$unit_type
+#> [1] "count"
+#> 
+#> $aumcinf.obs_df$pretty_name
+#> [1] "AUMCinf,obs degrees of freedom"
+#> 
+#> $aumcinf.obs_df$desc
+#> [1] "DF for AUMCinf,obs (sparse PK only)"
+#> 
+#> $aumcinf.obs_df$formalsmap
+#> list()
+#> 
+#> $aumcinf.obs_df$formalsmap_sparse
+#> list()
+#> 
+#> $aumcinf.obs_df$depends
+#> [1] "aumcinf.obs"
+#> 
+#> $aumcinf.obs_df$datatype
+#> [1] "interval"
+#> 
+#> $aumcinf.obs_df$pptestcd_cdisc
+#> [1] "AUMIFODF"
+#> 
+#> $aumcinf.obs_df$pptest_cdisc
+#> [1] "Sparse AUMCinf obs degrees of freedom"
+#> 
+#> $aumcinf.obs_df$formula
+#> [1] "$df = \\frac{\\left(tr(M\\Omega)\\right)^2}{tr\\left(\\left(M\\Omega\\right)^2\\right)}$"
+#> 
+#> $aumcinf.obs_df$formula_note
+#> [1] "Satterthwaite approximation for any sampling design (Nedelman and Jia 1998, eq. 6)"
+#> 
+#> $aumcinf.obs_df$tier
+#> [1] "uncommon"
+#> 
+#> $aumcinf.obs_df$selection
+#> list()
+#> 
+#> $aumcinf.obs_df$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aumcinf.obs_df$requires_dose_time
+#> [1] FALSE
+#> 
+#> $aumcinf.obs_df$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aumcinf.obs_df$requires_volume
+#> [1] FALSE
+#> 
+#> $aumcinf.obs_df$requires_conc_dur
+#> [1] FALSE
+#> 
+#> 
 #> $aumcinf.pred
 #> $aumcinf.pred$FUN
 #> [1] "pk.calc.aumc.inf.pred"
@@ -9317,7 +10363,7 @@ get.interval.cols()
 #> [1] "aumc"
 #> 
 #> $aumcinf.pred$pretty_name
-#> [1] "AUMC,inf,pred"
+#> [1] "AUMCinf,pred"
 #> 
 #> $aumcinf.pred$desc
 #> [1] "AUMC start to inf, pred Clast extrap"
@@ -9689,7 +10735,7 @@ get.interval.cols()
 #> [1] "pk.calc.auciv"
 #> 
 #> $aucivinf.obs$FUN_sparse
-#> [1] NA
+#> [1] "pk.calc.aucivinf.obs_sparse"
 #> 
 #> $aucivinf.obs$values
 #> [1] FALSE  TRUE
@@ -9701,7 +10747,7 @@ get.interval.cols()
 #> [1] "AUCinf,obs (IV dosing)"
 #> 
 #> $aucivinf.obs$desc
-#> [1] "AUCinf.obs, IV back-extrap C0"
+#> [1] "AUCinf,obs, IV back-extrap C0"
 #> 
 #> $aucivinf.obs$formalsmap
 #> $aucivinf.obs$formalsmap$auc
@@ -9757,6 +10803,136 @@ get.interval.cols()
 #> [1] FALSE
 #> 
 #> 
+#> $aucivinf.obs_se
+#> $aucivinf.obs_se$FUN
+#> [1] NA
+#> 
+#> $aucivinf.obs_se$FUN_sparse
+#> [1] NA
+#> 
+#> $aucivinf.obs_se$values
+#> [1] FALSE  TRUE
+#> 
+#> $aucivinf.obs_se$unit_type
+#> [1] "auc"
+#> 
+#> $aucivinf.obs_se$pretty_name
+#> [1] "AUCinf,obs (IV dosing) standard error"
+#> 
+#> $aucivinf.obs_se$desc
+#> [1] "SE of AUCinf,obs IV (sparse PK only)"
+#> 
+#> $aucivinf.obs_se$formalsmap
+#> list()
+#> 
+#> $aucivinf.obs_se$formalsmap_sparse
+#> list()
+#> 
+#> $aucivinf.obs_se$depends
+#> [1] "aucivinf.obs"
+#> 
+#> $aucivinf.obs_se$datatype
+#> [1] "interval"
+#> 
+#> $aucivinf.obs_se$pptestcd_cdisc
+#> [1] "AUCIVISE"
+#> 
+#> $aucivinf.obs_se$pptest_cdisc
+#> [1] "Sparse AUCinf obs IV standard error"
+#> 
+#> $aucivinf.obs_se$formula
+#> NULL
+#> 
+#> $aucivinf.obs_se$formula_note
+#> [1] "With sparse PK, the trapezoidal weights plus the delta-method gradient of the back-extrapolated C0, the extrapolation weight at tlast, and the delta-method gradient for lambda.z when the sparse_lambda_z_se option is \"delta\""
+#> 
+#> $aucivinf.obs_se$tier
+#> [1] "uncommon"
+#> 
+#> $aucivinf.obs_se$selection
+#> list()
+#> 
+#> $aucivinf.obs_se$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aucivinf.obs_se$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aucivinf.obs_se$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucivinf.obs_se$requires_volume
+#> [1] FALSE
+#> 
+#> $aucivinf.obs_se$requires_conc_dur
+#> [1] FALSE
+#> 
+#> 
+#> $aucivinf.obs_df
+#> $aucivinf.obs_df$FUN
+#> [1] NA
+#> 
+#> $aucivinf.obs_df$FUN_sparse
+#> [1] NA
+#> 
+#> $aucivinf.obs_df$values
+#> [1] FALSE  TRUE
+#> 
+#> $aucivinf.obs_df$unit_type
+#> [1] "count"
+#> 
+#> $aucivinf.obs_df$pretty_name
+#> [1] "AUCinf,obs (IV dosing) degrees of freedom"
+#> 
+#> $aucivinf.obs_df$desc
+#> [1] "DF for AUCinf,obs IV (sparse PK only)"
+#> 
+#> $aucivinf.obs_df$formalsmap
+#> list()
+#> 
+#> $aucivinf.obs_df$formalsmap_sparse
+#> list()
+#> 
+#> $aucivinf.obs_df$depends
+#> [1] "aucivinf.obs"
+#> 
+#> $aucivinf.obs_df$datatype
+#> [1] "interval"
+#> 
+#> $aucivinf.obs_df$pptestcd_cdisc
+#> [1] "AUCIVIDF"
+#> 
+#> $aucivinf.obs_df$pptest_cdisc
+#> [1] "Sparse AUCinf obs IV degrees of freedom"
+#> 
+#> $aucivinf.obs_df$formula
+#> [1] "$df = \\frac{\\left(tr(M\\Omega)\\right)^2}{tr\\left(\\left(M\\Omega\\right)^2\\right)}$"
+#> 
+#> $aucivinf.obs_df$formula_note
+#> [1] "Satterthwaite approximation for any sampling design (Nedelman and Jia 1998, eq. 6)"
+#> 
+#> $aucivinf.obs_df$tier
+#> [1] "uncommon"
+#> 
+#> $aucivinf.obs_df$selection
+#> list()
+#> 
+#> $aucivinf.obs_df$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aucivinf.obs_df$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aucivinf.obs_df$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aucivinf.obs_df$requires_volume
+#> [1] FALSE
+#> 
+#> $aucivinf.obs_df$requires_conc_dur
+#> [1] FALSE
+#> 
+#> 
 #> $aucivinf.pred
 #> $aucivinf.pred$FUN
 #> [1] "pk.calc.auciv"
@@ -9774,7 +10950,7 @@ get.interval.cols()
 #> [1] "AUCinf,pred (IV dosing)"
 #> 
 #> $aucivinf.pred$desc
-#> [1] "AUCinf.pred, IV back-extrap C0"
+#> [1] "AUCinf,pred, IV back-extrap C0"
 #> 
 #> $aucivinf.pred$formalsmap
 #> $aucivinf.pred$formalsmap$auc
@@ -9847,7 +11023,7 @@ get.interval.cols()
 #> [1] "AUCbext (based on AUCinf,obs)"
 #> 
 #> $aucivpbextinf.obs$desc
-#> [1] "Back-extrap %, IV, AUCinf.obs"
+#> [1] "Back-extrap %, IV, AUCinf,obs"
 #> 
 #> $aucivpbextinf.obs$formalsmap
 #> $aucivpbextinf.obs$formalsmap$auc
@@ -9917,7 +11093,7 @@ get.interval.cols()
 #> [1] "AUCbext (based on AUCinf,pred)"
 #> 
 #> $aucivpbextinf.pred$desc
-#> [1] "Back-extrap %, IV, AUCinf.pred"
+#> [1] "Back-extrap %, IV, AUCinf,pred"
 #> 
 #> $aucivpbextinf.pred$formalsmap
 #> $aucivpbextinf.pred$formalsmap$auc
@@ -9975,7 +11151,7 @@ get.interval.cols()
 #> [1] "pk.calc.aumciv"
 #> 
 #> $aumcivinf.obs$FUN_sparse
-#> [1] NA
+#> [1] "pk.calc.aumcivinf.obs_sparse"
 #> 
 #> $aumcivinf.obs$values
 #> [1] FALSE  TRUE
@@ -9987,7 +11163,7 @@ get.interval.cols()
 #> [1] "AUMCinf,obs (IV dosing)"
 #> 
 #> $aumcivinf.obs$desc
-#> [1] "AUMCinf.obs, IV back-extrap C0"
+#> [1] "AUMCinf,obs, IV back-extrap C0"
 #> 
 #> $aumcivinf.obs$formalsmap
 #> $aumcivinf.obs$formalsmap$aumc
@@ -10043,6 +11219,136 @@ get.interval.cols()
 #> [1] FALSE
 #> 
 #> 
+#> $aumcivinf.obs_se
+#> $aumcivinf.obs_se$FUN
+#> [1] NA
+#> 
+#> $aumcivinf.obs_se$FUN_sparse
+#> [1] NA
+#> 
+#> $aumcivinf.obs_se$values
+#> [1] FALSE  TRUE
+#> 
+#> $aumcivinf.obs_se$unit_type
+#> [1] "aumc"
+#> 
+#> $aumcivinf.obs_se$pretty_name
+#> [1] "AUMCinf,obs (IV dosing) standard error"
+#> 
+#> $aumcivinf.obs_se$desc
+#> [1] "SE of AUMCinf,obs IV (sparse PK only)"
+#> 
+#> $aumcivinf.obs_se$formalsmap
+#> list()
+#> 
+#> $aumcivinf.obs_se$formalsmap_sparse
+#> list()
+#> 
+#> $aumcivinf.obs_se$depends
+#> [1] "aumcivinf.obs"
+#> 
+#> $aumcivinf.obs_se$datatype
+#> [1] "interval"
+#> 
+#> $aumcivinf.obs_se$pptestcd_cdisc
+#> [1] "AUMIVISE"
+#> 
+#> $aumcivinf.obs_se$pptest_cdisc
+#> [1] "Sparse AUMCinf obs IV standard error"
+#> 
+#> $aumcivinf.obs_se$formula
+#> NULL
+#> 
+#> $aumcivinf.obs_se$formula_note
+#> [1] "With sparse PK, the trapezoidal weights on the moment means (C0 does not change the AUMC with the linear trapezoidal rule), plus the extrapolation weight at tlast and the delta-method gradient for lambda.z when the sparse_lambda_z_se option is \"delta\""
+#> 
+#> $aumcivinf.obs_se$tier
+#> [1] "uncommon"
+#> 
+#> $aumcivinf.obs_se$selection
+#> list()
+#> 
+#> $aumcivinf.obs_se$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aumcivinf.obs_se$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aumcivinf.obs_se$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aumcivinf.obs_se$requires_volume
+#> [1] FALSE
+#> 
+#> $aumcivinf.obs_se$requires_conc_dur
+#> [1] FALSE
+#> 
+#> 
+#> $aumcivinf.obs_df
+#> $aumcivinf.obs_df$FUN
+#> [1] NA
+#> 
+#> $aumcivinf.obs_df$FUN_sparse
+#> [1] NA
+#> 
+#> $aumcivinf.obs_df$values
+#> [1] FALSE  TRUE
+#> 
+#> $aumcivinf.obs_df$unit_type
+#> [1] "count"
+#> 
+#> $aumcivinf.obs_df$pretty_name
+#> [1] "AUMCinf,obs (IV dosing) degrees of freedom"
+#> 
+#> $aumcivinf.obs_df$desc
+#> [1] "DF for AUMCinf,obs IV (sparse PK only)"
+#> 
+#> $aumcivinf.obs_df$formalsmap
+#> list()
+#> 
+#> $aumcivinf.obs_df$formalsmap_sparse
+#> list()
+#> 
+#> $aumcivinf.obs_df$depends
+#> [1] "aumcivinf.obs"
+#> 
+#> $aumcivinf.obs_df$datatype
+#> [1] "interval"
+#> 
+#> $aumcivinf.obs_df$pptestcd_cdisc
+#> [1] "AUMIVIDF"
+#> 
+#> $aumcivinf.obs_df$pptest_cdisc
+#> [1] "Sparse AUMCinf obs IV degrees of freedom"
+#> 
+#> $aumcivinf.obs_df$formula
+#> [1] "$df = \\frac{\\left(tr(M\\Omega)\\right)^2}{tr\\left(\\left(M\\Omega\\right)^2\\right)}$"
+#> 
+#> $aumcivinf.obs_df$formula_note
+#> [1] "Satterthwaite approximation for any sampling design (Nedelman and Jia 1998, eq. 6)"
+#> 
+#> $aumcivinf.obs_df$tier
+#> [1] "uncommon"
+#> 
+#> $aumcivinf.obs_df$selection
+#> list()
+#> 
+#> $aumcivinf.obs_df$requires_dose_amt
+#> [1] FALSE
+#> 
+#> $aumcivinf.obs_df$requires_dose_time
+#> [1] TRUE
+#> 
+#> $aumcivinf.obs_df$requires_dose_dur
+#> [1] FALSE
+#> 
+#> $aumcivinf.obs_df$requires_volume
+#> [1] FALSE
+#> 
+#> $aumcivinf.obs_df$requires_conc_dur
+#> [1] FALSE
+#> 
+#> 
 #> $aumcivinf.pred
 #> $aumcivinf.pred$FUN
 #> [1] "pk.calc.aumciv"
@@ -10060,7 +11366,7 @@ get.interval.cols()
 #> [1] "AUMCinf,pred (IV dosing)"
 #> 
 #> $aumcivinf.pred$desc
-#> [1] "AUMCinf.pred, IV back-extrap C0"
+#> [1] "AUMCinf,pred, IV back-extrap C0"
 #> 
 #> $aumcivinf.pred$formalsmap
 #> $aumcivinf.pred$formalsmap$aumc
@@ -10277,7 +11583,7 @@ get.interval.cols()
 #> [1] "inverse_time"
 #> 
 #> $kel.iv.all$pretty_name
-#> [1] "Kel (for IV dosing,  based on AUCall)"
+#> [1] "Kel (for IV dosing, based on AUCall)"
 #> 
 #> $kel.iv.all$desc
 #> [1] "Elim rate, IV MRTall"
@@ -10344,10 +11650,10 @@ get.interval.cols()
 #> [1] "inverse_time"
 #> 
 #> $kel.ivint.all$pretty_name
-#> [1] "Kel (IV dose interval, based on AUCint.all)"
+#> [1] "Kel (for IV dosing, based on AUCint,all)"
 #> 
 #> $kel.ivint.all$desc
-#> [1] "Elim rate, IV MRTint.all"
+#> [1] "Elim rate, IV MRTint,all"
 #> 
 #> $kel.ivint.all$formalsmap
 #> $kel.ivint.all$formalsmap$mrt
@@ -10411,10 +11717,10 @@ get.interval.cols()
 #> [1] "inverse_time"
 #> 
 #> $kel.ivint.last$pretty_name
-#> [1] "Kel (IV dose interval, based on AUCint.last)"
+#> [1] "Kel (for IV dosing, based on AUCint,last)"
 #> 
 #> $kel.ivint.last$desc
-#> [1] "Elim rate, IV MRTint.last"
+#> [1] "Elim rate, IV MRTint,last"
 #> 
 #> $kel.ivint.last$formalsmap
 #> $kel.ivint.last$formalsmap$mrt
@@ -10720,10 +12026,10 @@ get.interval.cols()
 #> [1] "clearance"
 #> 
 #> $cl.int.inf.obs$pretty_name
-#> [1] "CL (based on AUCint.inf.obs)"
+#> [1] "CL (based on AUCint,inf,obs)"
 #> 
 #> $cl.int.inf.obs$desc
-#> [1] "Clearance, AUCint.inf.obs"
+#> [1] "Clearance, AUCint,inf,obs"
 #> 
 #> $cl.int.inf.obs$formalsmap
 #> $cl.int.inf.obs$formalsmap$auc
@@ -10787,10 +12093,10 @@ get.interval.cols()
 #> [1] "clearance"
 #> 
 #> $cl.int.inf.pred$pretty_name
-#> [1] "CL (based on AUCint.inf.pred)"
+#> [1] "CL (based on AUCint,inf,pred)"
 #> 
 #> $cl.int.inf.pred$desc
-#> [1] "Clearance, AUCint.inf.pred"
+#> [1] "Clearance, AUCint,inf,pred"
 #> 
 #> $cl.int.inf.pred$formalsmap
 #> $cl.int.inf.pred$formalsmap$auc
@@ -10854,10 +12160,10 @@ get.interval.cols()
 #> [1] "clearance"
 #> 
 #> $cl.iv.obs$pretty_name
-#> [1] "CL (for IV dosing,  based on AUCinf,obs)"
+#> [1] "CL (for IV dosing, based on AUCinf,obs)"
 #> 
 #> $cl.iv.obs$desc
-#> [1] "IV clearance, AUCinf.obs"
+#> [1] "IV clearance, AUCinf,obs"
 #> 
 #> $cl.iv.obs$formalsmap
 #> $cl.iv.obs$formalsmap$auc
@@ -10921,10 +12227,10 @@ get.interval.cols()
 #> [1] "clearance"
 #> 
 #> $cl.iv.pred$pretty_name
-#> [1] "CL (for IV dosing,  based on AUCinf,pred)"
+#> [1] "CL (for IV dosing, based on AUCinf,pred)"
 #> 
 #> $cl.iv.pred$desc
-#> [1] "IV clearance, AUCinf.pred"
+#> [1] "IV clearance, AUCinf,pred"
 #> 
 #> $cl.iv.pred$formalsmap
 #> $cl.iv.pred$formalsmap$auc
@@ -10988,7 +12294,7 @@ get.interval.cols()
 #> [1] "fraction"
 #> 
 #> $f.obs$pretty_name
-#> [1] "Bioavailability (AUCinf,obs)"
+#> [1] "Bioavailability (based on AUCinf,obs)"
 #> 
 #> $f.obs$desc
 #> [1] "Bioavailability from AUCinf,obs"
@@ -11074,7 +12380,7 @@ get.interval.cols()
 #> [1] "fraction"
 #> 
 #> $f.pred$pretty_name
-#> [1] "Bioavailability (AUCinf,pred)"
+#> [1] "Bioavailability (based on AUCinf,pred)"
 #> 
 #> $f.pred$desc
 #> [1] "Bioavailability from AUCinf,pred"
@@ -11160,7 +12466,7 @@ get.interval.cols()
 #> [1] "fraction"
 #> 
 #> $f.int.obs$pretty_name
-#> [1] "Bioavailability (AUCint,inf,obs)"
+#> [1] "Bioavailability (based on AUCint,inf,obs)"
 #> 
 #> $f.int.obs$desc
 #> [1] "Bioavailability from AUCint,inf,obs"
@@ -11246,7 +12552,7 @@ get.interval.cols()
 #> [1] "fraction"
 #> 
 #> $f.int.pred$pretty_name
-#> [1] "Bioavailability (AUCint,inf,pred)"
+#> [1] "Bioavailability (based on AUCint,inf,pred)"
 #> 
 #> $f.int.pred$desc
 #> [1] "Bioavailability from AUCint,inf,pred"
@@ -11500,10 +12806,10 @@ get.interval.cols()
 #> [1] "time"
 #> 
 #> $mrt.int.inf.obs$pretty_name
-#> [1] "MRT (based on AUCint.inf.obs)"
+#> [1] "MRT (based on AUCint,inf,obs)"
 #> 
 #> $mrt.int.inf.obs$desc
-#> [1] "MRT, interval AUC/AUMCinf obs"
+#> [1] "MRT, interval AUCinf,obs/AUMCinf,obs"
 #> 
 #> $mrt.int.inf.obs$formalsmap
 #> $mrt.int.inf.obs$formalsmap$auc
@@ -11570,10 +12876,10 @@ get.interval.cols()
 #> [1] "time"
 #> 
 #> $mrt.int.inf.pred$pretty_name
-#> [1] "MRT (based on AUCint.inf.pred)"
+#> [1] "MRT (based on AUCint,inf,pred)"
 #> 
 #> $mrt.int.inf.pred$desc
-#> [1] "MRT, interval AUC/AUMCinf pred"
+#> [1] "MRT, interval AUCinf,pred/AUMCinf,pred"
 #> 
 #> $mrt.int.inf.pred$formalsmap
 #> $mrt.int.inf.pred$formalsmap$auc
@@ -11643,7 +12949,7 @@ get.interval.cols()
 #> [1] "MRT (for IV dosing, based on AUCinf,obs)"
 #> 
 #> $mrt.iv.obs$desc
-#> [1] "IV MRT, AUCinf.obs/AUMCinf.obs"
+#> [1] "IV MRT, AUCinf,obs/AUMCinf,obs"
 #> 
 #> $mrt.iv.obs$formalsmap
 #> $mrt.iv.obs$formalsmap$auc
@@ -11713,7 +13019,7 @@ get.interval.cols()
 #> [1] "MRT (for IV dosing, based on AUCinf,pred)"
 #> 
 #> $mrt.iv.pred$desc
-#> [1] "IV MRT, AUCinf.pred/AUMCinf.pred"
+#> [1] "IV MRT, AUCinf,pred/AUMCinf,pred"
 #> 
 #> $mrt.iv.pred$formalsmap
 #> $mrt.iv.pred$formalsmap$auc
@@ -11783,7 +13089,7 @@ get.interval.cols()
 #> [1] "MRT (for multiple dosing, based on AUCinf,obs)"
 #> 
 #> $mrt.md.obs$desc
-#> [1] "MRT, multi-dose AUCinf.obs/AUMCinf.obs"
+#> [1] "MRT, multi-dose AUCinf,obs/AUMCinf,obs"
 #> 
 #> $mrt.md.obs$formalsmap
 #> $mrt.md.obs$formalsmap$auctau
@@ -11858,7 +13164,7 @@ get.interval.cols()
 #> [1] "MRT (for multiple dosing, based on AUCinf,pred)"
 #> 
 #> $mrt.md.pred$desc
-#> [1] "MRT, multi-dose AUCinf.pred/AUMCinf.pred"
+#> [1] "MRT, multi-dose AUCinf,pred/AUMCinf,pred"
 #> 
 #> $mrt.md.pred$formalsmap
 #> $mrt.md.pred$formalsmap$auctau
@@ -11933,7 +13239,7 @@ get.interval.cols()
 #> [1] "MRT (for multiple dosing of an IV infusion, based on AUCinf,obs)"
 #> 
 #> $mrt.ivmd.obs$desc
-#> [1] "IV MRT, multi-dose, AUCinf.obs"
+#> [1] "IV MRT, multi-dose, AUCinf,obs"
 #> 
 #> $mrt.ivmd.obs$formalsmap
 #> $mrt.ivmd.obs$formalsmap$auctau
@@ -12008,7 +13314,7 @@ get.interval.cols()
 #> [1] "MRT (for multiple dosing of an IV infusion, based on AUCinf,pred)"
 #> 
 #> $mrt.ivmd.pred$desc
-#> [1] "IV MRT, multi-dose, AUCinf.pred"
+#> [1] "IV MRT, multi-dose, AUCinf,pred"
 #> 
 #> $mrt.ivmd.pred$formalsmap
 #> $mrt.ivmd.pred$formalsmap$auctau
@@ -12242,10 +13548,10 @@ get.interval.cols()
 #> [1] "volume"
 #> 
 #> $vz.int.inf.obs$pretty_name
-#> [1] "Vz (based on AUCint.inf.obs)"
+#> [1] "Vz (based on AUCint,inf,obs)"
 #> 
 #> $vz.int.inf.obs$desc
-#> [1] "Vz, interval AUCint.inf.obs"
+#> [1] "Vz, interval AUCint,inf,obs"
 #> 
 #> $vz.int.inf.obs$formalsmap
 #> $vz.int.inf.obs$formalsmap$cl
@@ -12309,10 +13615,10 @@ get.interval.cols()
 #> [1] "volume"
 #> 
 #> $vz.int.inf.pred$pretty_name
-#> [1] "Vz (based on AUCint.inf.pred)"
+#> [1] "Vz (based on AUCint,inf,pred)"
 #> 
 #> $vz.int.inf.pred$desc
-#> [1] "Vz, interval AUCint.inf.pred"
+#> [1] "Vz, interval AUCint,inf,pred"
 #> 
 #> $vz.int.inf.pred$formalsmap
 #> $vz.int.inf.pred$formalsmap$cl
@@ -12376,7 +13682,7 @@ get.interval.cols()
 #> [1] "volume"
 #> 
 #> $vz.iv.obs$pretty_name
-#> [1] "Vz (for IV dosing,  based on AUCinf,obs)"
+#> [1] "Vz (for IV dosing, based on AUCinf,obs)"
 #> 
 #> $vz.iv.obs$desc
 #> [1] "IV Vz, observed AUCinf"
@@ -12443,7 +13749,7 @@ get.interval.cols()
 #> [1] "volume"
 #> 
 #> $vz.iv.pred$pretty_name
-#> [1] "Vz (for IV dosing,  based on AUCinf,pred)"
+#> [1] "Vz (for IV dosing, based on AUCinf,pred)"
 #> 
 #> $vz.iv.pred$desc
 #> [1] "IV Vz, predicted AUCinf"
@@ -12888,7 +14194,7 @@ get.interval.cols()
 #> [1] "volume"
 #> 
 #> $vss.md.obs$pretty_name
-#> [1] "Vss (for multiple-dose, based on Clast,obs)"
+#> [1] "Vss (for multiple dosing, based on Clast,obs)"
 #> 
 #> $vss.md.obs$desc
 #> [1] "Vss, multi-dose, obs"
@@ -12960,7 +14266,7 @@ get.interval.cols()
 #> [1] "volume"
 #> 
 #> $vss.md.pred$pretty_name
-#> [1] "Vss (for multiple-dose, based on Clast,pred)"
+#> [1] "Vss (for multiple dosing, based on Clast,pred)"
 #> 
 #> $vss.md.pred$desc
 #> [1] "Vss, multi-dose, pred"
@@ -13032,7 +14338,7 @@ get.interval.cols()
 #> [1] "volume"
 #> 
 #> $vss.ivmd.obs$pretty_name
-#> [1] "Vss (for multiple-dose IV infusion, based on Clast,obs)"
+#> [1] "Vss (for multiple dosing of an IV infusion, based on Clast,obs)"
 #> 
 #> $vss.ivmd.obs$desc
 #> [1] "IV Vss, multi-dose, obs"
@@ -13104,7 +14410,7 @@ get.interval.cols()
 #> [1] "volume"
 #> 
 #> $vss.ivmd.pred$pretty_name
-#> [1] "Vss (for multiple-dose IV infusion, based on Clast,pred)"
+#> [1] "Vss (for multiple dosing of an IV infusion, based on Clast,pred)"
 #> 
 #> $vss.ivmd.pred$desc
 #> [1] "IV Vss, multi-dose, pred"
@@ -13176,10 +14482,10 @@ get.interval.cols()
 #> [1] "volume"
 #> 
 #> $vss.int.inf.obs$pretty_name
-#> [1] "Vss (based on AUCint.inf.obs)"
+#> [1] "Vss (based on AUCint,inf,obs)"
 #> 
 #> $vss.int.inf.obs$desc
-#> [1] "Vss, calc from interval AUCint.inf.obs"
+#> [1] "Vss, calc from interval AUCint,inf,obs"
 #> 
 #> $vss.int.inf.obs$formalsmap
 #> $vss.int.inf.obs$formalsmap$cl
@@ -13246,10 +14552,10 @@ get.interval.cols()
 #> [1] "volume"
 #> 
 #> $vss.int.inf.pred$pretty_name
-#> [1] "Vss (based on AUCint.inf.pred)"
+#> [1] "Vss (based on AUCint,inf,pred)"
 #> 
 #> $vss.int.inf.pred$desc
-#> [1] "Vss, calc from interval AUCint.inf.pred"
+#> [1] "Vss, calc from interval AUCint,inf,pred"
 #> 
 #> $vss.int.inf.pred$formalsmap
 #> $vss.int.inf.pred$formalsmap$cl
@@ -13316,10 +14622,10 @@ get.interval.cols()
 #> [1] "conc"
 #> 
 #> $cav.int.inf.obs$pretty_name
-#> [1] "Cav"
+#> [1] "Cav (based on AUCint,inf,obs)"
 #> 
 #> $cav.int.inf.obs$desc
-#> [1] "Avg conc in interval (AUCint.inf.obs)"
+#> [1] "Avg conc in interval (AUCint,inf,obs)"
 #> 
 #> $cav.int.inf.obs$formalsmap
 #> $cav.int.inf.obs$formalsmap$auc
@@ -13383,10 +14689,10 @@ get.interval.cols()
 #> [1] "conc"
 #> 
 #> $cav.int.inf.pred$pretty_name
-#> [1] "Cav"
+#> [1] "Cav (based on AUCint,inf,pred)"
 #> 
 #> $cav.int.inf.pred$desc
-#> [1] "Avg conc in interval (AUCint.inf.pred)"
+#> [1] "Avg conc in interval (AUCint,inf,pred)"
 #> 
 #> $cav.int.inf.pred$formalsmap
 #> $cav.int.inf.pred$formalsmap$auc
@@ -14138,10 +15444,10 @@ get.interval.cols()
 #> [1] "inverse_time"
 #> 
 #> $kel.int.inf.obs$pretty_name
-#> [1] "Kel (based on AUCint.inf.obs)"
+#> [1] "Kel (based on AUCint,inf,obs)"
 #> 
 #> $kel.int.inf.obs$desc
-#> [1] "Elim rate, MRTint.inf.obs"
+#> [1] "Elim rate, MRTint,inf,obs"
 #> 
 #> $kel.int.inf.obs$formalsmap
 #> $kel.int.inf.obs$formalsmap$mrt
@@ -14205,10 +15511,10 @@ get.interval.cols()
 #> [1] "inverse_time"
 #> 
 #> $kel.int.inf.pred$pretty_name
-#> [1] "Kel (based on AUCint.inf.pred)"
+#> [1] "Kel (based on AUCint,inf,pred)"
 #> 
 #> $kel.int.inf.pred$desc
-#> [1] "Elim rate, MRTint.inf.pred"
+#> [1] "Elim rate, MRTint,inf,pred"
 #> 
 #> $kel.int.inf.pred$formalsmap
 #> $kel.int.inf.pred$formalsmap$mrt
@@ -14275,7 +15581,7 @@ get.interval.cols()
 #> [1] "AUClast (dose-normalized)"
 #> 
 #> $auclast.dn$desc
-#> [1] "Dose normalized auclast"
+#> [1] "Dose-normalized auclast"
 #> 
 #> $auclast.dn$formalsmap
 #> $auclast.dn$formalsmap$parameter
@@ -14342,7 +15648,7 @@ get.interval.cols()
 #> [1] "AUCall (dose-normalized)"
 #> 
 #> $aucall.dn$desc
-#> [1] "Dose normalized aucall"
+#> [1] "Dose-normalized aucall"
 #> 
 #> $aucall.dn$formalsmap
 #> $aucall.dn$formalsmap$parameter
@@ -14409,7 +15715,7 @@ get.interval.cols()
 #> [1] "AUCinf,obs (dose-normalized)"
 #> 
 #> $aucinf.obs.dn$desc
-#> [1] "Dose normalized aucinf.obs"
+#> [1] "Dose-normalized aucinf.obs"
 #> 
 #> $aucinf.obs.dn$formalsmap
 #> $aucinf.obs.dn$formalsmap$parameter
@@ -14476,7 +15782,7 @@ get.interval.cols()
 #> [1] "AUCinf,pred (dose-normalized)"
 #> 
 #> $aucinf.pred.dn$desc
-#> [1] "Dose normalized aucinf.pred"
+#> [1] "Dose-normalized aucinf.pred"
 #> 
 #> $aucinf.pred.dn$formalsmap
 #> $aucinf.pred.dn$formalsmap$parameter
@@ -14540,10 +15846,10 @@ get.interval.cols()
 #> [1] "aumc_dosenorm"
 #> 
 #> $aumclast.dn$pretty_name
-#> [1] "AUMC,last (dose-normalized)"
+#> [1] "AUMClast (dose-normalized)"
 #> 
 #> $aumclast.dn$desc
-#> [1] "Dose normalized aumclast"
+#> [1] "Dose-normalized aumclast"
 #> 
 #> $aumclast.dn$formalsmap
 #> $aumclast.dn$formalsmap$parameter
@@ -14612,10 +15918,10 @@ get.interval.cols()
 #> [1] "aumc_dosenorm"
 #> 
 #> $aumcall.dn$pretty_name
-#> [1] "AUMC,all (dose-normalized)"
+#> [1] "AUMCall (dose-normalized)"
 #> 
 #> $aumcall.dn$desc
-#> [1] "Dose normalized aumcall"
+#> [1] "Dose-normalized aumcall"
 #> 
 #> $aumcall.dn$formalsmap
 #> $aumcall.dn$formalsmap$parameter
@@ -14679,10 +15985,10 @@ get.interval.cols()
 #> [1] "aumc_dosenorm"
 #> 
 #> $aumcinf.obs.dn$pretty_name
-#> [1] "AUMC,inf,obs (dose-normalized)"
+#> [1] "AUMCinf,obs (dose-normalized)"
 #> 
 #> $aumcinf.obs.dn$desc
-#> [1] "Dose normalized aumcinf.obs"
+#> [1] "Dose-normalized aumcinf.obs"
 #> 
 #> $aumcinf.obs.dn$formalsmap
 #> $aumcinf.obs.dn$formalsmap$parameter
@@ -14746,10 +16052,10 @@ get.interval.cols()
 #> [1] "aumc_dosenorm"
 #> 
 #> $aumcinf.pred.dn$pretty_name
-#> [1] "AUMC,inf,pred (dose-normalized)"
+#> [1] "AUMCinf,pred (dose-normalized)"
 #> 
 #> $aumcinf.pred.dn$desc
-#> [1] "Dose normalized aumcinf.pred"
+#> [1] "Dose-normalized aumcinf.pred"
 #> 
 #> $aumcinf.pred.dn$formalsmap
 #> $aumcinf.pred.dn$formalsmap$parameter
@@ -14816,7 +16122,7 @@ get.interval.cols()
 #> [1] "Cmax (dose-normalized)"
 #> 
 #> $cmax.dn$desc
-#> [1] "Dose normalized cmax"
+#> [1] "Dose-normalized cmax"
 #> 
 #> $cmax.dn$formalsmap
 #> $cmax.dn$formalsmap$parameter
@@ -14883,7 +16189,7 @@ get.interval.cols()
 #> [1] "Cmin (dose-normalized)"
 #> 
 #> $cmin.dn$desc
-#> [1] "Dose normalized cmin"
+#> [1] "Dose-normalized cmin"
 #> 
 #> $cmin.dn$formalsmap
 #> $cmin.dn$formalsmap$parameter
@@ -14950,7 +16256,7 @@ get.interval.cols()
 #> [1] "Clast (dose-normalized)"
 #> 
 #> $clast.obs.dn$desc
-#> [1] "Dose normalized clast.obs"
+#> [1] "Dose-normalized clast.obs"
 #> 
 #> $clast.obs.dn$formalsmap
 #> $clast.obs.dn$formalsmap$parameter
@@ -15017,7 +16323,7 @@ get.interval.cols()
 #> [1] "Clast,pred (dose-normalized)"
 #> 
 #> $clast.pred.dn$desc
-#> [1] "Dose normalized clast.pred"
+#> [1] "Dose-normalized clast.pred"
 #> 
 #> $clast.pred.dn$formalsmap
 #> $clast.pred.dn$formalsmap$parameter
@@ -15084,7 +16390,7 @@ get.interval.cols()
 #> [1] "Cav (dose-normalized)"
 #> 
 #> $cav.dn$desc
-#> [1] "Dose normalized cav"
+#> [1] "Dose-normalized cav"
 #> 
 #> $cav.dn$formalsmap
 #> $cav.dn$formalsmap$parameter
@@ -15151,7 +16457,7 @@ get.interval.cols()
 #> [1] "Ctrough (dose-normalized)"
 #> 
 #> $ctrough.dn$desc
-#> [1] "Dose normalized ctrough"
+#> [1] "Dose-normalized ctrough"
 #> 
 #> $ctrough.dn$formalsmap
 #> $ctrough.dn$formalsmap$parameter
@@ -15215,10 +16521,10 @@ get.interval.cols()
 #> [1] "renal_clearance_dosenorm"
 #> 
 #> $clr.last.dn$pretty_name
-#> [1] "Renal clearance (from AUClast) (dose-normalized)"
+#> [1] "Renal clearance (based on AUClast) (dose-normalized)"
 #> 
 #> $clr.last.dn$desc
-#> [1] "Dose normalized clr.last"
+#> [1] "Dose-normalized clr.last"
 #> 
 #> $clr.last.dn$formalsmap
 #> $clr.last.dn$formalsmap$parameter
@@ -15282,10 +16588,10 @@ get.interval.cols()
 #> [1] "renal_clearance_dosenorm"
 #> 
 #> $clr.obs.dn$pretty_name
-#> [1] "Renal clearance (from AUCinf,obs) (dose-normalized)"
+#> [1] "Renal clearance (based on AUCinf,obs) (dose-normalized)"
 #> 
 #> $clr.obs.dn$desc
-#> [1] "Dose normalized clr.obs"
+#> [1] "Dose-normalized clr.obs"
 #> 
 #> $clr.obs.dn$formalsmap
 #> $clr.obs.dn$formalsmap$parameter
@@ -15349,10 +16655,10 @@ get.interval.cols()
 #> [1] "renal_clearance_dosenorm"
 #> 
 #> $clr.pred.dn$pretty_name
-#> [1] "Renal clearance (from AUCinf,pred) (dose-normalized)"
+#> [1] "Renal clearance (based on AUCinf,pred) (dose-normalized)"
 #> 
 #> $clr.pred.dn$desc
-#> [1] "Dose normalized clr.pred"
+#> [1] "Dose-normalized clr.pred"
 #> 
 #> $clr.pred.dn$formalsmap
 #> $clr.pred.dn$formalsmap$parameter

@@ -48,6 +48,7 @@
     <li><a class="dropdown-item" href="../articles/v21-methods-for-dose-aware-interpolation-and-extrapolation.html">Methods Used for Dose-Aware Concentration Interpolation/Extrapolation</a></li>
     <li><a class="dropdown-item" href="../articles/v22-time-to-steady-state.html">Noncompartmental evaluation of time to steady-state</a></li>
     <li><a class="dropdown-item" href="../articles/v23-auc-integration-methods.html">AUC integration methods</a></li>
+    <li><a class="dropdown-item" href="../articles/v24-sparse-auc-to-infinity.html">Sparse AUC to Infinity and the Uncertainty of lambda.z</a></li>
     <li><a class="dropdown-item" href="../articles/v30-training-session.html">PKNCA Training Sessions</a></li>
     <li><a class="dropdown-item" href="../articles/v31-FDA-introduction.html">PKNCA – an R package for noncompartmental analysis of pharmacokinetic data</a></li>
     <li><a class="dropdown-item" href="../articles/v40-options-for-controlling-PKNCA.html">Options for Controlling PKNCA</a></li>
@@ -202,6 +203,20 @@ half-life?</p>
 <p>The default value is: 3</p>
 </div>
 <div class="section level3">
+<h3 id="max-hl-points">max.hl.points<a class="anchor" aria-label="anchor" href="#max-hl-points"></a>
+</h3>
+<p>What is the maximum number of points that automatic point selection
+may use for half-life? It must be more than min.hl.points.</p>
+<p>The default value is: Inf</p>
+</div>
+<div class="section level3">
+<h3 id="min-hl-start-time">min.hl.start.time<a class="anchor" aria-label="anchor" href="#min-hl-start-time"></a>
+</h3>
+<p>What is the earliest time at which automatic point selection may
+start the half-life (0 does not restrict it)?</p>
+<p>The default value is: 0</p>
+</div>
+<div class="section level3">
 <h3 id="min-span-ratio">min.span.ratio<a class="anchor" aria-label="anchor" href="#min-span-ratio"></a>
 </h3>
 <p>What is the minimum span ratio required to consider a half-life
@@ -267,8 +282,28 @@ trough drawn at 167.5 hours still ends an interval nominally ending at
 <h3 id="single-dose-aucs">single.dose.aucs<a class="anchor" aria-label="anchor" href="#single-dose-aucs"></a>
 </h3>
 <p>When data is single-dose, what intervals should be used?</p>
-<table class="table">
+<table style="width:100%;" class="table">
 <colgroup>
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
 <col width="0%">
 <col width="0%">
 <col width="0%">
@@ -494,10 +529,14 @@ trough drawn at 167.5 hours still ends an interval nominally ending at
 <th align="left">auclast_se</th>
 <th align="left">auclast_df</th>
 <th align="left">aucall</th>
+<th align="left">aucall_se</th>
+<th align="left">aucall_df</th>
 <th align="left">aumclast</th>
 <th align="left">aumclast_se</th>
 <th align="left">aumclast_df</th>
 <th align="left">aumcall</th>
+<th align="left">aumcall_se</th>
+<th align="left">aumcall_df</th>
 <th align="left">aucint.last</th>
 <th align="left">aucint.all</th>
 <th align="left">aumcint.last</th>
@@ -562,7 +601,11 @@ trough drawn at 167.5 hours still ends an interval nominally ending at
 <th align="left">sparse_aumc_df</th>
 <th align="left">time_above</th>
 <th align="left">aucivlast</th>
+<th align="left">aucivlast_se</th>
+<th align="left">aucivlast_df</th>
 <th align="left">aucivall</th>
+<th align="left">aucivall_se</th>
+<th align="left">aucivall_df</th>
 <th align="left">aucivint.last</th>
 <th align="left">aucivint.all</th>
 <th align="left">aucivpbextlast</th>
@@ -570,7 +613,11 @@ trough drawn at 167.5 hours still ends an interval nominally ending at
 <th align="left">aucivpbextint.last</th>
 <th align="left">aucivpbextint.all</th>
 <th align="left">aumcivlast</th>
+<th align="left">aumcivlast_se</th>
+<th align="left">aumcivlast_df</th>
 <th align="left">aumcivall</th>
+<th align="left">aumcivall_se</th>
+<th align="left">aumcivall_df</th>
 <th align="left">aumcivint.last</th>
 <th align="left">aumcivint.all</th>
 <th align="left">half.life</th>
@@ -618,18 +665,26 @@ trough drawn at 167.5 hours still ends an interval nominally ending at
 <th align="left">vss.ivint.last</th>
 <th align="left">vss.sparse.last</th>
 <th align="left">aucinf.obs</th>
+<th align="left">aucinf.obs_se</th>
+<th align="left">aucinf.obs_df</th>
 <th align="left">aucinf.pred</th>
 <th align="left">aumcinf.obs</th>
+<th align="left">aumcinf.obs_se</th>
+<th align="left">aumcinf.obs_df</th>
 <th align="left">aumcinf.pred</th>
 <th align="left">aucint.inf.obs</th>
 <th align="left">aucint.inf.pred</th>
 <th align="left">aumcint.inf.obs</th>
 <th align="left">aumcint.inf.pred</th>
 <th align="left">aucivinf.obs</th>
+<th align="left">aucivinf.obs_se</th>
+<th align="left">aucivinf.obs_df</th>
 <th align="left">aucivinf.pred</th>
 <th align="left">aucivpbextinf.obs</th>
 <th align="left">aucivpbextinf.pred</th>
 <th align="left">aumcivinf.obs</th>
+<th align="left">aumcivinf.obs_se</th>
+<th align="left">aumcivinf.obs_df</th>
 <th align="left">aumcivinf.pred</th>
 <th align="left">aucpext.obs</th>
 <th align="left">aucpext.pred</th>
@@ -925,6 +980,26 @@ trough drawn at 167.5 hours still ends an interval nominally ending at
 <td align="left">FALSE</td>
 <td align="left">FALSE</td>
 <td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
 </tr>
 <tr class="even">
 <td align="right">0</td>
@@ -942,6 +1017,10 @@ trough drawn at 167.5 hours still ends an interval nominally ending at
 <td align="left">FALSE</td>
 <td align="left">FALSE</td>
 <td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
 <td align="left">TRUE</td>
 <td align="left">FALSE</td>
 <td align="left">TRUE</td>
@@ -1012,42 +1091,6 @@ trough drawn at 167.5 hours still ends an interval nominally ending at
 <td align="left">FALSE</td>
 <td align="left">FALSE</td>
 <td align="left">FALSE</td>
-<td align="left">TRUE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
 <td align="left">FALSE</td>
 <td align="left">FALSE</td>
 <td align="left">FALSE</td>
@@ -1057,6 +1100,58 @@ trough drawn at 167.5 hours still ends an interval nominally ending at
 <td align="left">FALSE</td>
 <td align="left">FALSE</td>
 <td align="left">TRUE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">TRUE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
 <td align="left">FALSE</td>
 <td align="left">FALSE</td>
 <td align="left">FALSE</td>
@@ -1161,6 +1256,15 @@ allowed to be missing?</p>
 <p>The method used to calculate the half-life and related parameters.
 Options are: “log-linear”, “tobit”</p>
 <p>The default value is: log-linear</p>
+</div>
+<div class="section level3">
+<h3 id="sparse_lambda_z_se">sparse_lambda_z_se<a class="anchor" aria-label="anchor" href="#sparse_lambda_z_se"></a>
+</h3>
+<p>How the standard error of a sparse AUCinf,obs or AUMCinf,obs accounts
+for the estimated lambda.z: “delta” (the default) adds its uncertainty
+with the delta method, and “none” treats it as known (Yuan 1993).
+Options are: “delta”, “none”</p>
+<p>The default value is: delta</p>
 </div>
 <div class="section level3">
 <h3 id="tobit_n_points_penalty">tobit_n_points_penalty<a class="anchor" aria-label="anchor" href="#tobit_n_points_penalty"></a>

@@ -33,6 +33,7 @@
     <li><a class="dropdown-item" href="../articles/v21-methods-for-dose-aware-interpolation-and-extrapolation.html">Methods Used for Dose-Aware Concentration Interpolation/Extrapolation</a></li>
     <li><a class="dropdown-item" href="../articles/v22-time-to-steady-state.html">Noncompartmental evaluation of time to steady-state</a></li>
     <li><a class="dropdown-item" href="../articles/v23-auc-integration-methods.html">AUC integration methods</a></li>
+    <li><a class="dropdown-item" href="../articles/v24-sparse-auc-to-infinity.html">Sparse AUC to Infinity and the Uncertainty of lambda.z</a></li>
     <li><a class="dropdown-item" href="../articles/v30-training-session.html">PKNCA Training Sessions</a></li>
     <li><a class="dropdown-item" href="../articles/v31-FDA-introduction.html">PKNCA – an R package for noncompartmental analysis of pharmacokinetic data</a></li>
     <li><a class="dropdown-item" href="../articles/v40-options-for-controlling-PKNCA.html">Options for Controlling PKNCA</a></li>
@@ -453,7 +454,7 @@
 
         <dt>
 
-          <code><a href="exclude_nca.html">exclude_nca_span.ratio()</a></code> <code><a href="exclude_nca.html">exclude_nca_max.aucinf.pext()</a></code> <code><a href="exclude_nca.html">exclude_nca_count_conc_measured()</a></code> <code><a href="exclude_nca.html">exclude_nca_min.hl.r.squared()</a></code> <code><a href="exclude_nca.html">exclude_nca_min.hl.adj.r.squared()</a></code> <code><a href="exclude_nca.html">exclude_nca_tmax_early()</a></code> <code><a href="exclude_nca.html">exclude_nca_tmax_0()</a></code>
+          <code><a href="exclude_nca.html">exclude_nca_span.ratio()</a></code> <code><a href="exclude_nca.html">exclude_nca_max.aucinf.pext()</a></code> <code><a href="exclude_nca.html">exclude_nca_count_conc_measured()</a></code> <code><a href="exclude_nca.html">exclude_nca_min.hl.r.squared()</a></code> <code><a href="exclude_nca.html">exclude_nca_min.hl.adj.r.squared()</a></code> <code><a href="exclude_nca.html">exclude_nca_tmax_early()</a></code> <code><a href="exclude_nca.html">exclude_nca_tmax_0()</a></code> <code><a href="exclude_nca.html">exclude_nca_tmax_coverage()</a></code>
 
         </dt>
         <dd>Exclude NCA parameters based on examining the parameter set.</dd>
@@ -478,6 +479,13 @@
 
         </dt>
         <dd>Subset data to the rows used for calculations within an interval</dd>
+
+        <dt>
+
+          <code><a href="find.dose.regimen.html">find.dose.regimen()</a></code>
+
+        </dt>
+        <dd>Find the dosing regimen from the dose times of one subject</dd>
 
         <dt>
 
@@ -614,10 +622,17 @@
 
         <dt>
 
+          <code><a href="get_impute_column.html">get_impute_column()</a></code>
+
+        </dt>
+        <dd>Get the name of the intervals column that the imputation methods come from</dd>
+
+        <dt>
+
           <code><a href="get_impute_method.html">get_impute_method()</a></code>
 
         </dt>
-        <dd>Get the impute function from either the intervals column or from the method</dd>
+        <dd>Get the imputation methods for the intervals</dd>
 
         <dt>
 
@@ -747,7 +762,21 @@
 
         <dt>
 
-          <code><a href="pk.calc.auclast_sparse.html">pk.calc.auclast_sparse()</a></code> <code><a href="pk.calc.auclast_sparse.html">pk.calc.aumclast_sparse()</a></code>
+          <code><a href="pk.calc.aucinf.obs_sparse.html">pk.calc.aucinf.obs_sparse()</a></code> <code><a href="pk.calc.aucinf.obs_sparse.html">pk.calc.aumcinf.obs_sparse()</a></code>
+
+        </dt>
+        <dd>Sparse estimators for the AUC and AUMC to infinity</dd>
+
+        <dt>
+
+          <code><a href="pk.calc.aucivlast_sparse.html">pk.calc.aucivlast_sparse()</a></code> <code><a href="pk.calc.aucivlast_sparse.html">pk.calc.aucivall_sparse()</a></code> <code><a href="pk.calc.aucivlast_sparse.html">pk.calc.aucivinf.obs_sparse()</a></code> <code><a href="pk.calc.aucivlast_sparse.html">pk.calc.aumcivlast_sparse()</a></code> <code><a href="pk.calc.aucivlast_sparse.html">pk.calc.aumcivall_sparse()</a></code> <code><a href="pk.calc.aucivlast_sparse.html">pk.calc.aumcivinf.obs_sparse()</a></code>
+
+        </dt>
+        <dd>Sparse AUC and AUMC for IV bolus dosing with C0 back-extrapolation</dd>
+
+        <dt>
+
+          <code><a href="pk.calc.auclast_sparse.html">pk.calc.auclast_sparse()</a></code> <code><a href="pk.calc.auclast_sparse.html">pk.calc.aumclast_sparse()</a></code> <code><a href="pk.calc.auclast_sparse.html">pk.calc.aucall_sparse()</a></code> <code><a href="pk.calc.auclast_sparse.html">pk.calc.aumcall_sparse()</a></code>
 
         </dt>
         <dd>Sparse estimators for the AUC and AUMC to the last measured concentration</dd>
@@ -1118,6 +1147,13 @@
 
         <dt>
 
+          <code><a href="pknca_difftime_to_unit.html">pknca_difftime_to_unit()</a></code>
+
+        </dt>
+        <dd>Convert a difftime to a number in a time unit</dd>
+
+        <dt>
+
           <code><a href="pknca_exclude_rules.html">pknca_exclude_rules()</a></code>
 
         </dt>
@@ -1150,6 +1186,13 @@
 
         </dt>
         <dd>Match spellings of a route of administration to the route PKNCA uses</dd>
+
+        <dt>
+
+          <code><a href="pknca_missing_samples.html">pknca_missing_samples()</a></code>
+
+        </dt>
+        <dd>Find the samples missing from each subject's nominal sampling schedule</dd>
 
         <dt>
 

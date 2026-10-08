@@ -4,6 +4,9 @@ Valid means that intervals are a data.frame (or data.frame-like object),
 that the column names are either the groupings of the PKNCAconc part of
 the PKNCAdata object or that they are one of the NCA parameters allowed
 (i.e. names(get.interval.cols())).
+The column that the impute setting of the PKNCAdata object names (see
+get_impute_method()) is also allowed, and it must be a character column,
+or a pknca_error_interval_impute_not_character error is raised.
 An interval_id identifies one interval:  rows that share it may differ
 only in the parameters they request (and impute), not in start, end,
 or the groups, or a pknca_error_secondary_id_conflict error is raised.
@@ -12,6 +15,9 @@ Valid means that intervals are a data.frame (or data.frame-like object),
 that the column names are either the groupings of the PKNCAconc part of
 the PKNCAdata object or that they are one of the NCA parameters allowed
 (i.e. names(get.interval.cols())).
+The column that the impute setting of the PKNCAdata object names (see
+get_impute_method()) is also allowed, and it must be a character column,
+or a pknca_error_interval_impute_not_character error is raised.
 An interval_id identifies one interval:  rows that share it may differ
 only in the parameters they request (and impute), not in start, end,
 or the groups, or a pknca_error_secondary_id_conflict error is raised.
@@ -49,6 +55,7 @@ It will return the intervals argument unchanged, or it will raise an error."></h
     <li><a class="dropdown-item" href="../articles/v21-methods-for-dose-aware-interpolation-and-extrapolation.html">Methods Used for Dose-Aware Concentration Interpolation/Extrapolation</a></li>
     <li><a class="dropdown-item" href="../articles/v22-time-to-steady-state.html">Noncompartmental evaluation of time to steady-state</a></li>
     <li><a class="dropdown-item" href="../articles/v23-auc-integration-methods.html">AUC integration methods</a></li>
+    <li><a class="dropdown-item" href="../articles/v24-sparse-auc-to-infinity.html">Sparse AUC to Infinity and the Uncertainty of lambda.z</a></li>
     <li><a class="dropdown-item" href="../articles/v30-training-session.html">PKNCA Training Sessions</a></li>
     <li><a class="dropdown-item" href="../articles/v31-FDA-introduction.html">PKNCA – an R package for noncompartmental analysis of pharmacokinetic data</a></li>
     <li><a class="dropdown-item" href="../articles/v40-options-for-controlling-PKNCA.html">Options for Controlling PKNCA</a></li>
@@ -80,6 +87,9 @@ Valid means that intervals are a data.frame (or data.frame-like object),
 that the column names are either the groupings of the PKNCAconc part of
 the PKNCAdata object or that they are one of the NCA parameters allowed
 (i.e. names(get.interval.cols())).
+The column that the <code>impute</code> setting of the PKNCAdata object names (see
+<code><a href="get_impute_method.html">get_impute_method()</a></code>) is also allowed, and it must be a character column,
+or a <code>pknca_error_interval_impute_not_character</code> error is raised.
 An <code>interval_id</code> identifies one interval:  rows that share it may differ
 only in the parameters they request (and <code>impute</code>), not in <code>start</code>, <code>end</code>,
 or the groups, or a <code>pknca_error_secondary_id_conflict</code> error is raised.

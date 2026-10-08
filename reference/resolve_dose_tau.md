@@ -12,7 +12,7 @@ doses are spaced as though one was missed.
 ## Usage
 
 ``` r
-resolve_dose_tau(interval, time.dose, options = list())
+resolve_dose_tau(interval, time.dose, options = list(), timeu = NULL)
 ```
 
 ## Arguments
@@ -32,6 +32,11 @@ resolve_dose_tau(interval, time.dose, options = list())
   List of changes to the default PKNCA options (see
   [`PKNCA.options()`](https://humanpred.github.io/pknca/reference/PKNCA.options.md))
 
+- timeu:
+
+  The time unit of `time.dose` (see
+  [`choose.auc.intervals()`](https://humanpred.github.io/pknca/reference/choose.auc.intervals.md))
+
 ## Value
 
 The dosing interval, or `NA_real_` when it cannot be determined
@@ -40,4 +45,5 @@ The dosing interval, or `NA_real_` when it cannot be determined
 
 Other Interval determination:
 [`choose.auc.intervals()`](https://humanpred.github.io/pknca/reference/choose.auc.intervals.md),
+[`find.dose.regimen()`](https://humanpred.github.io/pknca/reference/find.dose.regimen.md),
 [`find.tau()`](https://humanpred.github.io/pknca/reference/find.tau.md)

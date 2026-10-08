@@ -21,6 +21,7 @@
 <url><loc>https://humanpred.github.io/pknca/articles/v21-methods-for-dose-aware-interpolation-and-extrapolation.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/articles/v22-time-to-steady-state.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/articles/v23-auc-integration-methods.html</loc></url>
+<url><loc>https://humanpred.github.io/pknca/articles/v24-sparse-auc-to-infinity.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/articles/v30-training-session.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/articles/v31-FDA-introduction.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/articles/v40-options-for-controlling-PKNCA.html</loc></url>
@@ -90,6 +91,7 @@
 <url><loc>https://humanpred.github.io/pknca/reference/exclude_nca_by_param.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/filter.PKNCAresults.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/filter_interval.html</loc></url>
+<url><loc>https://humanpred.github.io/pknca/reference/find.dose.regimen.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/find.tau.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/findOperator.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/fit_half_life.html</loc></url>
@@ -109,6 +111,7 @@
 <url><loc>https://humanpred.github.io/pknca/reference/get_halflife_curve.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/get_halflife_fit.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/get_halflife_points.html</loc></url>
+<url><loc>https://humanpred.github.io/pknca/reference/get_impute_column.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/get_impute_method.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/group_by.PKNCAresults.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/group_vars.PKNCAconc.html</loc></url>
@@ -130,6 +133,8 @@
 <url><loc>https://humanpred.github.io/pknca/reference/pk.business.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pk.calc.ae.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pk.calc.aucabove.html</loc></url>
+<url><loc>https://humanpred.github.io/pknca/reference/pk.calc.aucinf.obs_sparse.html</loc></url>
+<url><loc>https://humanpred.github.io/pknca/reference/pk.calc.aucivlast_sparse.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pk.calc.auclast_sparse.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pk.calc.aucpext.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pk.calc.auxc.html</loc></url>
@@ -183,11 +188,13 @@
 <url><loc>https://humanpred.github.io/pknca/reference/pknca_check_parameter_classification.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pknca_concept.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pknca_concepts.html</loc></url>
+<url><loc>https://humanpred.github.io/pknca/reference/pknca_difftime_to_unit.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pknca_exclude_rules.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pknca_find_units_param.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pknca_impute_methods.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pknca_interval_table.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pknca_match_route.html</loc></url>
+<url><loc>https://humanpred.github.io/pknca/reference/pknca_missing_samples.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pknca_parameter_table.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pknca_presets.html</loc></url>
 <url><loc>https://humanpred.github.io/pknca/reference/pknca_ref.html</loc></url>

@@ -210,6 +210,7 @@
   [`exclude_nca_min.hl.adj.r.squared()`](https://humanpred.github.io/pknca/reference/exclude_nca.md)
   [`exclude_nca_tmax_early()`](https://humanpred.github.io/pknca/reference/exclude_nca.md)
   [`exclude_nca_tmax_0()`](https://humanpred.github.io/pknca/reference/exclude_nca.md)
+  [`exclude_nca_tmax_coverage()`](https://humanpred.github.io/pknca/reference/exclude_nca.md)
   : Exclude NCA parameters based on examining the parameter set.
 
 - [`exclude_nca_by_param()`](https://humanpred.github.io/pknca/reference/exclude_nca_by_param.md)
@@ -222,6 +223,9 @@
 
 - [`filter_interval()`](https://humanpred.github.io/pknca/reference/filter_interval.md)
   : Subset data to the rows used for calculations within an interval
+
+- [`find.dose.regimen()`](https://humanpred.github.io/pknca/reference/find.dose.regimen.md)
+  : Find the dosing regimen from the dose times of one subject
 
 - [`find.tau()`](https://humanpred.github.io/pknca/reference/find.tau.md)
   : Find the repeating interval within a vector of doses
@@ -298,9 +302,12 @@
 - [`get_halflife_points()`](https://humanpred.github.io/pknca/reference/get_halflife_points.md)
   : Determine which concentrations were used for half-life calculation
 
+- [`get_impute_column()`](https://humanpred.github.io/pknca/reference/get_impute_column.md)
+  : Get the name of the intervals column that the imputation methods
+  come from
+
 - [`get_impute_method()`](https://humanpred.github.io/pknca/reference/get_impute_method.md)
-  : Get the impute function from either the intervals column or from the
-  method
+  : Get the imputation methods for the intervals
 
 - [`group_by(`*`<PKNCAresults>`*`)`](https://humanpred.github.io/pknca/reference/group_by.PKNCAresults.md)
   [`group_by(`*`<PKNCAconc>`*`)`](https://humanpred.github.io/pknca/reference/group_by.PKNCAresults.md)
@@ -392,8 +399,22 @@
 - [`pk.calc.aucabove()`](https://humanpred.github.io/pknca/reference/pk.calc.aucabove.md)
   : Calculate the AUC above a given concentration
 
+- [`pk.calc.aucinf.obs_sparse()`](https://humanpred.github.io/pknca/reference/pk.calc.aucinf.obs_sparse.md)
+  [`pk.calc.aumcinf.obs_sparse()`](https://humanpred.github.io/pknca/reference/pk.calc.aucinf.obs_sparse.md)
+  : Sparse estimators for the AUC and AUMC to infinity
+
+- [`pk.calc.aucivlast_sparse()`](https://humanpred.github.io/pknca/reference/pk.calc.aucivlast_sparse.md)
+  [`pk.calc.aucivall_sparse()`](https://humanpred.github.io/pknca/reference/pk.calc.aucivlast_sparse.md)
+  [`pk.calc.aucivinf.obs_sparse()`](https://humanpred.github.io/pknca/reference/pk.calc.aucivlast_sparse.md)
+  [`pk.calc.aumcivlast_sparse()`](https://humanpred.github.io/pknca/reference/pk.calc.aucivlast_sparse.md)
+  [`pk.calc.aumcivall_sparse()`](https://humanpred.github.io/pknca/reference/pk.calc.aucivlast_sparse.md)
+  [`pk.calc.aumcivinf.obs_sparse()`](https://humanpred.github.io/pknca/reference/pk.calc.aucivlast_sparse.md)
+  : Sparse AUC and AUMC for IV bolus dosing with C0 back-extrapolation
+
 - [`pk.calc.auclast_sparse()`](https://humanpred.github.io/pknca/reference/pk.calc.auclast_sparse.md)
   [`pk.calc.aumclast_sparse()`](https://humanpred.github.io/pknca/reference/pk.calc.auclast_sparse.md)
+  [`pk.calc.aucall_sparse()`](https://humanpred.github.io/pknca/reference/pk.calc.auclast_sparse.md)
+  [`pk.calc.aumcall_sparse()`](https://humanpred.github.io/pknca/reference/pk.calc.auclast_sparse.md)
   : Sparse estimators for the AUC and AUMC to the last measured
   concentration
 
@@ -612,6 +633,9 @@
   [`pknca_sample_types()`](https://humanpred.github.io/pknca/reference/pknca_concepts.md)
   : Concepts, tiers, and contexts used to classify NCA parameters
 
+- [`pknca_difftime_to_unit()`](https://humanpred.github.io/pknca/reference/pknca_difftime_to_unit.md)
+  : Convert a difftime to a number in a time unit
+
 - [`pknca_exclude_rules()`](https://humanpred.github.io/pknca/reference/pknca_exclude_rules.md)
   : List the automatic NCA result exclusion rules
 
@@ -626,6 +650,10 @@
 
 - [`pknca_match_route()`](https://humanpred.github.io/pknca/reference/pknca_match_route.md)
   : Match spellings of a route of administration to the route PKNCA uses
+
+- [`pknca_missing_samples()`](https://humanpred.github.io/pknca/reference/pknca_missing_samples.md)
+  : Find the samples missing from each subject's nominal sampling
+  schedule
 
 - [`pknca_parameter_table()`](https://humanpred.github.io/pknca/reference/pknca_parameter_table.md)
   : How each NCA parameter is classified for interval selection

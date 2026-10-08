@@ -17,13 +17,25 @@ with PKNCA. The only difference is that you give the `sparse` option to
 [`PKNCAconc()`](https://humanpred.github.io/pknca/reference/PKNCAconc.md);
 the parameters are requested by their usual names.
 
-Two things happen behind that flag. For `auclast` and `aumclast`, PKNCA
-uses the sparse estimators – the Bailer point estimate with the
-Nedelman-Jia/Holder standard error – calculated from the pooled samples
-of all the animals in a group, and reports the standard error and
-degrees of freedom alongside the estimate as `auclast_se`/`auclast_df`
-and `aumclast_se`/`aumclast_df`. Every other parameter is calculated
-from the arithmetic-mean profile of the animals in the group.
+Two things happen behind that flag. For the AUC and AUMC parameters with
+a sparse estimator, PKNCA calculates them from the pooled samples of all
+the animals in a group with the Bailer point estimate and the
+Nedelman-Jia/Holder standard error, and reports the standard error and
+degrees of freedom alongside the estimate with the suffixes `_se` and
+`_df` (for example, `auclast_se` and `auclast_df`). Those parameters are
+`auclast`, `aucall`, `aucinf.obs`, `aumclast`, `aumcall`, and
+`aumcinf.obs`, and after an IV bolus `aucivlast`, `aucivall`,
+`aucivinf.obs`, `aumcivlast`, `aumcivall`, and `aumcivinf.obs` (see
+[`vignette("v24-sparse-auc-to-infinity")`](https://humanpred.github.io/pknca/articles/v24-sparse-auc-to-infinity.md)
+for the AUC to infinity and the IV bolus $`C_0`$). Every other parameter
+is calculated from the arithmetic-mean profile of the animals in the
+group.
+
+As for any AUC in PKNCA, the sparse AUCs need a concentration at the
+start of the interval, measured or imputed. Animals are rarely sampled
+at the dose in sacrificial designs, so after an extravascular dose
+impute zero with `impute = "start_conc0"`; the imputed zero is known, so
+it adds nothing to the variance.
 
 The example below uses data extracted from Holder D. J., Hsuan F., Dixit
 R. and Soper K. (1999). A method for estimating and testing area under
@@ -150,18 +162,16 @@ o_nca <- pk.nca(o_data_sparse)
 ```
 
     ## The sparse estimators use the linear trapezoidal rule, so the auc.method option
-    ## ("lin up/log down") does not apply to: auclast
-
-    ## Warning: Cannot yet calculate sparse degrees of freedom for multiple samples
-    ## per subject
+    ## ("lin up/log down") does not apply to: auclast, aucinf.obs
 
     ## Warning: Too few points for half-life calculation (min.hl.points=3 with only 2
     ## points)
 
 [`pknca_interval_table()`](https://humanpred.github.io/pknca/reference/pknca_interval_table.md)
 builds the same kind of specification from a description of the study,
-and its `sparse_single_dose` preset is the single-dose set with no
-imputation (there is no individual profile to impute into):
+and its `sparse_single_dose` preset is the single-dose set with a zero
+imputed at the start (`start_conc0`), the one imputation the sparse
+estimators accept:
 
 ``` r
 
@@ -178,10 +188,14 @@ As with any other PKNCA result, the data are available through the
 summary(o_nca)
 ```
 
-    ##  start end auclast auclast_se auclast_df cmax aucinf.obs
-    ##      0  24    39.5       7.31         NC 3.05         NC
+    ##  start end     auclast auclast_df cmax aucinf.obs
+    ##      0  24 39.5 [7.31]       2.75 3.05         NC
     ## 
-    ## Caption: auclast, cmax, aucinf.obs: geometric mean and geometric coefficient of variation; auclast_se, auclast_df: arithmetic mean and standard deviation; NC: not calculated
+    ## Caption: auclast, aucinf.obs: estimate and standard error; auclast_df: arithmetic mean and standard deviation; cmax: geometric mean and geometric coefficient of variation; NC: not calculated
+
+In the summary, the sparse `auclast` is the estimate with its standard
+error in brackets (from the `auclast_se` result), as the caption says;
+`auclast_se` has no column of its own.
 
 or individual results are available through the
 [`as.data.frame()`](https://rdrr.io/r/base/as.data.frame.html) function:
@@ -191,7 +205,7 @@ or individual results are available through the
 as.data.frame(o_nca)
 ```
 
-    ## # A tibble: 18 × 6
+    ## # A tibble: 20 × 6
     ##    start   end PPTESTCD            PPORRES PPANMETH                      exclude
     ##    <dbl> <dbl> <chr>                 <dbl> <chr>                         <chr>  
     ##  1     0    24 cmax                  3.05  ""                            NA     
@@ -208,10 +222,12 @@ as.data.frame(o_nca)
     ## 12     0    24 clast.pred           NA     ""                            Too fe…
     ## 13     0    24 half.life            NA     ""                            Too fe…
     ## 14     0    24 span.ratio           NA     ""                            Too fe…
-    ## 15     0    24 aucinf.obs           NA     "AUC: lin up/log down"        Too fe…
-    ## 16     0    24 auclast              39.5   "AUC: linear. Sparse: arithm… NA     
-    ## 17     0    24 auclast_se            7.31  "AUC: linear. Sparse: arithm… NA     
-    ## 18     0    24 auclast_df           NA     "AUC: linear. Sparse: arithm… NA
+    ## 15     0    24 auclast              39.5   "AUC: linear. Sparse: arithm… NA     
+    ## 16     0    24 auclast_se            7.31  "AUC: linear. Sparse: arithm… NA     
+    ## 17     0    24 auclast_df            2.75  "AUC: linear. Sparse: arithm… NA     
+    ## 18     0    24 aucinf.obs           NA     "AUC: linear. Sparse: arithm… Too fe…
+    ## 19     0    24 aucinf.obs_se        NA     "AUC: linear. Sparse: arithm… Too fe…
+    ## 20     0    24 aucinf.obs_df        NA     "AUC: linear. Sparse: arithm… Too fe…
 
 `auclast_se` and `auclast_df` are reported whether or not they were
 requested, because the sparse estimator returns all three together. They
@@ -247,12 +263,6 @@ o_nca_derived <- pk.nca(o_data_derived)
 
     ## The sparse estimators use the linear trapezoidal rule, so the auc.method option
     ## ("lin up/log down") does not apply to: auclast, aumclast
-
-    ## Warning: Cannot yet calculate sparse degrees of freedom for multiple samples
-    ## per subject
-
-    ## Warning: Cannot yet calculate sparse degrees of freedom for multiple samples
-    ## per subject
 
     ## Warning: Too few points for half-life calculation (min.hl.points=3 with only 2
     ## points)
@@ -333,14 +343,13 @@ they remain available for calculations outside
 
 ### Degrees of freedom with multiple samples per subject
 
-The degrees of freedom (`auclast_df` and `aumclast_df`) can only be
-calculated when each subject contributes a single sample to the profile
-(as in a serial sacrifice design). When any subject contributes more
-than one sample, as in the example data here, PKNCA warns that it
-“Cannot yet calculate sparse degrees of freedom for multiple samples per
-subject”, and the degrees of freedom are `NA`. That warning is the
-source of the warnings in the results above. The point estimates and
-standard errors are still calculated.
+The degrees of freedom (`auclast_df` and `aumclast_df`) are the
+Satterthwaite approximation of Nedelman and Jia (1998), which accounts
+for the correlation between samples from the same subject, so they are
+calculated whether each subject contributes one sample (as in a serial
+sacrifice design) or several (as in the example data here and in batch
+designs). They are `NA` when a time point has a single subject, because
+its variance cannot be estimated.
 
 ### More than half of the measurements below the limit of quantification
 
