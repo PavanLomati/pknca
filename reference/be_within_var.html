@@ -41,7 +41,7 @@ requires a fully replicated design; it can differ slightly from &quot;anova&quot
 
     <a class="navbar-brand me-2" href="../index.html">PKNCA</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.12.1.9002</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.12.1.9003</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -177,7 +177,10 @@ treatment-by-period pattern.</p></dd>
 <code>sw_ratio</code> (= <code>swT</code>/<code>swR</code>), <code>sw_ratio_ci_upper</code> (the upper <code>1 - alpha</code>
 confidence bound of the ratio), <code>model_type</code>, and <code>alpha</code>.  <code>swT</code> and the
 ratio are <code>NA</code> when the test formulation is not replicated (for example a
-partial replicate design).</p>
+partial replicate design), with <code>NA</code> degrees of freedom.  A formulation
+that is replicated but whose replicates leave no residual degrees of
+freedom (too few subjects with replicate administrations) also has <code>NA</code>
+variances, with 0 degrees of freedom.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
