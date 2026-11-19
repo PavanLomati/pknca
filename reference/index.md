@@ -457,6 +457,12 @@
   : Calculate AUXC (AUC or AUMC) for IV dosing with C0
   back-extrapolation
 
+- [`pk.calc.auxciv.int()`](https://humanpred.github.io/pknca/reference/pk.calc.auxciv.int.md)
+  [`pk.calc.auciv.int()`](https://humanpred.github.io/pknca/reference/pk.calc.auxciv.int.md)
+  [`pk.calc.aumciv.int()`](https://humanpred.github.io/pknca/reference/pk.calc.auxciv.int.md)
+  : Calculate AUXC (AUC or AUMC) over an interval for IV bolus dosing
+  with C0 back-extrapolation
+
 - [`pk.calc.c0()`](https://humanpred.github.io/pknca/reference/pk.calc.c0.md)
   [`pk.calc.c0.method.logslope()`](https://humanpred.github.io/pknca/reference/pk.calc.c0.md)
   [`pk.calc.c0.method.c0()`](https://humanpred.github.io/pknca/reference/pk.calc.c0.md)
@@ -644,6 +650,9 @@
 
 - [`pknca_impute_methods()`](https://humanpred.github.io/pknca/reference/pknca_impute_methods.md)
   : List the imputation methods
+
+- [`pknca_install_units()`](https://humanpred.github.io/pknca/reference/pknca_install_units.md)
+  : Add the units that PKNCA accepts beyond those of udunits
 
 - [`pknca_interval_table()`](https://humanpred.github.io/pknca/reference/pknca_interval_table.md)
   : Build an interval specification from a description of the analysis

@@ -43,6 +43,15 @@ below:
 - Or, any NCA parameters by name (as given by
   `names(get.interval.cols())`).
 
+The interval’s own times given to the function (`time` and `time.dose`)
+are relative to the start of the current interval, and a function that
+returns a time (like Tmax) returns it on the same scale. `start`, `end`,
+and the group times (such as `time.group`) are on the original time
+scale of the data. A function that compares `time` with the bounds of
+the interval should map them from `time.start` and `time.end` (the
+bounds on the scale of `time`, so `time.start` is always 0), as Ctrough
+does with `formalsmap = list(end = "time.end")`.
+
 The function should return either a scalar which is the value for the
 parameter (usually the case) or a data.frame with parameters named for
 each parameter calculated. For an example of returning a data.frame, see
@@ -86,8 +95,8 @@ function takes up to seven arguments:
 - `formalsmap` remaps the (formal) function arguments. `formalsmap` is
   usually used when the same function may be used for multiple different
   parameters, for example the function `pk.calc.thalf.eff` is used to
-  calculate the parameters `thalf.eff.obs`, `thalf.eff.pred`,
-  `thalf.eff.last`, `thalf.eff.iv.obs`, `thalf.eff.iv.pred`, and
+  calculate the parameters `thalf.eff.inf.obs`, `thalf.eff.inf.pred`,
+  `thalf.eff.last`, `thalf.eff.iv.inf.obs`, `thalf.eff.iv.inf.pred`, and
   `thalf.eff.iv.last` with different mean residence time inputs.
 - `desc` is a text description of the parameter.
 
