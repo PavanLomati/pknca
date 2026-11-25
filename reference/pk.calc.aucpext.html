@@ -34,6 +34,7 @@
     <li><a class="dropdown-item" href="../articles/v22-time-to-steady-state.html">Noncompartmental evaluation of time to steady-state</a></li>
     <li><a class="dropdown-item" href="../articles/v23-auc-integration-methods.html">AUC integration methods</a></li>
     <li><a class="dropdown-item" href="../articles/v24-sparse-auc-to-infinity.html">Sparse AUC to Infinity and the Uncertainty of lambda.z</a></li>
+    <li><a class="dropdown-item" href="../articles/v25-mean-input-time-mrt.html">MRT and Vss for IV Infusions</a></li>
     <li><a class="dropdown-item" href="../articles/v30-training-session.html">PKNCA Training Sessions</a></li>
     <li><a class="dropdown-item" href="../articles/v31-FDA-introduction.html">PKNCA – an R package for noncompartmental analysis of pharmacokinetic data</a></li>
     <li><a class="dropdown-item" href="../articles/v40-options-for-controlling-PKNCA.html">Options for Controlling PKNCA</a></li>
@@ -83,9 +84,10 @@ above the limit of quantification</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>The numeric value of the AUC percent extrapolated or <code>NA_real_</code> if
-any of the following are true <code>is.na(aucinf)</code>, <code>is.na(auclast)</code>,
-<code>aucinf &lt;= 0</code>, or <code>auclast &lt;= 0</code>.</p>
+    <p>The numeric value of the AUC percent extrapolated, or <code>NA_real_</code>
+if <code>aucinf</code> or <code>auclast</code> is <code>NA</code> or <code>aucinf</code> is zero (a negative value is
+calculated, with a warning).  A result of length one that is <code>NA</code> because of missing or unusable data
+has the reason in its "exclude" attribute, which <code><a href="pk.nca.html">pk.nca()</a></code> reports.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>

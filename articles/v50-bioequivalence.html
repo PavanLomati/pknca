@@ -48,6 +48,7 @@
     <li><a class="dropdown-item" href="../articles/v22-time-to-steady-state.html">Noncompartmental evaluation of time to steady-state</a></li>
     <li><a class="dropdown-item" href="../articles/v23-auc-integration-methods.html">AUC integration methods</a></li>
     <li><a class="dropdown-item" href="../articles/v24-sparse-auc-to-infinity.html">Sparse AUC to Infinity and the Uncertainty of lambda.z</a></li>
+    <li><a class="dropdown-item" href="../articles/v25-mean-input-time-mrt.html">MRT and Vss for IV Infusions</a></li>
     <li><a class="dropdown-item" href="../articles/v30-training-session.html">PKNCA Training Sessions</a></li>
     <li><a class="dropdown-item" href="../articles/v31-FDA-introduction.html">PKNCA – an R package for noncompartmental analysis of pharmacokinetic data</a></li>
     <li><a class="dropdown-item" href="../articles/v40-options-for-controlling-PKNCA.html">Options for Controlling PKNCA</a></li>
@@ -81,7 +82,7 @@
                         <h4 data-toc-skip class="author">Bill
 Denney</h4>
             
-            <h4 data-toc-skip class="date">2026-11-23</h4>
+            <h4 data-toc-skip class="date">2026-11-25</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/humanpred/pknca/blob/main/vignettes/v50-bioequivalence.Rmd" class="external-link"><code>vignettes/v50-bioequivalence.Rmd</code></a></small>
       <div class="d-none name"><code>v50-bioequivalence.Rmd</code></div>
@@ -462,22 +463,22 @@ study is not replicated, so only average bioequivalence
 <col width="4%">
 <col width="2%">
 <col width="1%">
-<col width="6%">
+<col width="2%">
 <col width="5%">
 <col width="7%">
 <col width="7%">
 <col width="3%">
 <col width="5%">
 <col width="5%">
-<col width="4%">
+<col width="5%">
 <col width="3%">
 <col width="3%">
 <col width="5%">
 <col width="5%">
 <col width="1%">
 <col width="2%">
-<col width="4%">
-<col width="4%">
+<col width="5%">
+<col width="5%">
 <col width="4%">
 <col width="4%">
 <col width="4%">
@@ -513,7 +514,7 @@ study is not replicated, so only average bioequivalence
 <td align="left">cmax</td>
 <td align="left">T</td>
 <td align="right">24</td>
-<td align="left">full_replicate</td>
+<td align="left">2x2x2</td>
 <td align="right">1.59</td>
 <td align="right">1.55</td>
 <td align="right">1.62</td>
@@ -538,7 +539,7 @@ study is not replicated, so only average bioequivalence
 <td align="left">auclast</td>
 <td align="left">T</td>
 <td align="right">24</td>
-<td align="left">full_replicate</td>
+<td align="left">2x2x2</td>
 <td align="right">16.90</td>
 <td align="right">15.86</td>
 <td align="right">18.00</td>
@@ -563,7 +564,7 @@ study is not replicated, so only average bioequivalence
 <td align="left">aucinf.obs</td>
 <td align="left">T</td>
 <td align="right">24</td>
-<td align="left">full_replicate</td>
+<td align="left">2x2x2</td>
 <td align="right">18.66</td>
 <td align="right">17.12</td>
 <td align="right">20.34</td>
